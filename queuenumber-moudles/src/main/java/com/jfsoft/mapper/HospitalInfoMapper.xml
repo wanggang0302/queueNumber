@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jfsoft.mapper.HospitalInfoMapper" >
+	<resultMap id="BaseResultMap" type="com.jfsoft.model.HospitalInfo" >
+		<id column="id" property="id" jdbcType="CHAR" />
+		<result column="code" property="code" jdbcType="INTEGER" />
+		<result column="name" property="name" jdbcType="NVARCHAR" />
+		<result column="linkTel" property="linktel" jdbcType="NVARCHAR" />
+		<result column="introduction" property="introduction" jdbcType="NVARCHAR" />
+		<result column="modifyTime" property="modifytime" jdbcType="TIMESTAMP" />
+		<result column="modifierId" property="modifierid" jdbcType="INTEGER" />
+	</resultMap>
+
+	<sql id="Base_Column_List" >
+		id, code, name, linkTel, introduction, modifyTime, modifierId
+	</sql>
+
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+		select 
+		<include refid="Base_Column_List" />
+		from hospital_info
+		where id = #{id,jdbcType=CHAR}
+	</select>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+		delete from hospital_info
+		where id = #{id,jdbcType=CHAR}
+	</delete>
+
+	<insert id="insert" parameterType="com.jfsoft.model.HospitalInfo" >
+		insert into hospital_info (id, code, name, 
+			linkTel, introduction, modifyTime, 
+			modifierId)
+		values (#{id,jdbcType=CHAR}, #{code,jdbcType=INTEGER}, #{name,jdbcType=NVARCHAR}, 
+			#{linktel,jdbcType=NVARCHAR}, #{introduction,jdbcType=NVARCHAR}, #{modifytime,jdbcType=TIMESTAMP}, 
+			#{modifierid,jdbcType=INTEGER})
+	</insert>
+
+	<insert id="insertSelective" parameterType="com.jfsoft.model.HospitalInfo" >
+		insert into hospital_info
+		<trim prefix="(" suffix=")" suffixOverrides="," >
+			<if test="id != null" >
+				id,
+			</if>
+			<if test="code != null" >
+				code,
+			</if>
+			<if test="name != null" >
+				name,
+			</if>
+			<if test="linktel != null" >
+				linkTel,
+			</if>
+			<if test="introduction != null" >
+				introduction,
+			</if>
+			<if test="modifytime != null" >
+				modifyTime,
+			</if>
+			<if test="modifierid != null" >
+				modifierId,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides="," >
+			<if test="id != null" >
+				#{id,jdbcType=CHAR},
+			</if>
+			<if test="code != null" >
+				#{code,jdbcType=INTEGER},
+			</if>
+			<if test="name != null" >
+				#{name,jdbcType=NVARCHAR},
+			</if>
+			<if test="linktel != null" >
+				#{linktel,jdbcType=NVARCHAR},
+			</if>
+			<if test="introduction != null" >
+				#{introduction,jdbcType=NVARCHAR},
+			</if>
+			<if test="modifytime != null" >
+				#{modifytime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="modifierid != null" >
+				#{modifierid,jdbcType=INTEGER},
+			</if>
+		</trim>
+	</insert>
+
+	<update id="updateByPrimaryKeySelective" parameterType="com.jfsoft.model.HospitalInfo" >
+		update hospital_info
+		<set >
+			<if test="code != null" >
+				code = #{code,jdbcType=INTEGER},
+			</if>
+			<if test="name != null" >
+				name = #{name,jdbcType=NVARCHAR},
+			</if>
+			<if test="linktel != null" >
+				linkTel = #{linktel,jdbcType=NVARCHAR},
+			</if>
+			<if test="introduction != null" >
+				introduction = #{introduction,jdbcType=NVARCHAR},
+			</if>
+			<if test="modifytime != null" >
+				modifyTime = #{modifytime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="modifierid != null" >
+				modifierId = #{modifierid,jdbcType=INTEGER},
+			</if>
+		</set>
+		where id = #{id,jdbcType=CHAR}
+	</update>
+
+	<update id="updateByPrimaryKey" parameterType="com.jfsoft.model.HospitalInfo" >
+		update hospital_info
+		set code = #{code,jdbcType=INTEGER},
+			name = #{name,jdbcType=NVARCHAR},
+			linkTel = #{linktel,jdbcType=NVARCHAR},
+			introduction = #{introduction,jdbcType=NVARCHAR},
+			modifyTime = #{modifytime,jdbcType=TIMESTAMP},
+			modifierId = #{modifierid,jdbcType=INTEGER}
+		where id = #{id,jdbcType=CHAR}
+	</update>
+
+</mapper>

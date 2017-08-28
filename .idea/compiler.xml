@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="queuenumber-common" />
+        <module name="queuenumber-moudles" />
+        <module name="queuenumber-web" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="queuenumber" target="1.7" />
+      <module name="queuenumber-common" target="1.7" />
+      <module name="queuenumber-moudles" target="1.7" />
+      <module name="queuenumber-web" target="1.7" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

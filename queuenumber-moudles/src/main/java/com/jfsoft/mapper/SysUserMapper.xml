@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jfsoft.mapper.SysUserMapper" >
+	<resultMap id="BaseResultMap" type="com.jfsoft.model.SysUser" >
+		<id column="id" property="id" jdbcType="CHAR" />
+		<result column="code" property="code" jdbcType="INTEGER" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="username" property="username" jdbcType="VARCHAR" />
+		<result column="password" property="password" jdbcType="VARCHAR" />
+		<result column="ownedqueue" property="ownedqueue" jdbcType="INTEGER" />
+		<result column="isuse" property="isuse" jdbcType="BIT" />
+		<result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+		<result column="createrId" property="createrid" jdbcType="INTEGER" />
+		<result column="memo" property="memo" jdbcType="NVARCHAR" />
+	</resultMap>
+
+	<sql id="Base_Column_List" >
+		id, code, name, username, password, ownedqueue, isuse, createtime, createrId, memo
+	</sql>
+
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+		select 
+		<include refid="Base_Column_List" />
+		from sys_user
+		where id = #{id,jdbcType=CHAR}
+	</select>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+		delete from sys_user
+		where id = #{id,jdbcType=CHAR}
+	</delete>
+
+	<insert id="insert" parameterType="com.jfsoft.model.SysUser" >
+		insert into sys_user (id, code, name, 
+			username, password, ownedqueue, 
+			isuse, createtime, createrId, 
+			memo)
+		values (#{id,jdbcType=CHAR}, #{code,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
+			#{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{ownedqueue,jdbcType=INTEGER}, 
+			#{isuse,jdbcType=BIT}, #{createtime,jdbcType=TIMESTAMP}, #{createrid,jdbcType=INTEGER}, 
+			#{memo,jdbcType=NVARCHAR})
+	</insert>
+
+	<insert id="insertSelective" parameterType="com.jfsoft.model.SysUser" >
+		insert into sys_user
+		<trim prefix="(" suffix=")" suffixOverrides="," >
+			<if test="id != null" >
+				id,
+			</if>
+			<if test="code != null" >
+				code,
+			</if>
+			<if test="name != null" >
+				name,
+			</if>
+			<if test="username != null" >
+				username,
+			</if>
+			<if test="password != null" >
+				password,
+			</if>
+			<if test="ownedqueue != null" >
+				ownedqueue,
+			</if>
+			<if test="isuse != null" >
+				isuse,
+			</if>
+			<if test="createtime != null" >
+				createtime,
+			</if>
+			<if test="createrid != null" >
+				createrId,
+			</if>
+			<if test="memo != null" >
+				memo,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides="," >
+			<if test="id != null" >
+				#{id,jdbcType=CHAR},
+			</if>
+			<if test="code != null" >
+				#{code,jdbcType=INTEGER},
+			</if>
+			<if test="name != null" >
+				#{name,jdbcType=VARCHAR},
+			</if>
+			<if test="username != null" >
+				#{username,jdbcType=VARCHAR},
+			</if>
+			<if test="password != null" >
+				#{password,jdbcType=VARCHAR},
+			</if>
+			<if test="ownedqueue != null" >
+				#{ownedqueue,jdbcType=INTEGER},
+			</if>
+			<if test="isuse != null" >
+				#{isuse,jdbcType=BIT},
+			</if>
+			<if test="createtime != null" >
+				#{createtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="createrid != null" >
+				#{createrid,jdbcType=INTEGER},
+			</if>
+			<if test="memo != null" >
+				#{memo,jdbcType=NVARCHAR},
+			</if>
+		</trim>
+	</insert>
+
+	<update id="updateByPrimaryKeySelective" parameterType="com.jfsoft.model.SysUser" >
+		update sys_user
+		<set >
+			<if test="code != null" >
+				code = #{code,jdbcType=INTEGER},
+			</if>
+			<if test="name != null" >
+				name = #{name,jdbcType=VARCHAR},
+			</if>
+			<if test="username != null" >
+				username = #{username,jdbcType=VARCHAR},
+			</if>
+			<if test="password != null" >
+				password = #{password,jdbcType=VARCHAR},
+			</if>
+			<if test="ownedqueue != null" >
+				ownedqueue = #{ownedqueue,jdbcType=INTEGER},
+			</if>
+			<if test="isuse != null" >
+				isuse = #{isuse,jdbcType=BIT},
+			</if>
+			<if test="createtime != null" >
+				createtime = #{createtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="createrid != null" >
+				createrId = #{createrid,jdbcType=INTEGER},
+			</if>
+			<if test="memo != null" >
+				memo = #{memo,jdbcType=NVARCHAR},
+			</if>
+		</set>
+		where id = #{id,jdbcType=CHAR}
+	</update>
+
+	<update id="updateByPrimaryKey" parameterType="com.jfsoft.model.SysUser" >
+		update sys_user
+		set code = #{code,jdbcType=INTEGER},
+			name = #{name,jdbcType=VARCHAR},
+			username = #{username,jdbcType=VARCHAR},
+			password = #{password,jdbcType=VARCHAR},
+			ownedqueue = #{ownedqueue,jdbcType=INTEGER},
+			isuse = #{isuse,jdbcType=BIT},
+			createtime = #{createtime,jdbcType=TIMESTAMP},
+			createrId = #{createrid,jdbcType=INTEGER},
+			memo = #{memo,jdbcType=NVARCHAR}
+		where id = #{id,jdbcType=CHAR}
+	</update>
+
+</mapper>

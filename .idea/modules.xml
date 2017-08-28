@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/0825-queuenumber.iml" filepath="$PROJECT_DIR$/.idea/0825-queuenumber.iml" />
+      <module fileurl="file://$PROJECT_DIR$/queuenumber/queuenumber.iml" filepath="$PROJECT_DIR$/queuenumber/queuenumber.iml" />
+      <module fileurl="file://$PROJECT_DIR$/queuenumber-common/queuenumber-common.iml" filepath="$PROJECT_DIR$/queuenumber-common/queuenumber-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/queuenumber-moudles/queuenumber-moudles.iml" filepath="$PROJECT_DIR$/queuenumber-moudles/queuenumber-moudles.iml" />
+      <module fileurl="file://$PROJECT_DIR$/queuenumber-web/queuenumber-web.iml" filepath="$PROJECT_DIR$/queuenumber-web/queuenumber-web.iml" />
+    </modules>
+  </component>
+</project>

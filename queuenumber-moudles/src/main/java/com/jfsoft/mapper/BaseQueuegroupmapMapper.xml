@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jfsoft.mapper.BaseQueuegroupmapMapper" >
+	<resultMap id="BaseResultMap" type="com.jfsoft.model.BaseQueuegroupmap" >
+		<result column="id" property="id" jdbcType="CHAR" />
+		<result column="queueCode" property="queuecode" jdbcType="INTEGER" />
+		<result column="groupItemCode" property="groupitemcode" jdbcType="INTEGER" />
+	</resultMap>
+
+	<insert id="insert" parameterType="com.jfsoft.model.BaseQueuegroupmap" >
+		insert into base_queueGroupMap (id, queueCode, groupItemCode
+			)
+		values (#{id,jdbcType=CHAR}, #{queuecode,jdbcType=INTEGER}, #{groupitemcode,jdbcType=INTEGER}
+			)
+	</insert>
+
+	<insert id="insertSelective" parameterType="com.jfsoft.model.BaseQueuegroupmap" >
+		insert into base_queueGroupMap
+		<trim prefix="(" suffix=")" suffixOverrides="," >
+			<if test="id != null" >
+				id,
+			</if>
+			<if test="queuecode != null" >
+				queueCode,
+			</if>
+			<if test="groupitemcode != null" >
+				groupItemCode,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides="," >
+			<if test="id != null" >
+				#{id,jdbcType=CHAR},
+			</if>
+			<if test="queuecode != null" >
+				#{queuecode,jdbcType=INTEGER},
+			</if>
+			<if test="groupitemcode != null" >
+				#{groupitemcode,jdbcType=INTEGER},
+			</if>
+		</trim>
+	</insert>
+
+</mapper>
