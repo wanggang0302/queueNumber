@@ -12,10 +12,10 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="queuenumber" target="1.7" />
-      <module name="queuenumber-common" target="1.7" />
-      <module name="queuenumber-moudles" target="1.7" />
-      <module name="queuenumber-web" target="1.7" />
+      <module name="queuenumber" target="1.8" />
+      <module name="queuenumber-common" target="1.8" />
+      <module name="queuenumber-moudles" target="1.8" />
+      <module name="queuenumber-web" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
