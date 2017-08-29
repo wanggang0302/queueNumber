@@ -3,6 +3,8 @@ package com.jfsoft.queue.core;
 import com.jfsoft.model.CallingDevice;
 import com.jfsoft.queue.entity.PerCheckinfo;
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -16,6 +18,8 @@ import java.util.concurrent.LinkedBlockingQueue;
  * 2017年8月28日
  */
 public class QueueCenter {
+
+    private final Logger logger = LoggerFactory.getLogger(getClass());
 
     //医生最大数量（需要从数据库读取）
     private final static int MAXCOUNT = 10;
@@ -73,6 +77,24 @@ public class QueueCenter {
                 this.perCheckinfos.remove(detectedOne);
                 return true;
             }
+        }
+        return false;
+    }
+
+    /**
+     * 更新队列
+     */
+    public boolean update(List<PerCheckinfo> perCheckinfoList) {
+
+        try {
+
+            this.perCheckinfos.clear();
+            this.perCheckinfos.addAll(perCheckinfoList);
+
+            return true;
+        } catch (Exception e) {
+            logger.error("update queue failure! err msg is {}.", e.getMessage());
+            e.printStackTrace();
         }
         return false;
     }

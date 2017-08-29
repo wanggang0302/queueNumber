@@ -13,6 +13,14 @@
 </form>
 <a href="/doctor/queue/list.html">刷新列表</a>
 <hr/>
+调整顺序：
+<form action="#" th:action="@{/nurse/adjust}" th:method="post">
+    <input type="hidden" name="queueCode" value="2"/>
+    向上移动的体检号：<input type="text" name="testnoUp" value=""/>
+    向下移动的体检号：<input type="text" name="testnoDown" value=""/>
+    <input type="submit" />
+</form>
+<hr/>
 <div id="queueList"></div>
 
 <script type="text/javascript" th:src="@{/static/jquery/jquery-3.2.1.js}"></script>

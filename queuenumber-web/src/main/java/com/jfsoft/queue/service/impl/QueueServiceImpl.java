@@ -11,10 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * 队列业务接口实现类
@@ -89,11 +86,60 @@ public class QueueServiceImpl implements IQueueService {
         return removeState;
     }
 
-    public boolean movePerCheckinfo(String queueCode, String testnoUp, PerCheckinfo testnoDown) {
+    public synchronized boolean movePerCheckinfo(String queueCode, String testnoUp, String testnoDown) throws Exception {
 
-        
+        //获得队列
+        QueueCenter queueCenter = queueCenterFactory.obtain(queueCode);
+        List<PerCheckinfo> oldList = queueCenter.getPerCheckinfoList();
 
-        return true;
+        //调整队列顺序
+        List<PerCheckinfo> newList = movePerCheckinfo(oldList, testnoUp, testnoDown);
+
+        if(null!=newList) {
+            //更新队列
+            return queueCenter.update(newList);
+        }
+
+        return false;
+    }
+
+    /**
+     * 调整list顺序
+     */
+    private List<PerCheckinfo> movePerCheckinfo(List<PerCheckinfo> oldList, String testnoUp, String testnoDown) throws Exception {
+
+        int indexUp = -1;
+        int indexDown = -1;
+
+        PerCheckinfo perCheckinfoUp = null;
+        PerCheckinfo perCheckinfoDown = null;
+
+        for(int i=0;i<oldList.size();i++) {
+            PerCheckinfo p = oldList.get(i);
+            String testno = p.getTestno();
+            if(testno.equals(testnoUp)) {
+                indexUp = i;
+                perCheckinfoUp = p;
+                continue;
+            } else if(testno.equals(testnoDown)) {
+                indexDown = i;
+                perCheckinfoDown = p;
+                continue;
+            }
+            if(indexUp>=0 && indexDown>=0) {
+                break;
+            }
+        }
+
+        if(indexUp>=0 && indexDown>=0) {
+            oldList.set(indexUp, perCheckinfoDown);
+            oldList.set(indexDown, perCheckinfoUp);
+        } else {
+            logger.error("movePerCheckinfo error! indexUp is {}, indexDown is {}.", indexUp, indexDown);
+            return null;
+        }
+
+        return oldList;
     }
 
 }

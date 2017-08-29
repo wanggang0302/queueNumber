@@ -103,19 +103,28 @@ public class NurseController extends BaseController {
      * 调整队列顺序
      */
     @RequestMapping("/adjust")
-    public String adjustQueue(ModelMap model, String queueCode, String testnoUp, PerCheckinfo testnoDown) {
+    public String adjustQueue(ModelMap model, String queueCode, String testnoUp, String testnoDown) {
 
         Map<String, Object> result = new HashMap<String, Object>();
 
-        boolean removeState = true;
+        try {
 
-        if(removeState) {
-            result.put("status", Constants.RETURN_STATUS_SUCCESS);
-            result.put("data", "调整顺序成功！");
-        } else {
+            boolean removeState = queueService.movePerCheckinfo(queueCode, testnoUp, testnoDown);
+
+            if(removeState) {
+                result.put("status", Constants.RETURN_STATUS_SUCCESS);
+                result.put("data", "调整顺序成功！");
+            } else {
+                result.put("status", Constants.RETURN_STATUS_FAILURE);
+                result.put("data", "调整顺序失败！");
+            }
+        } catch (Exception e) {
             result.put("status", Constants.RETURN_STATUS_FAILURE);
             result.put("data", "调整顺序失败！");
+            logger.error("adjustQueue error! err msg is {}.", e.getMessage());
+            e.printStackTrace();
         }
+
         model.put("result", JSON.toJSONString(result));
 
         return "/doctor/queue/list";

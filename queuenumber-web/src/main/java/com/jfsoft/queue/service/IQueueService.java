@@ -29,4 +29,9 @@ public interface IQueueService {
      */
     public boolean deletePerCheckinfo(String queueCode, PerCheckinfo perCheckinfo);
 
+    /**
+     * 调整队列顺序
+     */
+    public boolean movePerCheckinfo(String queueCode, String testnoUp, String testnoDown) throws Exception;
+
 }
