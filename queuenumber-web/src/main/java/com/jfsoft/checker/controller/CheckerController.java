@@ -1,5 +1,6 @@
 package com.jfsoft.checker.controller;
 
+import com.base.BaseController;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -8,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 @RequestMapping("/checker")
-public class CheckerController {
+public class CheckerController extends BaseController {
 
 
 

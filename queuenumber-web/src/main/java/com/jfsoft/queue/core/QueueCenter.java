@@ -2,6 +2,7 @@ package com.jfsoft.queue.core;
 
 import com.jfsoft.model.CallingDevice;
 import com.jfsoft.queue.entity.PerCheckinfo;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -55,6 +56,25 @@ public class QueueCenter {
     public void produce(PerCheckinfo perCheckinfo) {
 
         this.perCheckinfos.add(perCheckinfo);
+    }
+
+    /**
+     * 将体检者移出队列
+     */
+    public boolean remove(PerCheckinfo perCheckinfo) {
+
+        //获得体检号，根据体检号匹配队列
+        String testno = perCheckinfo.getTestno();
+
+        for(Iterator<PerCheckinfo> it = perCheckinfos.iterator(); it.hasNext();) {
+            PerCheckinfo detectedOne = it.next();
+            if(null!=detectedOne && !StringUtils.isBlank(detectedOne.getTestno())
+                    && detectedOne.getTestno().equals(testno)) {
+                this.perCheckinfos.remove(detectedOne);
+                return true;
+            }
+        }
+        return false;
     }
 
     /**

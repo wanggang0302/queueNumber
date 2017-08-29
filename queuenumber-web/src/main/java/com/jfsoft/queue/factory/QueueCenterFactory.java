@@ -30,6 +30,9 @@ public class QueueCenterFactory {
             QueueCenter queueCenter = new QueueCenter();
             queueCenter.produce(perCheckinfo);
             this.queueCenterMap.put(queueCenterKey, queueCenter);
+        } else {
+            QueueCenter queueCenter = queueCenterMap.get(queueCenterKey);
+            queueCenter.produce(perCheckinfo);
         }
     }
 

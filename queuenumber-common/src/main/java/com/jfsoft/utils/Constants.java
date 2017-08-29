@@ -5,6 +5,9 @@ package com.jfsoft.utils;
  */
 public class Constants {
 
+    /** session存储的用户key */
+    public static final String SESSION_USER_KEY = "user_code";
+
     /** Controller返回状态码 */
     //成功
     public static final String RETURN_STATUS_SUCCESS = "success";

@@ -3,6 +3,7 @@ package com.jfsoft.queue.service;
 import com.jfsoft.queue.entity.PerCheckinfo;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 队列操作业务接口
@@ -21,6 +22,11 @@ public interface IQueueService {
      * @param queueCode
      * @param perCheckinfo
      */
-    public void addPerCheckinfo(String queueCode, PerCheckinfo perCheckinfo);
+    public Map<String, Object> addPerCheckinfo(String queueCode, PerCheckinfo perCheckinfo);
+
+    /**
+     * 从队列中移除某个体检者
+     */
+    public boolean deletePerCheckinfo(String queueCode, PerCheckinfo perCheckinfo);
 
 }

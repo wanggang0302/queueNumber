@@ -1,5 +1,6 @@
 package com.jfsoft.login.controller;
 
+import com.base.BaseController;
 import com.jfsoft.model.SysUser;
 import com.jfsoft.user.service.ISysUserService;
 import org.slf4j.Logger;
@@ -14,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 @RequestMapping("/login")
-public class LoginController {
+public class LoginController extends BaseController {
 
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
