@@ -19,7 +19,7 @@ public class AdvertisementImg {
 
     /**
      */
-    private String id;
+    private Integer id;
 
     /**
      * 广告编号
@@ -56,12 +56,12 @@ public class AdvertisementImg {
      */
     private Integer createrid;
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id == null ? null : id.trim();
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Integer getAdcode() {

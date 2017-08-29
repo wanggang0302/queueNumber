@@ -19,7 +19,7 @@ public class BaseGroupitem {
 
     /**
      */
-    private String id;
+    private Integer id;
 
     /**
      * 组合项目编号，同步的C/S体检系统给的
@@ -56,12 +56,12 @@ public class BaseGroupitem {
      */
     private Integer syncuserid;
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id == null ? null : id.trim();
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Integer getCode() {

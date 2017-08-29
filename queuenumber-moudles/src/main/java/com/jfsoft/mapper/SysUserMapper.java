@@ -9,6 +9,8 @@ package com.jfsoft.mapper;
 
 import com.jfsoft.model.SysUser;
 
+import java.util.Map;
+
 public interface SysUserMapper {
     
     int deleteByPrimaryKey(String id);
@@ -22,5 +24,12 @@ public interface SysUserMapper {
     int updateByPrimaryKeySelective(SysUser record);
 
     int updateByPrimaryKey(SysUser record);
+
+    /**
+     * 查询用户信息
+     * @param params
+     * @return
+     */
+    SysUser findByUsername(Map<String, Object> params);
     
 }

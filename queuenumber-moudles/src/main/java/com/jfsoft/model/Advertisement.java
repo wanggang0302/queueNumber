@@ -19,7 +19,7 @@ public class Advertisement {
 
     /**
      */
-    private String id;
+    private Integer id;
 
     /**
      * 编号
@@ -46,12 +46,12 @@ public class Advertisement {
      */
     private Integer createrid;
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id == null ? null : id.trim();
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Integer getCode() {

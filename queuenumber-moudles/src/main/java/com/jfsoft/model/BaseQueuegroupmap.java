@@ -17,7 +17,7 @@ public class BaseQueuegroupmap {
 
     /**
      */
-    private String id;
+    private Integer id;
 
     /**
      * 队列编号
@@ -29,12 +29,12 @@ public class BaseQueuegroupmap {
      */
     private Integer groupitemcode;
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id == null ? null : id.trim();
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Integer getQueuecode() {

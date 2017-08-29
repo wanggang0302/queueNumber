@@ -12,5 +12,31 @@
 
     <artifactId>queuenumber-moudles</artifactId>
 
+    <dependencies>
+
+        <dependency>
+            <groupId>com.jfsoft</groupId>
+            <artifactId>queuenumber-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+
+        <!-- idea下一定要声明如下配置-->
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
+
+    </build>
 
 </project>
