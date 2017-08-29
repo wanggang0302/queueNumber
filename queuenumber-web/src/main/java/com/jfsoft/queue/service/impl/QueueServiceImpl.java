@@ -6,8 +6,10 @@ import com.jfsoft.queue.factory.QueueCenterFactory;
 import com.jfsoft.queue.service.IQueueService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,13 +23,14 @@ public class QueueServiceImpl implements IQueueService {
     /**
      * 队列工厂
      */
+    @Autowired
     private QueueCenterFactory queueCenterFactory;
 
     public List<PerCheckinfo> findPerCheckinfoListOfQueue(String queueCode) {
 
         logger.debug("findPerCheckinfoListOfQueue");
 
-        List<PerCheckinfo> perCheckinfoList = null;
+        List<PerCheckinfo> perCheckinfoList = new ArrayList<PerCheckinfo>();
 
         //获得队列
         QueueCenter queueCenter = queueCenterFactory.obtain(queueCode);

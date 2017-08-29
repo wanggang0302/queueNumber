@@ -2,12 +2,14 @@ package com.jfsoft.queue.factory;
 
 import com.jfsoft.queue.core.QueueCenter;
 import com.jfsoft.queue.entity.PerCheckinfo;
+import org.springframework.stereotype.Component;
 
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * 队列工厂类，用户产生、获得队列
  */
+@Component
 public class QueueCenterFactory {
 
     //队列盒子

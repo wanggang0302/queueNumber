@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5f08b69d-bfa4-4720-a6bd-c9a4eb3644cd" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/login/controller/LoginController.java" afterPath="$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/login/controller/LoginController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-web/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/queuenumber-web/src/main/resources/application.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-web/src/main/resources/templates/doctor/login.html" afterPath="$PROJECT_DIR$/queuenumber-web/src/main/resources/templates/doctor/login.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/queuenumber-web/src/main/resources/static/jquery/jquery-3.2.1.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/queuenumber-web/src/main/resources/static/jquery/jquery-3.2.1.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/nurse/controller/NurseController.java" afterPath="$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/nurse/controller/NurseController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/queue/factory/QueueCenterFactory.java" afterPath="$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/queue/factory/QueueCenterFactory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/queue/service/impl/QueueServiceImpl.java" afterPath="$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/queue/service/impl/QueueServiceImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-web/src/main/resources/templates/doctor/queue/list.html" afterPath="$PROJECT_DIR$/queuenumber-web/src/main/resources/templates/doctor/queue/list.html" />
     </list>
     <ignored path="$PROJECT_DIR$/queuenumber-common/target/" />
@@ -21,14 +24,87 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="LoginController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="list.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/queuenumber-web/src/main/resources/templates/doctor/queue/list.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="21" column="28" lean-forward="false" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/queuenumber-web/src/main/resources/templates/doctor/login.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="242">
+              <caret line="11" column="7" lean-forward="true" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NurseController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/nurse/controller/NurseController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="294">
+              <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1269#1285#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="InvocableHandlerMethod.java" pinned="false" current-in-tab="false">
+        <entry file="jar://F:/maven_dep/repository/org/springframework/spring-web/4.3.9.RELEASE/spring-web-4.3.9.RELEASE-sources.jar!/org/springframework/web/method/support/InvocableHandlerMethod.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="213" column="0" lean-forward="false" selection-start-line="213" selection-start-column="0" selection-end-line="213" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LoginController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/login/controller/LoginController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="339">
-              <caret line="44" column="0" lean-forward="true" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+            <state relative-caret-position="361">
+              <caret line="45" column="34" lean-forward="false" selection-start-line="45" selection-start-column="16" selection-end-line="45" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="QueueServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/queue/service/impl/QueueServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-107">
+              <caret line="32" column="72" lean-forward="false" selection-start-line="32" selection-start-column="72" selection-end-line="32" selection-end-column="72" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PerCheckinfo.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/queue/entity/PerCheckinfo.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="30" column="23" lean-forward="false" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="QueueCenterFactory.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/queue/factory/QueueCenterFactory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-437">
+              <caret line="11" column="10" lean-forward="false" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -82,9 +158,7 @@
         <option value="$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/queue/entity/CallingDeviceVo.java" />
         <option value="$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/queue/entity/PerCheck.java" />
         <option value="$PROJECT_DIR$/queuenumber-common/src/main/java/com/jfsoft/utils/Constants.java" />
-        <option value="$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/queue/factory/QueueCenterFactory.java" />
         <option value="$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/queue/core/QueueCenter.java" />
-        <option value="$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/queue/service/impl/QueueServiceImpl.java" />
         <option value="$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/queue/service/IQueueService.java" />
         <option value="$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/queue/controller/QueueController.java" />
         <option value="$PROJECT_DIR$/queuenumber-web/src/main/resources/templates/doctor/queue/add.html" />
@@ -93,7 +167,6 @@
         <option value="$PROJECT_DIR$/queuenumber-web/src/main/resources/templates/checker/selfNumber/testnoScan.html" />
         <option value="$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/checker/controller/CheckController.java" />
         <option value="$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/checker/controller/CheckerController.java" />
-        <option value="$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/nurse/controller/NurseController.java" />
         <option value="$PROJECT_DIR$/queuenumber-moudles/src/main/java/com/jfsoft/model/Advertisement.java" />
         <option value="$PROJECT_DIR$/queuenumber-moudles/src/main/java/com/jfsoft/model/AdvertisementImg.java" />
         <option value="$PROJECT_DIR$/queuenumber-moudles/src/main/java/com/jfsoft/model/BaseGroupitem.java" />
@@ -113,10 +186,13 @@
         <option value="$PROJECT_DIR$/queuenumber-web/src/main/resources/log4j.properties" />
         <option value="$PROJECT_DIR$/queuenumber/pom.xml" />
         <option value="$PROJECT_DIR$/queuenumber-user/src/main/java/com/jfsoft/user/service/impl/SysUserServiceImpl.java" />
-        <option value="$PROJECT_DIR$/queuenumber-web/src/main/resources/templates/doctor/queue/list.html" />
         <option value="$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/login/controller/LoginController.java" />
         <option value="$PROJECT_DIR$/queuenumber-web/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/queuenumber-web/src/main/resources/templates/doctor/login.html" />
+        <option value="$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/queue/factory/QueueCenterFactory.java" />
+        <option value="$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/queue/service/impl/QueueServiceImpl.java" />
+        <option value="$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/nurse/controller/NurseController.java" />
+        <option value="$PROJECT_DIR$/queuenumber-web/src/main/resources/templates/doctor/queue/list.html" />
       </list>
     </option>
   </component>
@@ -478,7 +554,120 @@
               <item name="queuenumber-web" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="jfsoft" type="462c0819:PsiDirectoryNode" />
+              <item name="nurse" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="0825-queuenumber" type="b2602c69:ProjectViewProjectNode" />
+              <item name="0825-queuenumber" type="462c0819:PsiDirectoryNode" />
+              <item name="queuenumber-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="jfsoft" type="462c0819:PsiDirectoryNode" />
+              <item name="nurse" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="0825-queuenumber" type="b2602c69:ProjectViewProjectNode" />
+              <item name="0825-queuenumber" type="462c0819:PsiDirectoryNode" />
+              <item name="queuenumber-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="jfsoft" type="462c0819:PsiDirectoryNode" />
+              <item name="queue" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="0825-queuenumber" type="b2602c69:ProjectViewProjectNode" />
+              <item name="0825-queuenumber" type="462c0819:PsiDirectoryNode" />
+              <item name="queuenumber-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="jfsoft" type="462c0819:PsiDirectoryNode" />
+              <item name="queue" type="462c0819:PsiDirectoryNode" />
+              <item name="entity" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="0825-queuenumber" type="b2602c69:ProjectViewProjectNode" />
+              <item name="0825-queuenumber" type="462c0819:PsiDirectoryNode" />
+              <item name="queuenumber-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="jfsoft" type="462c0819:PsiDirectoryNode" />
+              <item name="queue" type="462c0819:PsiDirectoryNode" />
+              <item name="factory" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="0825-queuenumber" type="b2602c69:ProjectViewProjectNode" />
+              <item name="0825-queuenumber" type="462c0819:PsiDirectoryNode" />
+              <item name="queuenumber-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="jfsoft" type="462c0819:PsiDirectoryNode" />
+              <item name="queue" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="0825-queuenumber" type="b2602c69:ProjectViewProjectNode" />
+              <item name="0825-queuenumber" type="462c0819:PsiDirectoryNode" />
+              <item name="queuenumber-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="jfsoft" type="462c0819:PsiDirectoryNode" />
+              <item name="queue" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="impl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="0825-queuenumber" type="b2602c69:ProjectViewProjectNode" />
+              <item name="0825-queuenumber" type="462c0819:PsiDirectoryNode" />
+              <item name="queuenumber-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="0825-queuenumber" type="b2602c69:ProjectViewProjectNode" />
+              <item name="0825-queuenumber" type="462c0819:PsiDirectoryNode" />
+              <item name="queuenumber-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="0825-queuenumber" type="b2602c69:ProjectViewProjectNode" />
+              <item name="0825-queuenumber" type="462c0819:PsiDirectoryNode" />
+              <item name="queuenumber-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="jquery" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="0825-queuenumber" type="b2602c69:ProjectViewProjectNode" />
+              <item name="0825-queuenumber" type="462c0819:PsiDirectoryNode" />
+              <item name="queuenumber-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="jquery" type="462c0819:PsiDirectoryNode" />
+              <item name="jquery-3.2.1.js" type="620a8d5e:NestingTreeNode" />
             </path>
             <path>
               <item name="0825-queuenumber" type="b2602c69:ProjectViewProjectNode" />
@@ -663,11 +852,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\IdeaProjects\0825-queuenumber\queuenumber-web\src\main\resources\static\jquery" />
       <recent name="F:\IdeaProjects\0825-queuenumber\queuenumber-web\src\main\resources" />
       <recent name="F:\IdeaProjects\0825-queuenumber\queuenumber-common\src\main\java\com\jfsoft\utils" />
       <recent name="F:\IdeaProjects\0825-queuenumber\queuenumber-moudles\src\main\java\com\jfsoft\mapper" />
       <recent name="F:\IdeaProjects\0825-queuenumber\queuenumber-moudles\src\main\java\com\jfsoft\model" />
-      <recent name="F:\IdeaProjects\0825-queuenumber\queuenumber-moudles\src\main\java\com\jfsoft\module" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -798,7 +987,7 @@
       <workItem from="1503884100672" duration="4255000" />
       <workItem from="1503900284580" duration="2613000" />
       <workItem from="1503904077776" duration="5779000" />
-      <workItem from="1503966325351" duration="16450000" />
+      <workItem from="1503966325351" duration="20129000" />
     </task>
     <task id="LOCAL-00001" summary="首次提交">
       <created>1503902038188</created>
@@ -825,11 +1014,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33947000" />
+    <option name="totallyTimeSpent" value="37626000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -854,7 +1042,7 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -882,29 +1070,21 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/nurse/controller/NurseController.java</url>
-          <line>48</line>
+          <line>68</line>
           <properties />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/login/controller/LoginController.java</url>
-          <line>41</line>
+          <url>file://$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/nurse/controller/NurseController.java</url>
+          <line>39</line>
           <properties />
-          <option name="timeStamp" value="1" />
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="4" />
+      <option name="time" value="8" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://F:/ProgramFiles/Java8/jdk1.8.0_144/src.zip!/java/net/InetAddress.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1824">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/queuenumber-moudles/src/main/java/com/jfsoft/module/Advertisement.java" />
     <entry file="file://$PROJECT_DIR$/queuenumber-moudles/src/main/java/com/jfsoft/mapper/AdvertisementMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
@@ -966,65 +1146,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/queue/entity.java" />
     <entry file="file://$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/queue/entity/CallingDeviceVo.java" />
-    <entry file="file://$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/queue/entity/PerCheckinfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="25" lean-forward="false" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
-          <folding>
-            <element signature="e#432#433#0" expanded="false" />
-            <element signature="e#461#462#0" expanded="false" />
-            <element signature="e#505#506#0" expanded="false" />
-            <element signature="e#541#542#0" expanded="false" />
-            <element signature="e#576#577#0" expanded="false" />
-            <element signature="e#607#608#0" expanded="false" />
-            <element signature="e#655#656#0" expanded="false" />
-            <element signature="e#695#696#0" expanded="false" />
-            <element signature="e#726#727#0" expanded="false" />
-            <element signature="e#753#754#0" expanded="false" />
-            <element signature="e#793#794#0" expanded="false" />
-            <element signature="e#825#826#0" expanded="false" />
-            <element signature="e#855#856#0" expanded="false" />
-            <element signature="e#881#882#0" expanded="false" />
-            <element signature="e#919#920#0" expanded="false" />
-            <element signature="e#949#950#0" expanded="false" />
-            <element signature="e#980#981#0" expanded="false" />
-            <element signature="e#1006#1007#0" expanded="false" />
-            <element signature="e#1045#1046#0" expanded="false" />
-            <element signature="e#1075#1076#0" expanded="false" />
-            <element signature="e#1109#1110#0" expanded="false" />
-            <element signature="e#1139#1140#0" expanded="false" />
-            <element signature="e#1185#1186#0" expanded="false" />
-            <element signature="e#1223#1224#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/queue/factory/QueueCenterFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="28" column="27" lean-forward="true" selection-start-line="28" selection-start-column="27" selection-end-line="28" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#372#373#0" expanded="false" />
-            <element signature="e#454#455#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/queue/core/QueueCenter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="34" column="48" lean-forward="false" selection-start-line="34" selection-start-column="48" selection-end-line="34" selection-end-column="48" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/queue/service/impl/QueueServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="16" column="48" lean-forward="true" selection-start-line="16" selection-start-column="48" selection-end-line="16" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="false" />
           </folding>
@@ -1198,24 +1323,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/nurse/controller/NurseController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8">
-          <caret line="38" column="5" lean-forward="false" selection-start-line="29" selection-start-column="4" selection-end-line="38" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/queuenumber-common/src/main/java/com/jfsoft/utils/Constants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="31" lean-forward="false" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/queuenumber-user/src/main/java/com/jfsoft/user/service/ISysUserService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
@@ -1237,7 +1344,7 @@
         <state relative-caret-position="242">
           <caret line="28" column="13" lean-forward="false" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1281,14 +1388,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://F:/maven_dep/repository/org/springframework/spring-web/4.3.9.RELEASE/spring-web-4.3.9.RELEASE-sources.jar!/org/springframework/web/method/support/InvocableHandlerMethod.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="213" column="0" lean-forward="false" selection-start-line="213" selection-start-column="0" selection-end-line="213" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/queuenumber-web/src/main/resources/log4j.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
@@ -1310,7 +1409,7 @@
         <state relative-caret-position="154">
           <caret line="7" column="32" lean-forward="false" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1331,26 +1430,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/queuenumber-web/src/main/resources/templates/doctor/queue/list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="79" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/queuenumber-web/src/main/resources/application.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="24" column="30" lean-forward="false" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/queuenumber-web/src/main/resources/templates/doctor/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="3" column="13" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -1366,12 +1449,95 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/queuenumber-web/src/main/resources/static/jquery/jquery-3.2.1.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/queuenumber-web/src/main/resources/static/jquery/jquery-3.2.1.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/queue/factory/QueueCenterFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-437">
+          <caret line="11" column="10" lean-forward="false" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/queuenumber-web/src/main/resources/templates/doctor/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="11" column="7" lean-forward="true" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/login/controller/LoginController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="44" column="0" lean-forward="true" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+        <state relative-caret-position="361">
+          <caret line="45" column="34" lean-forward="false" selection-start-line="45" selection-start-column="16" selection-end-line="45" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/queue/service/impl/QueueServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-107">
+          <caret line="32" column="72" lean-forward="false" selection-start-line="32" selection-start-column="72" selection-end-line="32" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/queue/entity/PerCheckinfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="30" column="23" lean-forward="false" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/queuenumber-common/src/main/java/com/jfsoft/utils/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="11" column="52" lean-forward="false" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://F:/maven_dep/repository/org/springframework/spring-web/4.3.9.RELEASE/spring-web-4.3.9.RELEASE-sources.jar!/org/springframework/web/method/support/InvocableHandlerMethod.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="213" column="0" lean-forward="false" selection-start-line="213" selection-start-column="0" selection-end-line="213" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/queuenumber-web/src/main/resources/templates/doctor/queue/list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="21" column="28" lean-forward="false" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/nurse/controller/NurseController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1269#1285#0" expanded="true" />
           </folding>
         </state>
       </provider>

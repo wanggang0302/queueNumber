@@ -2,9 +2,33 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>科室队列</title>
 </head>
 <body>
+<h1>内科</h1>
+<form action="#" th:action="@{/nurse/put}" th:method="post">
+    <input type="hidden" name="queueCode" value="2"/>
+    体检号：<input type="text" name="testno" value=""/>
+    <input type="submit" />
+</form>
+<div id="queueList"></div>
 
+<script type="text/javascript" th:src="@{/static/jquery/jquery-3.2.1.js}"></script>
+<script>
+    $.ajax({    //使用JQuery内置的Ajax方法
+        type : "post",        //post请求方式
+        async : true,        //异步请求（同步请求将会锁住浏览器，用户其他操作必须等待请求完成才可以执行）
+        url : "/nurse/list",    //请求发送到ShowInfoIndexServlet处
+        data : {queueCode:"2"},        //请求内包含一个key为name，value为A0001的参数；服务器接收到客户端请求时通过request.getParameter方法获取该参数值
+        dataType : "json",        //返回数据形式为json
+        success : function(result) {
+            console.log(result);
+        },
+        error : function(errorMsg) {
+            //请求失败时执行该函数
+            alert("请求数据失败，可能是服务器开小差了");
+        }
+    })
+</script>
 </body>
 </html>
