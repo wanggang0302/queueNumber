@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  * 登录
@@ -21,16 +22,28 @@ public class LoginController {
     private ISysUserService sysUserService;
 
     /**
-     * 登录
+     * 跳转到登录页面
+     * @return
      */
-    @RequestMapping("")
+    @RequestMapping()
+    public String toLogin() {
+
+        logger.debug("to login page!");
+
+        return "doctor/login";
+    }
+
+    /**
+     * 登录验证
+     */
+    @RequestMapping(method = RequestMethod.POST)
     public String findPerCheckinfoListOfQueue(String username, String password) {
 
         logger.debug("controller findPerCheckinfoListOfQueue.");
 
         SysUser sysUser = sysUserService.findForAuthentication(username, password);
 
-        return "index";
+        return "/doctor/queue/list";
     }
 
 }
