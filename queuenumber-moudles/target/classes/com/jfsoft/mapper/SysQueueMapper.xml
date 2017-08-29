@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jfsoft.mapper.SysQueueMapper" >
+	<resultMap id="BaseResultMap" type="com.jfsoft.model.SysQueue" >
+		<id column="id" property="id" jdbcType="CHAR" />
+		<result column="code" property="code" jdbcType="INTEGER" />
+		<result column="name" property="name" jdbcType="NVARCHAR" />
+		<result column="queueLocation" property="queuelocation" jdbcType="NVARCHAR" />
+		<result column="isNeedQueueUp" property="isneedqueueup" jdbcType="BIT" />
+		<result column="isEnable" property="isenable" jdbcType="BIT" />
+		<result column="queueTime" property="queuetime" jdbcType="TIMESTAMP" />
+		<result column="isShowAd" property="isshowad" jdbcType="BIT" />
+		<result column="isPerTerm" property="isperterm" jdbcType="BIT" />
+		<result column="perTermInfo" property="perterminfo" jdbcType="NVARCHAR" />
+	</resultMap>
+
+	<sql id="Base_Column_List" >
+		id, code, name, queueLocation, isNeedQueueUp, isEnable, queueTime, isShowAd, isPerTerm, 
+		perTermInfo
+	</sql>
+
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+		select 
+		<include refid="Base_Column_List" />
+		from sys_queue
+		where id = #{id,jdbcType=CHAR}
+	</select>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+		delete from sys_queue
+		where id = #{id,jdbcType=CHAR}
+	</delete>
+
+	<insert id="insert" parameterType="com.jfsoft.model.SysQueue" >
+		insert into sys_queue (id, code, name, 
+			queueLocation, isNeedQueueUp, isEnable, 
+			queueTime, isShowAd, isPerTerm, 
+			perTermInfo)
+		values (#{id,jdbcType=CHAR}, #{code,jdbcType=INTEGER}, #{name,jdbcType=NVARCHAR}, 
+			#{queuelocation,jdbcType=NVARCHAR}, #{isneedqueueup,jdbcType=BIT}, #{isenable,jdbcType=BIT}, 
+			#{queuetime,jdbcType=TIMESTAMP}, #{isshowad,jdbcType=BIT}, #{isperterm,jdbcType=BIT}, 
+			#{perterminfo,jdbcType=NVARCHAR})
+	</insert>
+
+	<insert id="insertSelective" parameterType="com.jfsoft.model.SysQueue" >
+		insert into sys_queue
+		<trim prefix="(" suffix=")" suffixOverrides="," >
+			<if test="id != null" >
+				id,
+			</if>
+			<if test="code != null" >
+				code,
+			</if>
+			<if test="name != null" >
+				name,
+			</if>
+			<if test="queuelocation != null" >
+				queueLocation,
+			</if>
+			<if test="isneedqueueup != null" >
+				isNeedQueueUp,
+			</if>
+			<if test="isenable != null" >
+				isEnable,
+			</if>
+			<if test="queuetime != null" >
+				queueTime,
+			</if>
+			<if test="isshowad != null" >
+				isShowAd,
+			</if>
+			<if test="isperterm != null" >
+				isPerTerm,
+			</if>
+			<if test="perterminfo != null" >
+				perTermInfo,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides="," >
+			<if test="id != null" >
+				#{id,jdbcType=CHAR},
+			</if>
+			<if test="code != null" >
+				#{code,jdbcType=INTEGER},
+			</if>
+			<if test="name != null" >
+				#{name,jdbcType=NVARCHAR},
+			</if>
+			<if test="queuelocation != null" >
+				#{queuelocation,jdbcType=NVARCHAR},
+			</if>
+			<if test="isneedqueueup != null" >
+				#{isneedqueueup,jdbcType=BIT},
+			</if>
+			<if test="isenable != null" >
+				#{isenable,jdbcType=BIT},
+			</if>
+			<if test="queuetime != null" >
+				#{queuetime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="isshowad != null" >
+				#{isshowad,jdbcType=BIT},
+			</if>
+			<if test="isperterm != null" >
+				#{isperterm,jdbcType=BIT},
+			</if>
+			<if test="perterminfo != null" >
+				#{perterminfo,jdbcType=NVARCHAR},
+			</if>
+		</trim>
+	</insert>
+
+	<update id="updateByPrimaryKeySelective" parameterType="com.jfsoft.model.SysQueue" >
+		update sys_queue
+		<set >
+			<if test="code != null" >
+				code = #{code,jdbcType=INTEGER},
+			</if>
+			<if test="name != null" >
+				name = #{name,jdbcType=NVARCHAR},
+			</if>
+			<if test="queuelocation != null" >
+				queueLocation = #{queuelocation,jdbcType=NVARCHAR},
+			</if>
+			<if test="isneedqueueup != null" >
+				isNeedQueueUp = #{isneedqueueup,jdbcType=BIT},
+			</if>
+			<if test="isenable != null" >
+				isEnable = #{isenable,jdbcType=BIT},
+			</if>
+			<if test="queuetime != null" >
+				queueTime = #{queuetime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="isshowad != null" >
+				isShowAd = #{isshowad,jdbcType=BIT},
+			</if>
+			<if test="isperterm != null" >
+				isPerTerm = #{isperterm,jdbcType=BIT},
+			</if>
+			<if test="perterminfo != null" >
+				perTermInfo = #{perterminfo,jdbcType=NVARCHAR},
+			</if>
+		</set>
+		where id = #{id,jdbcType=CHAR}
+	</update>
+
+	<update id="updateByPrimaryKey" parameterType="com.jfsoft.model.SysQueue" >
+		update sys_queue
+		set code = #{code,jdbcType=INTEGER},
+			name = #{name,jdbcType=NVARCHAR},
+			queueLocation = #{queuelocation,jdbcType=NVARCHAR},
+			isNeedQueueUp = #{isneedqueueup,jdbcType=BIT},
+			isEnable = #{isenable,jdbcType=BIT},
+			queueTime = #{queuetime,jdbcType=TIMESTAMP},
+			isShowAd = #{isshowad,jdbcType=BIT},
+			isPerTerm = #{isperterm,jdbcType=BIT},
+			perTermInfo = #{perterminfo,jdbcType=NVARCHAR}
+		where id = #{id,jdbcType=CHAR}
+	</update>
+
+</mapper>

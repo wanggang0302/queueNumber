@@ -1,61 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5f08b69d-bfa4-4720-a6bd-c9a4eb3644cd" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__log4j_log4j_1_2_17.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_3_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_log4j12_1_7_25.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/queuenumber-common/src/main/java/com/jfsoft/utils/MD5Util.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/queuenumber-user/pom.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/queuenumber-user/queuenumber-user.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/queuenumber-user/src/main/java/com/jfsoft/user/service/ISysUserService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/queuenumber-user/src/main/java/com/jfsoft/user/service/impl/SysUserServiceImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/checker/controller/CheckerController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/login/controller/LoginController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/nurse/controller/NurseController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/queue/factory/QueueCenterFactory.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/queue/service/IQueueService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/queue/service/impl/QueueServiceImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/queuenumber-web/src/main/resources/log4j.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/queuenumber-web/src/main/resources/templates/checker/selfNumber/testnoScan.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/queuenumber-web/src/main/resources/templates/doctor/login.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/queuenumber-web/src/main/resources/templates/doctor/queue/add.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/queuenumber-web/src/main/resources/templates/doctor/queue/list.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_classic_1_1_11.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_core_1_1_11.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_oracle_ojdbc6_11_2_0_1_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_39.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_log4j_over_slf4j_1_7_25.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/sysqueue/controller/SysQueueController.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-common/queuenumber-common.iml" afterPath="$PROJECT_DIR$/queuenumber-common/queuenumber-common.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-moudles/pom.xml" afterPath="$PROJECT_DIR$/queuenumber-moudles/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-moudles/queuenumber-moudles.iml" afterPath="$PROJECT_DIR$/queuenumber-moudles/queuenumber-moudles.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-moudles/src/main/java/com/jfsoft/mapper/SysUserMapper.java" afterPath="$PROJECT_DIR$/queuenumber-moudles/src/main/java/com/jfsoft/mapper/SysUserMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-moudles/src/main/java/com/jfsoft/mapper/SysUserMapper.xml" afterPath="$PROJECT_DIR$/queuenumber-moudles/src/main/java/com/jfsoft/mapper/SysUserMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-moudles/src/main/java/com/jfsoft/model/Advertisement.java" afterPath="$PROJECT_DIR$/queuenumber-moudles/src/main/java/com/jfsoft/model/Advertisement.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-moudles/src/main/java/com/jfsoft/model/AdvertisementImg.java" afterPath="$PROJECT_DIR$/queuenumber-moudles/src/main/java/com/jfsoft/model/AdvertisementImg.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-moudles/src/main/java/com/jfsoft/model/BaseGroupitem.java" afterPath="$PROJECT_DIR$/queuenumber-moudles/src/main/java/com/jfsoft/model/BaseGroupitem.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-moudles/src/main/java/com/jfsoft/model/BaseQueuegroupmap.java" afterPath="$PROJECT_DIR$/queuenumber-moudles/src/main/java/com/jfsoft/model/BaseQueuegroupmap.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-moudles/src/main/java/com/jfsoft/model/CallingDevice.java" afterPath="$PROJECT_DIR$/queuenumber-moudles/src/main/java/com/jfsoft/model/CallingDevice.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-moudles/src/main/java/com/jfsoft/model/HospitalInfo.java" afterPath="$PROJECT_DIR$/queuenumber-moudles/src/main/java/com/jfsoft/model/HospitalInfo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-moudles/src/main/java/com/jfsoft/model/SysQueue.java" afterPath="$PROJECT_DIR$/queuenumber-moudles/src/main/java/com/jfsoft/model/SysQueue.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-moudles/src/main/java/com/jfsoft/model/SysUser.java" afterPath="$PROJECT_DIR$/queuenumber-moudles/src/main/java/com/jfsoft/model/SysUser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-web/pom.xml" afterPath="$PROJECT_DIR$/queuenumber-web/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-web/queuenumber-web.iml" afterPath="$PROJECT_DIR$/queuenumber-web/queuenumber-web.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-web/src/main/java/com/QueueNumberApplication.java" afterPath="$PROJECT_DIR$/queuenumber-web/src/main/java/com/QueueNumberApplication.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/queue/controller/QueueController.java" afterPath="$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/queue/controller/QueueController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/queue/core/QueueCenter.java" afterPath="$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/queue/core/QueueCenter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-web/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/queuenumber-web/src/main/resources/application.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber/pom.xml" afterPath="$PROJECT_DIR$/queuenumber/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber/queuenumber.iml" afterPath="$PROJECT_DIR$/queuenumber/queuenumber.iml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_logging_1_5_4_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_log4j_1_3_8_RELEASE.xml" />
-    </list>
+    <list default="true" id="5f08b69d-bfa4-4720-a6bd-c9a4eb3644cd" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/queuenumber-common/target/" />
     <ignored path="$PROJECT_DIR$/queuenumber/target/" />
     <ignored path="$PROJECT_DIR$/queuenumber-moudles/target/" />
@@ -85,7 +31,7 @@
       <file leaf-file-name="LoginController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/login/controller/LoginController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
+            <state relative-caret-position="581">
               <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -895,7 +841,7 @@
       <workItem from="1503884100672" duration="4255000" />
       <workItem from="1503900284580" duration="2613000" />
       <workItem from="1503904077776" duration="5779000" />
-      <workItem from="1503966325351" duration="14752000" />
+      <workItem from="1503966325351" duration="14955000" />
     </task>
     <task id="LOCAL-00001" summary="首次提交">
       <created>1503902038188</created>
@@ -911,11 +857,18 @@
       <option name="project" value="LOCAL" />
       <updated>1503914520603</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="1.增加登录方法&#10;2.增加队列的查询、新增体检者方法">
+      <created>1503987344232</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1503987344232</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32249000" />
+    <option name="totallyTimeSpent" value="32452000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -931,10 +884,10 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960895" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960895" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32960895" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23880596" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23880596" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -943,7 +896,7 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -963,7 +916,8 @@
     </ignored-roots>
     <MESSAGE value="首次提交" />
     <MESSAGE value="队列core" />
-    <option name="LAST_COMMIT_MESSAGE" value="队列core" />
+    <MESSAGE value="1.增加登录方法&#10;2.增加队列的查询、新增体检者方法" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.增加登录方法&#10;2.增加队列的查询、新增体检者方法" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1003,6 +957,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
           <caret line="11" column="17" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1463,7 +1418,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/login/controller/LoginController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
+        <state relative-caret-position="581">
           <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
