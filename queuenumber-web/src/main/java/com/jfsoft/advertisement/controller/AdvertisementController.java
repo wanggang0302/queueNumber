@@ -1,17 +1,13 @@
-package com.jfsoft.checker.controller;
+package com.jfsoft.advertisement.controller;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.serializer.SerializeFilter;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.serializer.SimplePropertyPreFilter;
 import com.base.BaseController;
-import com.jfsoft.model.SysQueue;
 import com.jfsoft.vo.PerCheckinfo;
-import com.jfsoft.queue.service.IQueueService;
 import com.jfsoft.utils.Constants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -22,50 +18,40 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 体检者
+ * 广告
  */
 @Controller
-@RequestMapping("/checker")
-public class CheckerController extends BaseController {
+@RequestMapping("/ad")
+public class AdvertisementController extends BaseController {
 
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
-    @Autowired
-    private IQueueService queueService;
-
     /**
-     * 体检者等候区
+     * 体检者等候区，查询广告
      */
     @ResponseBody
     @RequestMapping(value = "/list", method = RequestMethod.POST)
-    public String findListOfQueue() {
+    public String list(String queueCode) {
 
         Map<String, Object> result = new HashMap<String, Object>();
 
         try {
 
-            List<SysQueue> queueList = queueService.findListOfQueue();
 
-            result.put("data", queueList);
+
             result.put("status", Constants.RETURN_STATUS_SUCCESS);
+            result.put("data", "");
         } catch (Exception e) {
             result.put("status", Constants.RETURN_STATUS_FAILURE);
             e.printStackTrace();
         }
 
-        SimplePropertyPreFilter sysQueueFilter = new SimplePropertyPreFilter(SysQueue.class, "code", "name", "perCheckinfoList");
-        SimplePropertyPreFilter perCheckinfoFilter = new SimplePropertyPreFilter(PerCheckinfo.class, "testno", "name", "sex", "state");
+        SimplePropertyPreFilter filter = new SimplePropertyPreFilter(PerCheckinfo.class, "testno", "name", "sex", "state");
 
-        SerializeFilter[] filters = new SerializeFilter[2];
-        filters[0] = sysQueueFilter;
-        filters[1] = perCheckinfoFilter;
-
-        String jsonStr = JSON.toJSONString(result, filters,
+        return JSON.toJSONString(result, filter,
                 SerializerFeature.WriteMapNullValue,
                 SerializerFeature.WriteNullNumberAsZero,
                 SerializerFeature.WriteNullStringAsEmpty);
-
-        return jsonStr;
     }
 
 }

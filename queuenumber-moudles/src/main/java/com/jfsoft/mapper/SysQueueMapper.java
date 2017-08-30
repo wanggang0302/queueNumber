@@ -9,6 +9,9 @@ package com.jfsoft.mapper;
 
 import com.jfsoft.model.SysQueue;
 
+import java.util.List;
+import java.util.Map;
+
 public interface SysQueueMapper {
     
     int deleteByPrimaryKey(String id);
@@ -22,5 +25,10 @@ public interface SysQueueMapper {
     int updateByPrimaryKeySelective(SysQueue record);
 
     int updateByPrimaryKey(SysQueue record);
+
+    /**
+     * 查询所有的队列
+     */
+    List<SysQueue> findAll(Map<String, Object> params);
     
 }

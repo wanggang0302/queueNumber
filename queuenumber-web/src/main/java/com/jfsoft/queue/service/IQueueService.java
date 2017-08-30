@@ -1,6 +1,7 @@
 package com.jfsoft.queue.service;
 
-import com.jfsoft.queue.entity.PerCheckinfo;
+import com.jfsoft.model.SysQueue;
+import com.jfsoft.vo.PerCheckinfo;
 
 import java.util.List;
 import java.util.Map;
@@ -9,6 +10,11 @@ import java.util.Map;
  * 队列操作业务接口
  */
 public interface IQueueService {
+
+    /**
+     * 查询所有队列的信息
+     */
+    public List<SysQueue> findListOfQueue() throws Exception;
 
     /**
      * 查询某个队列中的全部体检者

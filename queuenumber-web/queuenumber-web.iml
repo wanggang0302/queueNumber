@@ -19,6 +19,7 @@
     <orderEntry type="module" module-name="queuenumber-user" />
     <orderEntry type="module" module-name="queuenumber-moudles" />
     <orderEntry type="module" module-name="queuenumber-common" />
+    <orderEntry type="module" module-name="queuenumber-queue" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-configuration-processor:1.5.4.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: com.vaadin.external.google:android-json:0.0.20131108.vaadin1" level="project" />
     <orderEntry type="library" name="Maven: com.alibaba:druid-spring-boot-starter:1.1.2" level="project" />

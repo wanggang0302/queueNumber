@@ -7,7 +7,10 @@
  */
 package com.jfsoft.model;
 
+import com.jfsoft.vo.PerCheckinfo;
+
 import java.util.Date;
+import java.util.List;
 
 /**
  * 队列信息表
@@ -65,6 +68,11 @@ public class SysQueue {
      * 前置条件详情
      */
     private String perterminfo;
+
+    /**
+     * 体检者队列
+     */
+    private List<PerCheckinfo> perCheckinfoList;
 
     public Integer getId() {
         return id;
@@ -144,6 +152,14 @@ public class SysQueue {
 
     public void setPerterminfo(String perterminfo) {
         this.perterminfo = perterminfo == null ? null : perterminfo.trim();
+    }
+
+    public List<PerCheckinfo> getPerCheckinfoList() {
+        return perCheckinfoList;
+    }
+
+    public void setPerCheckinfoList(List<PerCheckinfo> perCheckinfoList) {
+        this.perCheckinfoList = perCheckinfoList;
     }
 
 }

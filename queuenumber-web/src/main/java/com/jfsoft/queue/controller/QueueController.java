@@ -1,6 +1,6 @@
 package com.jfsoft.queue.controller;
 
-import com.jfsoft.queue.entity.PerCheckinfo;
+import com.jfsoft.vo.PerCheckinfo;
 import com.jfsoft.queue.service.IQueueService;
 import com.jfsoft.utils.Constants;
 import org.slf4j.Logger;

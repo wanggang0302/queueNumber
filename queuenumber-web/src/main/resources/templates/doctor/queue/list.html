@@ -5,13 +5,24 @@
     <title>科室队列</title>
 </head>
 <body>
-<h1>内科</h1>
+<h1>
+    <div id="queueName"></div>
+    <input type="hidden" id="queueCode"/>
+</h1>
 <form action="#" th:action="@{/nurse/put}" th:method="post">
-    <input type="hidden" name="queueCode" value="2"/>
+    <select name="queueCode" onselect="selectQueueCode()">
+        <option value="1">血常规</option>
+        <option value="2">内科</option>
+        <option value="3">外科</option>
+        <option value="4">口腔科</option>
+    </select>
+    是否VIP：
+    否:<input type="radio" name="isVip" value="0" checked="checked"/>
+    是:<input type="radio" name="isVip" value="1"/>
     体检号：<input type="text" name="testno" value=""/>
     <input type="submit" />
 </form>
-<a href="/doctor/queue/list.html">刷新列表</a>
+<a href="/nurse/page">刷新列表</a>
 <hr/>
 调整顺序：
 <form action="#" th:action="@{/nurse/adjust}" th:method="post">
@@ -74,7 +85,8 @@
 <div id="queueList"></div>
 <hr/>
 等候区队列展示：
-
+<div id="waitingQueueList"></div>
+<hr/>
 
 <script type="text/javascript" th:src="@{/static/jquery/jquery-3.2.1.js}"></script>
 <script th:inline="javascript">
@@ -84,8 +96,62 @@
         var result = $.parseJSON(msg);
         alert(result.data);
     }
-    //页面加载
+    //科室页面加载
     loadPage();
+
+    //等候区页面加载
+    loadWaitingZonePage();
+
+    function loadWaitingZonePage() {
+        $.ajax({    //使用JQuery内置的Ajax方法
+            type : "post",        //post请求方式
+            async : true,        //异步请求（同步请求将会锁住浏览器，用户其他操作必须等待请求完成才可以执行）
+            url : "/checker/list",    //请求发送到ShowInfoIndexServlet处
+            data : "",        //请求内包含一个key为name，value为A0001的参数；服务器接收到客户端请求时通过request.getParameter方法获取该参数值
+            dataType : "json",        //返回数据形式为json
+            success : function(result) {
+                console.log(result.status);
+                var htm = "";
+                $.each(result.data, function(i,n)
+                {
+                    console.log("索引:" + i, "对应值为：" + n.name + n.testno + n.sex);
+                    htm += "<h2>" + n.name + "</h2>";
+                    htm += "<table border='1px'>";
+                    htm += "<tr><td>体检号</td><td>姓名</td><td>是否就诊</td><td>医师</td><td>预计完成时间</td></tr>";
+
+                    //体检者结合
+                    var perList = n.perCheckinfoList;
+                    $.each(n.perCheckinfoList, function(s, o)
+                    {
+                        htm += "<tr>";
+                        htm += "<td>"+ o.testno + "</td>";
+                        htm += "<td>"+ o.name + "</td>";
+                        var state = o.state;
+                        if("1"==state) {
+                            htm += "<td style='color:#FF0000'>检查中</td>";
+                        } else if("2"==state) {
+                            htm += "<td style='color:#00FF00'>准备</td>";
+                        } else if("3"==state) {
+                            htm += "<td style='color:#FFCC00'>等候</td>";
+                        } else {
+                            htm += "<td></td>";
+                        }
+                        htm += "<td></td>";
+                        htm += "<td></td>";
+                        htm += "</tr>";
+                    });
+                    htm += "</table>";
+                    htm += "<br/>";
+                });
+                console.log("result is :" + htm);
+                $("#waitingQueueList").html(htm);
+            },
+            error : function(errorMsg) {
+                //请求失败时执行该函数
+                alert("请求数据失败，可能是服务器开小差了");
+            }
+        })
+    }
 
     //加载数据
     function loadPage() {
@@ -127,6 +193,14 @@
                 alert("请求数据失败，可能是服务器开小差了");
             }
         })
+    }
+
+    //科室选择
+    function selectQueueCode() {
+
+        var queueCode = $("select[name='queueCode']:selected").val();
+        var queueName = $("select[name='queueCode']:selected").val();
+
     }
 
     /**

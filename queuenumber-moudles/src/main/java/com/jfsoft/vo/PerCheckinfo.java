@@ -1,4 +1,4 @@
-package com.jfsoft.queue.entity;
+package com.jfsoft.vo;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -41,6 +41,11 @@ public class PerCheckinfo {
      * 年龄单位
      */
     private String ageUnit;
+
+    /**
+     * 是否VIP：0:否；1:是
+     */
+    private String isVip;
 
     /**
      * 体检状态（stored in memory）
@@ -123,4 +128,13 @@ public class PerCheckinfo {
     public void setSsid(String ssid) {
         this.ssid = ssid;
     }
+
+    public String getIsVip() {
+        return isVip;
+    }
+
+    public void setIsVip(String isVip) {
+        this.isVip = isVip;
+    }
+
 }

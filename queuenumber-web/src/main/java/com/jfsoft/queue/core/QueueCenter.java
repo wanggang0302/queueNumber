@@ -1,7 +1,7 @@
 package com.jfsoft.queue.core;
 
 import com.jfsoft.model.CallingDevice;
-import com.jfsoft.queue.entity.PerCheckinfo;
+import com.jfsoft.vo.PerCheckinfo;
 import com.jfsoft.utils.Constants;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -37,9 +37,17 @@ public class QueueCenter {
     }
 
     public List<PerCheckinfo> getPerCheckinfoList() {
-        List<PerCheckinfo> perCheckinfoList = null;
+
+        List<PerCheckinfo> perCheckinfoList = new ArrayList<PerCheckinfo>();
+
+        //优先查询VIP队列
+        if(null!=vipQueue) {
+            for(Iterator<PerCheckinfo> it = vipQueue.iterator(); it.hasNext();) {
+                perCheckinfoList.add(it.next());
+            }
+        }
+
         if(null!=perCheckinfos) {
-            perCheckinfoList = new ArrayList<PerCheckinfo>();
             for(Iterator<PerCheckinfo> it = perCheckinfos.iterator(); it.hasNext();) {
                 perCheckinfoList.add(it.next());
             }
@@ -76,7 +84,16 @@ public class QueueCenter {
      */
     public void produce(PerCheckinfo perCheckinfo) {
 
-        this.perCheckinfos.add(perCheckinfo);
+        String isVip = perCheckinfo.getIsVip();
+
+        if(!StringUtils.isBlank(isVip) && Constants.IS_TRUE.equals(isVip)) {
+            //加入VIP队列
+            this.vipQueue.add(perCheckinfo);
+        } else {
+            //加入普通队列
+            this.perCheckinfos.add(perCheckinfo);
+        }
+
     }
 
     /**

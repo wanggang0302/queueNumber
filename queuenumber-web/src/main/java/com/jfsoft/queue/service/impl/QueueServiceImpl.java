@@ -1,9 +1,11 @@
 package com.jfsoft.queue.service.impl;
 
+import com.jfsoft.model.SysQueue;
 import com.jfsoft.queue.core.QueueCenter;
-import com.jfsoft.queue.entity.PerCheckinfo;
+import com.jfsoft.vo.PerCheckinfo;
 import com.jfsoft.queue.factory.QueueCenterFactory;
 import com.jfsoft.queue.service.IQueueService;
+import com.jfsoft.sysqueue.service.ISysQueueService;
 import com.jfsoft.utils.Constants;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -26,6 +28,21 @@ public class QueueServiceImpl implements IQueueService {
      */
     @Autowired
     private QueueCenterFactory queueCenterFactory;
+    @Autowired
+    private ISysQueueService sysQueueService;
+
+    public List<SysQueue> findListOfQueue() throws Exception {
+
+        //查询所有的队列（科室）
+        List<SysQueue> sysQueueList = sysQueueService.findAll();
+        for(SysQueue q : sysQueueList) {
+            String queueCode = q.getCode().toString();
+            List<PerCheckinfo> perList = getPerListOfQueue(queueCode);
+            q.setPerCheckinfoList(perList);
+        }
+
+        return sysQueueList;
+    }
 
     public List<PerCheckinfo> findPerCheckinfoListOfQueue(String queueCode) {
 
@@ -172,6 +189,25 @@ public class QueueServiceImpl implements IQueueService {
             return true;
         }
         return false;
+    }
+
+    /**
+     * 根据队列编号获取队列中的体检者
+     */
+    private List<PerCheckinfo> getPerListOfQueue(String queueCode) throws Exception {
+
+        List<PerCheckinfo> perCheckinfoList = new ArrayList<PerCheckinfo>();
+
+        //获得队列
+        QueueCenter queueCenter = queueCenterFactory.obtain(queueCode);
+        logger.debug("queueCenter is :" + queueCenter);
+
+        if(null!=queueCenter) {
+            //获得队列中的体检者
+            perCheckinfoList = queueCenter.getPerCheckinfoList();
+        }
+
+        return perCheckinfoList;
     }
 
 }

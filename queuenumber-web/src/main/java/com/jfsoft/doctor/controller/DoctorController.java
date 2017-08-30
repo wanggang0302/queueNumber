@@ -3,7 +3,6 @@ package com.jfsoft.doctor.controller;
 import com.alibaba.fastjson.JSON;
 import com.base.BaseController;
 import com.jfsoft.doctor.service.IDoctorService;
-import com.jfsoft.queue.entity.PerCheckinfo;
 import com.jfsoft.utils.Constants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**

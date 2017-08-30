@@ -2,7 +2,7 @@ package com.jfsoft.doctor.service.impl;
 
 import com.jfsoft.doctor.service.IDoctorService;
 import com.jfsoft.queue.core.QueueCenter;
-import com.jfsoft.queue.entity.PerCheckinfo;
+import com.jfsoft.vo.PerCheckinfo;
 import com.jfsoft.queue.factory.QueueCenterFactory;
 import com.jfsoft.queue.service.IQueueService;
 import com.jfsoft.utils.Constants;

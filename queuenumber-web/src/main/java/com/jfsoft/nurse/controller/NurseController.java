@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.serializer.SimplePropertyPreFilter;
 import com.base.BaseController;
-import com.jfsoft.queue.entity.PerCheckinfo;
+import com.jfsoft.vo.PerCheckinfo;
 import com.jfsoft.queue.service.IQueueService;
 import com.jfsoft.utils.Constants;
 import org.slf4j.Logger;
