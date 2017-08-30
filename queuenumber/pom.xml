@@ -13,6 +13,7 @@
         <module>../queuenumber-moudles</module>
         <module>../queuenumber-web</module>
         <module>../queuenumber-user</module>
+        <module>../queuenumber-queue</module>
     </modules>
 
     <!-- spring boot -->

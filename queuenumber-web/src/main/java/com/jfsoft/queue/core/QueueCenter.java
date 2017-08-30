@@ -2,6 +2,7 @@ package com.jfsoft.queue.core;
 
 import com.jfsoft.model.CallingDevice;
 import com.jfsoft.queue.entity.PerCheckinfo;
+import com.jfsoft.utils.Constants;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,15 +29,29 @@ public class QueueCenter {
     private BlockingQueue<CallingDevice> callingDevices;
     //体检者队列
     private BlockingQueue<PerCheckinfo> perCheckinfos;
+    //体检者VIP队列
+    private BlockingQueue<PerCheckinfo> vipQueue;
 
     public BlockingQueue<CallingDevice> getCallingDevices() {
         return callingDevices;
     }
+
     public List<PerCheckinfo> getPerCheckinfoList() {
         List<PerCheckinfo> perCheckinfoList = null;
         if(null!=perCheckinfos) {
             perCheckinfoList = new ArrayList<PerCheckinfo>();
             for(Iterator<PerCheckinfo> it = perCheckinfos.iterator(); it.hasNext();) {
+                perCheckinfoList.add(it.next());
+            }
+        }
+        return perCheckinfoList;
+    }
+
+    public List<PerCheckinfo> getVipPerCheckinfoList() {
+        List<PerCheckinfo> perCheckinfoList = null;
+        if(null!=vipQueue) {
+            perCheckinfoList = new ArrayList<PerCheckinfo>();
+            for(Iterator<PerCheckinfo> it = vipQueue.iterator(); it.hasNext();) {
                 perCheckinfoList.add(it.next());
             }
         }
@@ -50,6 +65,8 @@ public class QueueCenter {
 
         //医生工作就绪,创建体检者队列
         this.perCheckinfos = new LinkedBlockingQueue<PerCheckinfo>();
+        //创建VIP队列
+        this.vipQueue = new LinkedBlockingQueue<PerCheckinfo>();
 
     }
 
@@ -100,10 +117,26 @@ public class QueueCenter {
     }
 
     /**
-     * 医生呼叫队列
+     * 消费，并从队列中移除
      */
-    public void custom() {
+    public PerCheckinfo custom() throws Exception {
 
+        PerCheckinfo wentToPerCheckinfo = this.perCheckinfos.take();
+        logger.debug("doctor went to check {}.", wentToPerCheckinfo);
+
+        return wentToPerCheckinfo;
+    }
+
+    /**
+     * 消费，不从队列中移除
+     */
+    public PerCheckinfo peek() throws Exception {
+
+        PerCheckinfo wentToPerCheckinfo = this.perCheckinfos.peek();
+        wentToPerCheckinfo.setState(Constants.CHECK_STATUS_ING);
+        logger.debug("doctor went to check {}.", wentToPerCheckinfo);
+
+        return wentToPerCheckinfo;
     }
 
 }

@@ -1,5 +1,7 @@
 package com.jfsoft.queue.entity;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 /**
  * 体检者
  */
@@ -34,6 +36,16 @@ public class PerCheckinfo {
      * 年龄单位
      */
     private String ageUnit;
+
+    /**
+     * 体检状态（stored in memory）
+     */
+    private String state;
+
+    /**
+     *  跳过次数（stored in memory）
+     */
+    private AtomicInteger skip;
 
     public String getTestno() {
         return testno;
@@ -81,6 +93,22 @@ public class PerCheckinfo {
 
     public void setAgeUnit(String ageUnit) {
         this.ageUnit = ageUnit;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public AtomicInteger getSkip() {
+        return skip;
+    }
+
+    public void setSkip(int skip) {
+        this.skip = new AtomicInteger(skip);
     }
 
 }

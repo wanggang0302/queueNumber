@@ -21,7 +21,60 @@
     <input type="submit" />
 </form>
 <hr/>
+医生呼号(内科1)：
+呼叫器编号:
+<select id="deviceNo1">
+    <option value="1" selected="selected">内科1</option>
+    <option value="2">内科2</option>
+    <option value="3">内科3</option>
+</select>
+是否呼叫VIP：
+是:<input type="radio" name="isVip1" value="1"/>
+否:<input type="radio" name="isVip1" checked="checked" value="0"/>
+<input type="text" id="testno1" readonly="readonly"/>
+<a href="#" onclick="callNumber(1, 'pre')">上一个</a>
+<a href="#" onclick="callNumber(1, 'skip')">跳过</a>
+<a href="#" onclick="callNumber(1, 'call')">呼叫</a>
+<a href="#" onclick="callNumber(1, 'done')">完成</a>
+<br/>
+医生呼号(内科2)：
+呼叫器编号:
+<select id="deviceNo2">
+    <option value="1">内科1</option>
+    <option value="2" selected="selected">内科2</option>
+    <option value="3">内科3</option>
+</select>
+是否呼叫VIP：
+是:<input type="radio" name="isVip2" value="1"/>
+否:<input type="radio" name="isVip2" checked="checked" value="0"/>
+<input type="text" id="testno2" readonly="readonly"/>
+<a href="#" onclick="callNumber(2, 'pre')">上一个</a>
+<a href="#" onclick="callNumber(2, 'skip')">跳过</a>
+<a href="#" onclick="callNumber(2, 'call')">呼叫</a>
+<a href="#" onclick="callNumber(2, 'done')">完成</a>
+<br/>
+医生呼号(内科3)：
+呼叫器编号:
+<select id="deviceNo3">
+    <option value="1">内科1</option>
+    <option value="2">内科2</option>
+    <option value="3" selected="selected">内科3</option>
+</select>
+是否呼叫VIP：
+是:<input type="radio" name="isVip3" checked="checked" value="1"/>
+否:<input type="radio" name="isVip3" value="0"/>
+<input type="text" id="testno3" readonly="readonly"/>
+<a href="#" onclick="callNumber(3, 'pre')">上一个</a>
+<a href="#" onclick="callNumber(3, 'skip')">跳过</a>
+<a href="#" onclick="callNumber(3, 'call')">呼叫</a>
+<a href="#" onclick="callNumber(3, 'done')">完成</a>
+<br/>
+屏幕&广播提示：<div id="msgRemind" style="color:#ff0000"></div>
+<hr/>
 <div id="queueList"></div>
+<hr/>
+等候区队列展示：
+
 
 <script type="text/javascript" th:src="@{/static/jquery/jquery-3.2.1.js}"></script>
 <script th:inline="javascript">
@@ -31,35 +84,98 @@
         var result = $.parseJSON(msg);
         alert(result.data);
     }
+    //页面加载
+    loadPage();
 
-    $.ajax({    //使用JQuery内置的Ajax方法
-        type : "post",        //post请求方式
-        async : true,        //异步请求（同步请求将会锁住浏览器，用户其他操作必须等待请求完成才可以执行）
-        url : "/nurse/list",    //请求发送到ShowInfoIndexServlet处
-        data : {queueCode:"2"},        //请求内包含一个key为name，value为A0001的参数；服务器接收到客户端请求时通过request.getParameter方法获取该参数值
-        dataType : "json",        //返回数据形式为json
-        success : function(result) {
-            console.log(result.status);
-            var htm = "<table border='1px'>";
-            htm += "<tr><td>排序号</td><td>体检号</td><td>操作</td></tr>";
-            $.each(result.data, function(i,n)
-            {
-                console.log("索引:" + i, "对应值为：" + n.name + n.testno + n.sex);
-                htm += "<tr>";
-                htm += "<td>"+ (i+1) + "</td>";
-                htm += "<td>"+ n.testno + "</td>";
-                htm += "<td><a href='/nurse/delete?queueCode=2&testno=" + n.testno + "'>删除</a></td>";
-                htm += "</tr>";
-            });
-            console.log("result is :" + htm);
-            htm += "</table>";
-            $("#queueList").html(htm);
-        },
-        error : function(errorMsg) {
-            //请求失败时执行该函数
-            alert("请求数据失败，可能是服务器开小差了");
-        }
-    })
+    //加载数据
+    function loadPage() {
+        $.ajax({    //使用JQuery内置的Ajax方法
+            type : "post",        //post请求方式
+            async : true,        //异步请求（同步请求将会锁住浏览器，用户其他操作必须等待请求完成才可以执行）
+            url : "/nurse/list",    //请求发送到ShowInfoIndexServlet处
+            data : {queueCode:"2"},        //请求内包含一个key为name，value为A0001的参数；服务器接收到客户端请求时通过request.getParameter方法获取该参数值
+            dataType : "json",        //返回数据形式为json
+            success : function(result) {
+                console.log(result.status);
+                var htm = "<table border='1px'>";
+                htm += "<tr><td>排序号</td><td>体检号</td><td>状态</td><td>操作</td></tr>";
+                $.each(result.data, function(i,n)
+                {
+                    console.log("索引:" + i, "对应值为：" + n.name + n.testno + n.sex);
+                    htm += "<tr>";
+                    htm += "<td>"+ (i+1) + "</td>";
+                    htm += "<td>"+ n.testno + "</td>";
+                    var state = n.state;
+                    if("1"==state) {
+                        htm += "<td style='color:#FF0000'>检查中</td>";
+                    } else if("2"==state) {
+                        htm += "<td style='color:#00FF00'>准备</td>";
+                    } else if("3"==state) {
+                        htm += "<td style='color:#FFCC00'>等候</td>";
+                    } else {
+                        htm += "<td></td>";
+                    }
+                    htm += "<td><a href='/nurse/delete?queueCode=2&testno=" + n.testno + "'>删除</a></td>";
+                    htm += "</tr>";
+                });
+                console.log("result is :" + htm);
+                htm += "</table>";
+                $("#queueList").html(htm);
+            },
+            error : function(errorMsg) {
+                //请求失败时执行该函数
+                alert("请求数据失败，可能是服务器开小差了");
+            }
+        })
+    }
+
+    /**
+     * 医生呼号
+     */
+    function callNumber(deviceNo,type) {
+
+        //是否VIP
+        var isVip = $("input[name='isVip"+deviceNo+"']:checked").val();
+
+        //当前体检者
+        var testno = $("#testno"+deviceNo).val();
+
+        $("#msgRemind").html("");
+
+        $.ajax({    //使用JQuery内置的Ajax方法
+            type : "get",        //post请求方式
+            async : true,        //异步请求（同步请求将会锁住浏览器，用户其他操作必须等待请求完成才可以执行）
+            url : "/doctor/" + type,    //请求发送到ShowInfoIndexServlet处
+            data : {queueCode:"2", isVip:isVip, testno: testno, deviceNo: deviceNo},        //请求内包含一个key为name，value为A0001的参数；服务器接收到客户端请求时通过request.getParameter方法获取该参数值
+            dataType : "json",        //返回数据形式为json
+            success : function(result) {
+                console.log(result.status);
+                var resultStatus = result.status;
+                if(resultStatus=="success") {
+                    $("#testno"+deviceNo).val(result.data);
+                    if(type=="pre") {
+                        $("#msgRemind").html("呼叫 " + result.data + "号 体检者到【内科" + deviceNo + "】就诊！");
+                    } else if(type=="skip") {
+                        $("#msgRemind").html("跳过 " + result.data + "号 体检者！");
+                    } else if(type=="call") {
+                        $("#msgRemind").html("请 " + result.data + "号 体检者到【内科" + deviceNo + "】就诊！");
+                    } else if(type=="done") {
+                        $("#msgRemind").html(result.data + "号 完成体检！");
+                    } else {
+                        $("#msgRemind").html("");
+                    }
+                    loadPage();
+                    //location.href = "/nurse/page";
+                } else {
+                    $("#msgRemind").html("操作失败！");
+                }
+            },
+            error : function(errorMsg) {
+                //请求失败时执行该函数
+                alert("请求数据失败，可能是服务器开小差了");
+            }
+        })
+    }
 </script>
 </body>
 </html>

@@ -34,4 +34,9 @@ public interface IQueueService {
      */
     public boolean movePerCheckinfo(String queueCode, String testnoUp, String testnoDown) throws Exception;
 
+    /**
+     * 更新体检者状态
+     */
+    public boolean updatePerCheckinfoState(String queueCode, String testno, String state) throws Exception;
+
 }

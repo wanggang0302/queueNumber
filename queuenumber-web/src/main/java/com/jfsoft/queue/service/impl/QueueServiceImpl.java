@@ -142,4 +142,28 @@ public class QueueServiceImpl implements IQueueService {
         return oldList;
     }
 
+    /**
+     * 更新体检状态
+     */
+    public boolean updatePerCheckinfoState(String queueCode, String testno, String state) throws Exception {
+
+        //获得队列
+        QueueCenter queueCenter = queueCenterFactory.obtain(queueCode);
+        List<PerCheckinfo> perCheckinfoList = queueCenter.getPerCheckinfoList();
+
+        if(null!=perCheckinfoList && perCheckinfoList.size()>0) {
+            for(PerCheckinfo p : perCheckinfoList) {
+                if(null!=p && !StringUtils.isBlank(p.getTestno())
+                        && p.getTestno().equals(testno)) {
+                    p.setState(state);
+                    break;
+                }
+            }
+
+            queueCenter.update(perCheckinfoList);
+            return true;
+        }
+        return false;
+    }
+
 }

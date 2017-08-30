@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="queuenumber-common" />
         <module name="queuenumber-moudles" />
+        <module name="queuenumber-queue" />
         <module name="queuenumber-user" />
         <module name="queuenumber-web" />
       </profile>
@@ -16,6 +17,7 @@
       <module name="queuenumber" target="1.8" />
       <module name="queuenumber-common" target="1.8" />
       <module name="queuenumber-moudles" target="1.8" />
+      <module name="queuenumber-queue" target="1.8" />
       <module name="queuenumber-user" target="1.8" />
       <module name="queuenumber-web" target="1.8" />
     </bytecodeTargetLevel>

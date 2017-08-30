@@ -33,6 +33,15 @@ public class NurseController extends BaseController {
     private IQueueService queueService;
 
     /**
+     * 队列页
+     */
+    @RequestMapping("/page")
+    public String page() {
+
+        return "/doctor/queue/list";
+    }
+
+    /**
      * 查询某个队列中的所有体检者，按序输出
      */
     @ResponseBody
@@ -53,7 +62,7 @@ public class NurseController extends BaseController {
             e.printStackTrace();
         }
 
-        SimplePropertyPreFilter filter = new SimplePropertyPreFilter(PerCheckinfo.class, "testno", "name", "sex");
+        SimplePropertyPreFilter filter = new SimplePropertyPreFilter(PerCheckinfo.class, "testno", "name", "sex", "state");
 
         return JSON.toJSONString(result, filter,
                 SerializerFeature.WriteMapNullValue,
