@@ -18,6 +18,11 @@ public class PerCheckinfo {
     private String recodeno;
 
     /**
+     * 身份证号
+     */
+    private String ssid;
+
+    /**
      * 姓名
      */
     private String name;
@@ -111,4 +116,11 @@ public class PerCheckinfo {
         this.skip = new AtomicInteger(skip);
     }
 
+    public String getSsid() {
+        return ssid;
+    }
+
+    public void setSsid(String ssid) {
+        this.ssid = ssid;
+    }
 }

@@ -40,6 +40,14 @@ public class QueueServiceImpl implements IQueueService {
         if(null!=queueCenter) {
             //获得队列中的体检者
             perCheckinfoList = queueCenter.getPerCheckinfoList();
+            if(null!=perCheckinfoList && perCheckinfoList.size()>0) {
+                PerCheckinfo p = perCheckinfoList.get(0);
+                if (null != p && !StringUtils.isBlank(p.getTestno())) {
+                    if (StringUtils.isBlank(p.getState())) {
+                        p.setState(Constants.CHECK_STATUS_PREPARE);
+                    }
+                }
+            }
         }
         logger.debug("perCheckinfoList size is :" + perCheckinfoList.size());
 
