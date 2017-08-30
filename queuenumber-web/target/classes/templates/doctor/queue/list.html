@@ -6,11 +6,10 @@
 </head>
 <body>
 <h1>
-    <div id="queueName"></div>
-    <input type="hidden" id="queueCode"/>
+    <input type="text" id="queueCode" th:value="${session.queueCode}" readonly="readonly"/>
 </h1>
 <form action="#" th:action="@{/nurse/put}" th:method="post">
-    <select name="queueCode" onselect="selectQueueCode()">
+    <select name="queueCode" onselect="selectQueueCode()" style="font-size: 16px;" readonly="readonly">
         <option value="1">血常规</option>
         <option value="2">内科</option>
         <option value="3">外科</option>
@@ -31,6 +30,8 @@
     向下移动的体检号：<input type="text" name="testnoDown" value=""/>
     <input type="submit" />
 </form>
+<hr/>
+<div id="queueList"></div>
 <hr/>
 医生呼号(内科1)：
 呼叫器编号:
@@ -82,8 +83,6 @@
 <br/>
 屏幕&广播提示：<div id="msgRemind" style="color:#ff0000"></div>
 <hr/>
-<div id="queueList"></div>
-<hr/>
 等候区队列展示：
 <div id="waitingQueueList"></div>
 <hr/>
@@ -96,11 +95,26 @@
         var result = $.parseJSON(msg);
         alert(result.data);
     }
-    //科室页面加载
+
+    //从session中获得当前登录用户的queueCode
+    var queueCode = [[${session.queueCode}]];
+    //设置队列（科室）信息
+    initQueueInfo();
+
+    //队列（科室）页面加载
     loadPage();
 
     //等候区页面加载
     loadWaitingZonePage();
+
+    function initQueueInfo() {
+
+        //$("select[name='queueCode']").val(queueCode);//这种方法也可以选中select
+
+        $("select[name='queueCode']").find("option[value='" + queueCode + "']").attr("selected",true);
+        //var queueName = $("select[name='queueCode']").find("option:selected").text();
+        //$("#queueName").val(queueName);
+    }
 
     function loadWaitingZonePage() {
         $.ajax({    //使用JQuery内置的Ajax方法
@@ -193,14 +207,6 @@
                 alert("请求数据失败，可能是服务器开小差了");
             }
         })
-    }
-
-    //科室选择
-    function selectQueueCode() {
-
-        var queueCode = $("select[name='queueCode']:selected").val();
-        var queueName = $("select[name='queueCode']:selected").val();
-
     }
 
     /**

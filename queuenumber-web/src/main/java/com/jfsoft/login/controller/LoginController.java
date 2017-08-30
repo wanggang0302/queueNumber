@@ -7,8 +7,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpSession;
 
 /**
  * 登录
@@ -38,11 +42,16 @@ public class LoginController extends BaseController {
      * 登录验证
      */
     @RequestMapping(method = RequestMethod.POST)
-    public String findPerCheckinfoListOfQueue(String username, String password) {
+    public String findPerCheckinfoListOfQueue(HttpSession session, ModelMap model, String username, String password) {
 
         logger.debug("controller findPerCheckinfoListOfQueue.");
 
         SysUser sysUser = sysUserService.findForAuthentication(username, password);
+        //用户所属队列（科室）
+        Integer queueCode = sysUser.getOwnedqueue();
+        model.put("queueCode", queueCode);
+        saveQueueCodeToSession(session, Integer.toString(queueCode));
+        saveUserCodeToSession(session, Integer.toString(sysUser.getCode()));
 
         return "/doctor/queue/list";
     }

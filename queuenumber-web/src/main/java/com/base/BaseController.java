@@ -25,4 +25,20 @@ public class BaseController {
         return userCode;
     }
 
+    /**
+     * 保存queueCode到session
+     */
+    protected void saveQueueCodeToSession(HttpSession session, String queueCode) {
+
+        session.setAttribute(Constants.SESSION_QUEUE_KEY, queueCode);
+    }
+
+    /**
+     * 获取queueCode
+     */
+    protected String getQueueCodeFromSession(HttpSession session) {
+        String userCode = String.valueOf(session.getAttribute(Constants.SESSION_QUEUE_KEY));
+        return userCode;
+    }
+
 }

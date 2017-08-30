@@ -7,6 +7,8 @@ public class Constants {
 
     /** session存储的用户key */
     public static final String SESSION_USER_KEY = "user_code";
+    /** session存储的queueCode key */
+    public static final String SESSION_QUEUE_KEY = "queueCode";
 
     /** Controller返回状态码 */
     //成功
