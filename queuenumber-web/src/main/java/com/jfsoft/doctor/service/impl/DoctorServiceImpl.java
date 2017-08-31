@@ -70,7 +70,7 @@ public class DoctorServiceImpl implements IDoctorService {
             result.put("status", Constants.RETURN_STATUS_SUCCESS);
             result.put("data", pre.getTestno());
         } else {
-            result.put("status", Constants.RETURN_STATUS_FAILURE);
+            result.put("status", Constants.RETURN_STATUS_SUCCESS);
             result.put("data", "暂时没有上一个体检者！");
         }
 
@@ -107,7 +107,7 @@ public class DoctorServiceImpl implements IDoctorService {
                     }
                 }
                 if(null!=skiped) {
-                    AtomicInteger skipCount = skiped.getSkip();
+                    AtomicInteger skipCount = null!=skiped.getSkip()?skiped.getSkip():new AtomicInteger(0);
                     // >= 3次，自动跳过
                     if(skipCount.intValue()>=3) {
                         //将该体检者移出队列
@@ -122,7 +122,7 @@ public class DoctorServiceImpl implements IDoctorService {
                         logger.info("{} is removed from the queue[queueCode is {}, isVip is {}].", currentTestno, queueCode, isVip);
                     }
                     result.put("status", Constants.RETURN_STATUS_SUCCESS);
-                    result.put("data", "成功跳过");
+                    result.put("data", currentTestno);
                 } else {
                     result.put("status", Constants.RETURN_STATUS_FAILURE);
                     result.put("data", "跳过失败");
@@ -136,7 +136,7 @@ public class DoctorServiceImpl implements IDoctorService {
         return result;
     }
 
-    public String wentTo(String queueCode, String isVip, String testno, String deviceNo) throws Exception {
+    public String call(String queueCode, String isVip, String testno) throws Exception {
 
         PerCheckinfo perCheckinfoPreparedToCheck = null;
 
@@ -146,25 +146,27 @@ public class DoctorServiceImpl implements IDoctorService {
         QueueCenter queueCenter = queueCenterFactory.obtain(queueCode);
         logger.debug("queueCenter is :" + queueCenter);
 
+        List<PerCheckinfo> perCheckinfoList = null;
+
         if(Constants.IS_TRUE.equals(isVip)) {
             //是VIP队列
+            perCheckinfoList = queueCenter.getVipPerCheckinfoList();
         } else {
+            perCheckinfoList = queueCenter.getPerCheckinfoList();
+        }
 
-            for(PerCheckinfo p : queueCenter.getPerCheckinfoList()) {
-                if(null!=p && !StringUtils.isBlank(p.getTestno()) && p.getTestno().equals(testno)) {
-                    perCheckinfoPreparedToCheck = p;
-                    //queueService.updatePerCheckinfoState(queueCode, p.getTestno(), Constants.CHECK_STATUS_ING);
-                    break;
-                } else if(null!=p && !StringUtils.isBlank(p.getTestno()) && !Constants.CHECK_STATUS_ING.equals(p.getState())
-                        && !Constants.CHECK_STATUS_DONE.equals(p.getState())) {
-                    //1. 获取队列中第一个体检状态不是"体检中"和"已完成"的
-                    //&& 2. testno如果与p.getTestno()相同，
-                    perCheckinfoPreparedToCheck = p;
-                    queueService.updatePerCheckinfoState(queueCode, p.getTestno(), Constants.CHECK_STATUS_ING);
-                    break;
-                }
+        for(PerCheckinfo p : perCheckinfoList) {
+            if(null!=p && !StringUtils.isBlank(p.getTestno()) && p.getTestno().equals(testno)) {
+                perCheckinfoPreparedToCheck = p;
+                break;
+            } else if(null!=p && !StringUtils.isBlank(p.getTestno()) && !Constants.CHECK_STATUS_ING.equals(p.getState())
+                    && !Constants.CHECK_STATUS_DONE.equals(p.getState())) {
+                //1. 获取队列中第一个体检状态不是"体检中"和"已完成"的
+                //&& 2. testno如果与p.getTestno()相同，
+                perCheckinfoPreparedToCheck = p;
+                queueService.updatePerCheckinfoState(queueCode, p, Constants.CHECK_STATUS_ING);
+                break;
             }
-            //perCheckinfoPreparedToCheck = queueCenter.peek();
         }
 
         return null!=perCheckinfoPreparedToCheck?perCheckinfoPreparedToCheck.getTestno():"";

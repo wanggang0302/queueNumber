@@ -48,6 +48,6 @@ public interface IQueueService {
     /**
      * 更新体检者状态
      */
-    public boolean updatePerCheckinfoState(String queueCode, String testno, String state) throws Exception;
+    public boolean updatePerCheckinfoState(String queueCode, PerCheckinfo perCheckinfo, String state) throws Exception;
 
 }

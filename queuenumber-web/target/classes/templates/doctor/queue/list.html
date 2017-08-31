@@ -39,7 +39,7 @@
     <input type="hidden" name="queueCode" th:value="${session.queueCode}">
     是否移动VIP队列：
     否:<input type="radio" name="isVip" value="0" checked="checked"/>
-    是:<input type="radio" name="isVip" value="1"/>
+    是:<input type="radio" name="isVip" value="1"/><br/>
     向上移动的体检号：<input type="text" name="testnoUp" value=""/>
     向下移动的体检号：<input type="text" name="testnoDown" value=""/>
     <input type="submit" />
@@ -111,6 +111,11 @@
 <br/>
 屏幕&广播提示：<div id="msgRemind" style="color:#ff0000"></div>
 <hr class="hr_part_line"/>
+体检者综合队列信息：
+体检号：<input type="text" name="testno" id="testno" value=""/>
+<input type="button" onclick="getCheckerQueueInfo()" value="查询"/>
+<div id="wholeQueue"></div>
+<hr class="hr_part_line"/>
 等候区队列展示：
 <div id="waitingQueueList"></div>
 <hr class="hr_divide"/>
@@ -136,6 +141,55 @@
 
     //等候区页面加载
     loadWaitingZonePage();
+
+    //查询体检者的体检情况
+    function getCheckerQueueInfo() {
+        var testno = $("#testno").val();
+        $.ajax({    //使用JQuery内置的Ajax方法
+            type : "post",        //post请求方式
+            async : true,        //异步请求（同步请求将会锁住浏览器，用户其他操作必须等待请求完成才可以执行）
+            url : "/checker/whole",    //请求发送到ShowInfoIndexServlet处
+            data : {"testno" : testno},        //请求内包含一个key为name，value为A0001的参数；服务器接收到客户端请求时通过request.getParameter方法获取该参数值
+            dataType : "json",        //返回数据形式为json
+            success : function(result) {
+                console.log(result.status);
+                var htm = "";
+                htm += "<h4>您好，下面是您的体检情况</h4>";
+                htm += "<table border='1px'>";
+                htm += "<tr><td>体检项目名称</td><td>状态</td><td>排队人数</td><td>排队时间（分钟）</td></tr>";
+
+                $.each(result.data, function(i,n)
+                {
+                    console.log("索引:" + i, "对应值为：" + n.name + n.testno + n.sex);
+
+                    htm += "<tr>";
+                    htm += "<td>"+ n.queueName + "</td>";
+                    var state = n.state;
+                    if("1"==state) {
+                        htm += "<td style='color:#00FF00'>已检查</td>";
+                    } else if("2"==state) {
+                        htm += "<td style='color:#0000FF'>已排队</td>";
+                    } else if("3"==state) {
+                        htm += "<td style='color:#FF0000'>未排队</td>";
+                    } else {
+                        htm += "<td></td>";
+                    }
+                    htm += "<td>" + n.waitCount + "</td>";
+                    htm += "<td>" + n.waitTime + "</td>";
+                    htm += "</tr>";
+                });
+                htm += "</table>";
+                htm += "<br/>";
+
+                console.log("result is :" + htm);
+                $("#wholeQueue").html(htm);
+            },
+            error : function(errorMsg) {
+                //请求失败时执行该函数
+                alert("请求数据失败，可能是服务器开小差了");
+            }
+        })
+    }
 
     function initQueueInfo() {
 
@@ -260,25 +314,46 @@
             type : "get",        //post请求方式
             async : true,        //异步请求（同步请求将会锁住浏览器，用户其他操作必须等待请求完成才可以执行）
             url : "/doctor/" + type,    //请求发送到ShowInfoIndexServlet处
-            data : {queueCode : queueCode, isVip:isVip, testno: testno, deviceNo: deviceNo},        //请求内包含一个key为name，value为A0001的参数；服务器接收到客户端请求时通过request.getParameter方法获取该参数值
+            data : {queueCode : queueCode, isVip:isVip, testno: testno},        //请求内包含一个key为name，value为A0001的参数；服务器接收到客户端请求时通过request.getParameter方法获取该参数值
             dataType : "json",        //返回数据形式为json
             success : function(result) {
                 console.log(result.status);
                 var resultStatus = result.status;
                 if(resultStatus=="success") {
-                    $("#testno"+deviceNo).val(result.data);
-                    if(type=="pre") {
-                        $("#msgRemind").html("呼叫 " + result.data + "号 体检者到【内科" + deviceNo + "】就诊！");
-                    } else if(type=="skip") {
-                        $("#msgRemind").html("跳过 " + result.data + "号 体检者！");
-                    } else if(type=="call") {
-                        $("#msgRemind").html("请 " + result.data + "号 体检者到【内科" + deviceNo + "】就诊！");
-                    } else if(type=="done") {
-                        $("#msgRemind").html(result.data + "号 完成体检！");
+                    //体检号
+                    var no = result.data;
+                    if(null!=no && ""!=no) {
+                        $("#testno"+deviceNo).val(no);
+                        if(type=="pre") {
+                            $("#msgRemind").html("呼叫 " + result.data + "号 体检者到【内科" + deviceNo + "】就诊！");
+                        } else if(type=="skip") {
+                            $("#msgRemind").html("跳过 " + result.data + "号 体检者！");
+                        } else if(type=="call") {
+                            $("#msgRemind").html("请 " + result.data + "号 体检者到【内科" + deviceNo + "】就诊！");
+                        } else if(type=="done") {
+                            $("#msgRemind").html(result.data + "号 完成体检！");
+                        } else {
+                            $("#msgRemind").html("");
+                        }
                     } else {
-                        $("#msgRemind").html("");
+                        if(type=="pre") {
+                            $("#msgRemind").html("没有上一个体检者！");
+                        } else if(type=="skip") {
+                            $("#msgRemind").html("跳过 " + result.data + "号 体检者！");
+                        } else if(type=="call") {
+                            if("1"==isVip) {
+                                $("#msgRemind").html("VIP队列为空，是否读取普通队列！");
+                            } else {
+                                $("#msgRemind").html("普通队列为空，是否读取VIP队列！");
+                            }
+                        } else if(type=="done") {
+                            $("#msgRemind").html(result.data + "号 完成体检！");
+                        } else {
+                            $("#msgRemind").html("");
+                        }
                     }
                     loadPage();
+                    loadWaitingZonePage();
                     //location.href = "/nurse/page";
                 } else {
                     $("#msgRemind").html("操作失败！");

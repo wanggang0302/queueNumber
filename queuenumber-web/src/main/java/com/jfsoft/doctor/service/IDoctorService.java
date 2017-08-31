@@ -20,7 +20,7 @@ public interface IDoctorService {
     /**
      * 医生呼号
      */
-    public String wentTo(String queueCode, String isVip, String testno, String deviceNo) throws Exception;
+    public String call(String queueCode, String isVip, String testno) throws Exception;
 
     /**
      * 将体检者移除队列

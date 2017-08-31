@@ -129,8 +129,16 @@ public class QueueCenter {
 
         try {
 
-            this.perCheckinfos.clear();
-            this.perCheckinfos.addAll(perCheckinfoList);
+            //是否VIP队列
+            String isVip = perCheckinfoList.get(0).getIsVip();
+
+            if(Constants.IS_TRUE.equals(isVip)) {
+                this.vipQueue.clear();
+                this.vipQueue.addAll(perCheckinfoList);
+            } else {
+                this.perCheckinfos.clear();
+                this.perCheckinfos.addAll(perCheckinfoList);
+            }
 
             return true;
         } catch (Exception e) {

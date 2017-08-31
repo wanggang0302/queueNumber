@@ -52,7 +52,7 @@ public class SysQueue {
     /**
      * 检查一个人需要的时间(单位:分钟)
      */
-    private Date queuetime;
+    private Float queuetime;
 
     /**
      * 是否显示广告(0:否,1:是)
@@ -122,11 +122,11 @@ public class SysQueue {
         this.isenable = isenable;
     }
 
-    public Date getQueuetime() {
+    public Float getQueuetime() {
         return queuetime;
     }
 
-    public void setQueuetime(Date queuetime) {
+    public void setQueuetime(Float queuetime) {
         this.queuetime = queuetime;
     }
 

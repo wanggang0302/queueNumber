@@ -277,12 +277,25 @@ public class QueueServiceImpl implements IQueueService {
     /**
      * 更新体检状态
      */
-    public boolean updatePerCheckinfoState(String queueCode, String testno, String state) throws Exception {
+    public boolean updatePerCheckinfoState(String queueCode, PerCheckinfo perCheckinfo, String state) throws Exception {
+
+        //体检号
+        String testno = perCheckinfo.getTestno();
+
+        //是否VIP
+        String isVip = perCheckinfo.getIsVip();
 
         //获得队列
         QueueCenter queueCenter = queueCenterFactory.obtain(queueCode);
-        List<PerCheckinfo> perCheckinfoList = queueCenter.getPerCheckinfoList();
+        List<PerCheckinfo> perCheckinfoList = null;
 
+        if(Constants.IS_TRUE.equals(isVip)) {
+            perCheckinfoList = queueCenter.getVipPerCheckinfoList();
+        } else {
+            perCheckinfoList = queueCenter.getPerCheckinfoList();
+        }
+
+        //需要判断是否操作的VIP队列，进而进行不同的操作
         if(null!=perCheckinfoList && perCheckinfoList.size()>0) {
             for(PerCheckinfo p : perCheckinfoList) {
                 if(null!=p && !StringUtils.isBlank(p.getTestno())

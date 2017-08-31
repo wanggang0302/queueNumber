@@ -35,7 +35,7 @@ public class DoctorController extends BaseController {
         Map<String, Object> result = new HashMap<String, Object>();
 
         try {
-            doctorService.previous(queueCode, isVip, testno);
+            result = doctorService.previous(queueCode, isVip, testno);
         } catch (Exception e) {
             result.put("status", Constants.RETURN_STATUS_FAILURE);
             e.printStackTrace();
@@ -69,13 +69,13 @@ public class DoctorController extends BaseController {
      * @return
      */
     @RequestMapping("/call")
-    public String wentTo(String queueCode, String isVip, String testno, String deviceNo) {
+    public String call(String queueCode, String isVip, String testno) {
 
         Map<String, Object> result = new HashMap<String, Object>();
 
         try {
 
-            String callTestno = doctorService.wentTo(queueCode, isVip, testno, deviceNo);
+            String callTestno = doctorService.call(queueCode, isVip, testno);
 
             //文字转语音（这个不好搞，要封装到独立的模块，通用）
 
