@@ -46,14 +46,14 @@ public class NurseController extends BaseController {
      */
     @ResponseBody
     @RequestMapping(value = "/list", method = RequestMethod.POST)
-    public String findPerCheckinfoListOfQueue(String queueCode) {
+    public String findPerCheckinfoListOfQueue(String queueCode, String isVip) {
 
         logger.debug("controller findPerCheckinfoListOfQueue.");
 
         Map<String, Object> result = new HashMap<String, Object>();
         try {
 
-            List<PerCheckinfo> perCheckinfoListOfQueue = queueService.findPerCheckinfoListOfQueue(queueCode);
+            List<PerCheckinfo> perCheckinfoListOfQueue = queueService.findPerCheckinfoListOfQueue(queueCode, isVip);
             logger.debug("controller findPerCheckinfoListOfQueue. list size is :" + perCheckinfoListOfQueue.size());
             result.put("data", perCheckinfoListOfQueue);
             result.put("status", Constants.RETURN_STATUS_SUCCESS);
@@ -72,7 +72,6 @@ public class NurseController extends BaseController {
 
     /**
      * 队列中增加一个体检者
-     * @return
      */
     @RequestMapping("/put")
     public String putChecker(ModelMap model, String queueCode, PerCheckinfo perCheckinfo) {
@@ -86,9 +85,6 @@ public class NurseController extends BaseController {
 
     /**
      * 从队列中删除体检者
-     * @param queueCode
-     * @param perCheckinfo
-     * @return
      */
     @RequestMapping("/delete")
     public String deleteChecker(ModelMap model, String queueCode, PerCheckinfo perCheckinfo) {
@@ -112,13 +108,13 @@ public class NurseController extends BaseController {
      * 调整队列顺序
      */
     @RequestMapping("/adjust")
-    public String adjustQueue(ModelMap model, String queueCode, String testnoUp, String testnoDown) {
+    public String adjustQueue(ModelMap model, String queueCode, String isVip, String testnoUp, String testnoDown) {
 
         Map<String, Object> result = new HashMap<String, Object>();
 
         try {
 
-            boolean removeState = queueService.movePerCheckinfo(queueCode, testnoUp, testnoDown);
+            boolean removeState = queueService.moveVertical(queueCode, isVip, testnoUp, testnoDown);
 
             if(removeState) {
                 result.put("status", Constants.RETURN_STATUS_SUCCESS);
@@ -131,6 +127,29 @@ public class NurseController extends BaseController {
             result.put("status", Constants.RETURN_STATUS_FAILURE);
             result.put("data", "调整顺序失败！");
             logger.error("adjustQueue error! err msg is {}.", e.getMessage());
+            e.printStackTrace();
+        }
+
+        model.put("result", JSON.toJSONString(result));
+
+        return "/doctor/queue/list";
+    }
+
+    /**
+     * 跨队列调整
+     */
+    @RequestMapping("/cross")
+    public String crossQueue(ModelMap model, String queueCode, String testnoFromQueue, String testnoFromVipQueue) {
+
+        Map<String, Object> result = new HashMap<String, Object>();
+
+        try {
+
+            result = queueService.moveHorizontal(queueCode, testnoFromQueue, testnoFromVipQueue);
+        } catch (Exception e) {
+            result.put("status", Constants.RETURN_STATUS_FAILURE);
+            result.put("data", "跨队列调整失败！");
+            logger.error(e.getMessage(), e);
             e.printStackTrace();
         }
 

@@ -76,6 +76,9 @@ public class DoctorController extends BaseController {
         try {
 
             String callTestno = doctorService.wentTo(queueCode, isVip, testno, deviceNo);
+
+            //文字转语音（这个不好搞，要封装到独立的模块，通用）
+
             result.put("status", Constants.RETURN_STATUS_SUCCESS);
             result.put("data", callTestno);
         } catch (Exception e) {

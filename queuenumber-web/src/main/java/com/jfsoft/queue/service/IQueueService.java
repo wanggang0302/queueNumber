@@ -21,7 +21,7 @@ public interface IQueueService {
      * @param queueCode
      * @return
      */
-    public List<PerCheckinfo> findPerCheckinfoListOfQueue(String queueCode);
+    public List<PerCheckinfo> findPerCheckinfoListOfQueue(String queueCode, String isVip);
 
     /**
      * 将体检者增加到队列中
@@ -36,9 +36,14 @@ public interface IQueueService {
     public boolean deletePerCheckinfo(String queueCode, PerCheckinfo perCheckinfo);
 
     /**
-     * 调整队列顺序
+     * 跨队列调整
      */
-    public boolean movePerCheckinfo(String queueCode, String testnoUp, String testnoDown) throws Exception;
+    public Map<String, Object> moveHorizontal(String queueCode, String testnoFromQueue, String testnoFromVipQueue) throws Exception;
+
+    /**
+     * 调整队列顺序（上下调整）
+     */
+    public boolean moveVertical(String queueCode, String isVip, String testnoUp, String testnoDown) throws Exception;
 
     /**
      * 更新体检者状态

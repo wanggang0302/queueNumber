@@ -29,11 +29,11 @@ public class QueueController {
      * 查询某个队列中的所有体检者，按序输出
      */
     @RequestMapping("/find")
-    public List<PerCheckinfo> findPerCheckinfoListOfQueue(String queueCode) {
+    public List<PerCheckinfo> findPerCheckinfoListOfQueue(String queueCode, String isVip) {
 
         logger.debug("controller findPerCheckinfoListOfQueue.");
 
-        List<PerCheckinfo> perCheckinfoListOfQueue = queueService.findPerCheckinfoListOfQueue(queueCode);
+        List<PerCheckinfo> perCheckinfoListOfQueue = queueService.findPerCheckinfoListOfQueue(queueCode, isVip);
         logger.debug("controller findPerCheckinfoListOfQueue. list size is :" + perCheckinfoListOfQueue.size());
 
         return perCheckinfoListOfQueue;

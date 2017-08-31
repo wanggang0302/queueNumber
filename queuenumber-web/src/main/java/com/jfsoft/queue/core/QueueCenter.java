@@ -40,13 +40,6 @@ public class QueueCenter {
 
         List<PerCheckinfo> perCheckinfoList = new ArrayList<PerCheckinfo>();
 
-        //优先查询VIP队列
-        if(null!=vipQueue) {
-            for(Iterator<PerCheckinfo> it = vipQueue.iterator(); it.hasNext();) {
-                perCheckinfoList.add(it.next());
-            }
-        }
-
         if(null!=perCheckinfos) {
             for(Iterator<PerCheckinfo> it = perCheckinfos.iterator(); it.hasNext();) {
                 perCheckinfoList.add(it.next());
@@ -101,15 +94,29 @@ public class QueueCenter {
      */
     public boolean remove(PerCheckinfo perCheckinfo) {
 
+        //是否VIP
+        String isVip = perCheckinfo.getIsVip();
+
         //获得体检号，根据体检号匹配队列
         String testno = perCheckinfo.getTestno();
 
-        for(Iterator<PerCheckinfo> it = perCheckinfos.iterator(); it.hasNext();) {
-            PerCheckinfo detectedOne = it.next();
-            if(null!=detectedOne && !StringUtils.isBlank(detectedOne.getTestno())
-                    && detectedOne.getTestno().equals(testno)) {
-                this.perCheckinfos.remove(detectedOne);
-                return true;
+        if(Constants.IS_TRUE.equals(isVip)) {
+            for(Iterator<PerCheckinfo> it = vipQueue.iterator(); it.hasNext();) {
+                PerCheckinfo detectedOne = it.next();
+                if(null!=detectedOne && !StringUtils.isBlank(detectedOne.getTestno())
+                        && detectedOne.getTestno().equals(testno)) {
+                    this.vipQueue.remove(detectedOne);
+                    return true;
+                }
+            }
+        } else {
+            for(Iterator<PerCheckinfo> it = perCheckinfos.iterator(); it.hasNext();) {
+                PerCheckinfo detectedOne = it.next();
+                if(null!=detectedOne && !StringUtils.isBlank(detectedOne.getTestno())
+                        && detectedOne.getTestno().equals(testno)) {
+                    this.perCheckinfos.remove(detectedOne);
+                    return true;
+                }
             }
         }
         return false;

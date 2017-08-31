@@ -16,15 +16,11 @@ public class Constants {
     //失败
     public static final String RETURN_STATUS_FAILURE = "failure";
 
-    /** 是否使用：是 */
-    public static final String IS_USE_TRUE = "1";
-    public static final String IS_USE_FALSE = "0";
-    /** 是否使用：全部 */
-    public static final String IS_USE_ALL = "2";
-
-    /** 是否删除：是 */
+    /** 是否：是 */
     public static final String IS_TRUE = "1";
     public static final String IS_FALSE = "0";
+    /** 是否：全部 */
+    public static final String IS_ALL = "2";
 
     /** 体检状态：检查中 */
     public static final String CHECK_STATUS_ING = "1";

@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="queuenumber-comm" />
         <module name="queuenumber-common" />
         <module name="queuenumber-moudles" />
         <module name="queuenumber-queue" />
@@ -15,6 +16,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="queuenumber" target="1.8" />
+      <module name="queuenumber-comm" target="1.8" />
       <module name="queuenumber-common" target="1.8" />
       <module name="queuenumber-moudles" target="1.8" />
       <module name="queuenumber-queue" target="1.8" />

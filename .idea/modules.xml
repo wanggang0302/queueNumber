@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/0825-queuenumber.iml" filepath="$PROJECT_DIR$/.idea/0825-queuenumber.iml" />
       <module fileurl="file://$PROJECT_DIR$/queuenumber/queuenumber.iml" filepath="$PROJECT_DIR$/queuenumber/queuenumber.iml" />
+      <module fileurl="file://$PROJECT_DIR$/queuenumber-comm/queuenumber-comm.iml" filepath="$PROJECT_DIR$/queuenumber-comm/queuenumber-comm.iml" />
       <module fileurl="file://$PROJECT_DIR$/queuenumber-common/queuenumber-common.iml" filepath="$PROJECT_DIR$/queuenumber-common/queuenumber-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/queuenumber-moudles/queuenumber-moudles.iml" filepath="$PROJECT_DIR$/queuenumber-moudles/queuenumber-moudles.iml" />
       <module fileurl="file://$PROJECT_DIR$/queuenumber-queue/queuenumber-queue.iml" filepath="$PROJECT_DIR$/queuenumber-queue/queuenumber-queue.iml" />
