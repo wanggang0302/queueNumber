@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.jfsoft.mapper.HospitalInfoMapper" >
+
 	<resultMap id="BaseResultMap" type="com.jfsoft.model.HospitalInfo" >
 		<id column="id" property="id" jdbcType="CHAR" />
 		<result column="code" property="code" jdbcType="INTEGER" />
@@ -17,7 +18,7 @@
 
 	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
 		select 
-		<include refid="Base_Column_List" />
+		    id, code, name, linkTel, introduction
 		from hospital_info
 		where id = #{id,jdbcType=CHAR}
 	</select>

@@ -44,16 +44,28 @@ public class LoginController extends BaseController {
     @RequestMapping(method = RequestMethod.POST)
     public String findPerCheckinfoListOfQueue(HttpSession session, ModelMap model, String username, String password) {
 
-        logger.debug("controller findPerCheckinfoListOfQueue.");
+        SysUser sysUser = null;
+        try {
+            sysUser = sysUserService.findForAuthentication(username, password);
 
-        SysUser sysUser = sysUserService.findForAuthentication(username, password);
-        //用户所属队列（科室）
-        Integer queueCode = sysUser.getOwnedqueue();
-        model.put("queueCode", queueCode);
-        saveQueueCodeToSession(session, Integer.toString(queueCode));
-        saveUserCodeToSession(session, Integer.toString(sysUser.getCode()));
+            if(null!=sysUser) {
+                //用户所属队列（科室）
+                Integer queueCode = sysUser.getOwnedqueue();
+                model.put("queueCode", queueCode);
+                saveQueueCodeToSession(session, Integer.toString(queueCode));
+                saveUserCodeToSession(session, Integer.toString(sysUser.getCode()));
 
-        return "/doctor/queue/list";
+                return "/doctor/queue/list";
+            }
+        } catch (Exception e) {
+
+            logger.error(e.getMessage(), e);
+            e.printStackTrace();
+        }
+
+        model.put("msg", "登录失败，用户名或密码错误！");
+
+        return "/doctor/login";
     }
 
 }

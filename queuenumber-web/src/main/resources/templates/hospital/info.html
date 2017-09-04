@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>医院信息管理</title>
+</head>
+<body>
+医院名称：<input type="text" value="${hospital.name}"/>
+联系电话：<input type="text" value="${hospital.linktel}"/>
+医院简介：<input type="text" value="${hospital.introduction}"/>
+
+<script th:inline="javascript">
+    var flage = [[${saveFlage}]];
+    if("true"==flage) {
+        alert("修改成功！");
+    } else {
+        alert("修改失败！");
+    }
+</script>
+</body>
+</html>

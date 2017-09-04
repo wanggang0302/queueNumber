@@ -5,10 +5,18 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
+
 <form action="#" th:action="@{/login}" th:method="post">
     <input type="text" name="username" value="pzy"/>
     <input type="password" name="password" value="123456"/>
     <input type="submit" value="登录"/>
 </form>
+
+<script th:inline="javascript">
+    var msg = [[${msg}]];
+    if(null!=msg && ""!=msg) {
+        alert(msg);
+    }
+</script>
 </body>
 </html>

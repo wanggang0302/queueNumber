@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.jfsoft.mapper.AdvertisementMapper" >
+
 	<resultMap id="BaseResultMap" type="com.jfsoft.model.Advertisement" >
 		<id column="id" property="id" jdbcType="CHAR" />
 		<result column="code" property="code" jdbcType="INTEGER" />
@@ -110,5 +111,52 @@
 			createrId = #{createrid,jdbcType=INTEGER}
 		where id = #{id,jdbcType=CHAR}
 	</update>
+
+    <!-- 根据队列编号查询广告 -->
+    <select id="findByQueuecode" parameterType="java.util.Map" resultMap="BaseResultMap">
+        select
+            ad.id,ad.code,ad.queueCode
+        from
+            advertisement ad
+        where ad.queueCode=#{queueCode}
+    </select>
+
+    <!-- 分页查询广告列表 -->
+    <select id="findPage" parameterType="java.util.Map" resultMap="BaseResultMap">
+        select
+            ad.id,ad.code,ad.queueCode,sq.name as queueName,ad.isUse,ad.createTime,ad.createrId
+        from
+            advertisement ad
+        left join sys_queue sq on ad.queueCode=sq.code
+        where
+            ad.id in
+            (
+                SELECT top #{pageSize} adt.id FROM
+                (
+                    SELECT top #{pageStart} ads.id, ads.createtime FROM advertisement ads ORDER BY ads.createtime desc
+                ) adt ORDER BY adt.createTime desc
+            )
+            <if test="queueCode != null" >
+                and ad.queueCode = #{queueCode}
+            </if>
+        ORDER BY
+            ad.createTime desc
+    </select>
+    <select id="findPageCount" parameterType="java.util.Map" resultType="java.lang.Integer">
+        select
+            count(*)
+        from
+            advertisement ad
+        <where>
+            <if test="queueCode != null" >
+                and ad.queueCode = #{queueCode}
+            </if>
+        </where>
+    </select>
+
+    <!-- 查询最大code -->
+    <select id="getMaxCode" resultType="java.lang.Integer">
+        select MAX(code) from advertisement
+    </select>
 
 </mapper>

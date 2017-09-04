@@ -47,9 +47,14 @@ public class SysUser {
     private Integer ownedqueue;
 
     /**
+     * 所属队列名称
+     */
+    private String ownedQueueName;
+
+    /**
      * 是否使用（0:否,1:是）
      */
-    private Boolean isuse;
+    private String isuse;
 
     /**
      * 创建时间
@@ -65,6 +70,14 @@ public class SysUser {
      * 备注
      */
     private String memo;
+
+    public String getOwnedQueueName() {
+        return ownedQueueName;
+    }
+
+    public void setOwnedQueueName(String ownedQueueName) {
+        this.ownedQueueName = ownedQueueName;
+    }
 
     public Integer getId() {
         return id;
@@ -114,11 +127,11 @@ public class SysUser {
         this.ownedqueue = ownedqueue;
     }
 
-    public Boolean getIsuse() {
+    public String getIsuse() {
         return isuse;
     }
 
-    public void setIsuse(Boolean isuse) {
+    public void setIsuse(String isuse) {
         this.isuse = isuse;
     }
 

@@ -7,8 +7,12 @@ public class Constants {
 
     /** session存储的用户key */
     public static final String SESSION_USER_KEY = "user_code";
+    /** session存储的用户IDkey */
+    public static final String SESSION_USERID_KEY = "user_id";
     /** session存储的queueCode key */
     public static final String SESSION_QUEUE_KEY = "queueCode";
+    /** 用户默认密码 */
+    public static final String DEFAULT_PASSWORD = "123456";
 
     /** Controller返回状态码 */
     //成功

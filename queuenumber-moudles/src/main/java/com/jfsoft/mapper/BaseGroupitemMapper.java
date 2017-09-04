@@ -9,6 +9,9 @@ package com.jfsoft.mapper;
 
 import com.jfsoft.model.BaseGroupitem;
 
+import java.util.List;
+import java.util.Map;
+
 public interface BaseGroupitemMapper {
     
     int deleteByPrimaryKey(String id);
@@ -22,5 +25,20 @@ public interface BaseGroupitemMapper {
     int updateByPrimaryKeySelective(BaseGroupitem record);
 
     int updateByPrimaryKey(BaseGroupitem record);
-    
+
+    /**
+     * 分页查询组合项目
+     */
+    List<BaseGroupitem> findPage(Map<String, Object> params);
+
+    /**
+     * 查询组合项目总数
+     */
+    int findPageCount(Map<String, Object> params);
+
+    /**
+     * 批量插入
+     */
+    int insertBatch(List<BaseGroupitem> list);
+
 }

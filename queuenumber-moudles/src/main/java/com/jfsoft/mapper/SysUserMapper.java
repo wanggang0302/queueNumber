@@ -9,6 +9,7 @@ package com.jfsoft.mapper;
 
 import com.jfsoft.model.SysUser;
 
+import java.util.List;
 import java.util.Map;
 
 public interface SysUserMapper {
@@ -26,10 +27,23 @@ public interface SysUserMapper {
     int updateByPrimaryKey(SysUser record);
 
     /**
-     * 查询用户信息
-     * @param params
-     * @return
+     * 根据业务唯一主键（用户账号）查询用户信息
      */
     SysUser findByUsername(Map<String, Object> params);
-    
+
+    /**
+     * 分页查询用户信息
+     */
+    List<SysUser> findPage(Map<String, Object> params);
+
+    /**
+     * 查询用户总数
+     */
+    int findPageCount(Map<String, Object> params);
+
+    /**
+     * 查询最大用户编号
+     */
+    int getMaxCode();
+
 }

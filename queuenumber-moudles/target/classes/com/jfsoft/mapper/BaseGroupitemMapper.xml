@@ -133,4 +133,42 @@
 		where id = #{id,jdbcType=CHAR}
 	</update>
 
+	<!-- 分页查询组合项目信息 -->
+	<select id="findPage" parameterType="java.util.Map" resultMap="BaseResultMap">
+		select
+			bg.id,bg.code,bg.name,bg.deptCode,bg.deptName,bg.isUse,bg.syncTime
+		from
+			base_groupitem bg
+		WHERE bg.id in
+			(
+				SELECT top #{pageSize} bgt.id FROM
+				(
+					SELECT top #{pageStart} bgs.id, bgs.syncTime FROM base_groupitem bgs ORDER BY bgs.syncTime desc
+				) bgt ORDER BY bgt.syncTime desc
+			)
+			<if test="name != null" >
+				and bg.name like '%' + #{name,jdbcType=NVARCHAR} + '%'
+			</if>
+		ORDER BY bg.syncTime desc
+	</select>
+	<select id="findPageCount" parameterType="java.util.Map" resultType="java.lang.Integer">
+		select
+			count(*)
+		from
+			base_groupitem bg
+		<where>
+			<if test="name != null" >
+				bg.name like '%' + #{name} + '%'
+			</if>
+		</where>
+	</select>
+
+    <!-- 批量插入 -->
+    <insert id="insertBatch" parameterType="java.util.List">
+        insert into base_groupitem(code,name,deptCode,deptName,isUse,syncTime,syncUserId) values
+        <foreach collection="list" item="item" separator="," open="(" close=")">
+            #{item.code}, #{item.name}, #{item.deptCode}, #{item.deptName}, '1', getdate(), '1'
+        </foreach>
+    </insert>
+
 </mapper>

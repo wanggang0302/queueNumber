@@ -32,9 +32,14 @@ public class Advertisement {
     private Integer queuecode;
 
     /**
+     * 队列名称
+     */
+    private String queueName;
+
+    /**
      * 是否使用(0:否,1:是)
      */
-    private Boolean isuse;
+    private String isuse;
 
     /**
      * 创建时间
@@ -70,11 +75,11 @@ public class Advertisement {
         this.queuecode = queuecode;
     }
 
-    public Boolean getIsuse() {
+    public String getIsuse() {
         return isuse;
     }
 
-    public void setIsuse(Boolean isuse) {
+    public void setIsuse(String isuse) {
         this.isuse = isuse;
     }
 
@@ -92,6 +97,14 @@ public class Advertisement {
 
     public void setCreaterid(Integer createrid) {
         this.createrid = createrid;
+    }
+
+    public String getQueueName() {
+        return queueName;
+    }
+
+    public void setQueueName(String queueName) {
+        this.queueName = queueName;
     }
 
 }

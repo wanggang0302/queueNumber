@@ -42,12 +42,12 @@ public class SysQueue {
     /**
      * 是否需要排队(0:否,1:是)
      */
-    private Boolean isneedqueueup;
+    private String isneedqueueup;
 
     /**
      * 需要排队,是否启用排队(0:否,1:是)
      */
-    private Boolean isenable;
+    private String isenable;
 
     /**
      * 检查一个人需要的时间(单位:分钟)
@@ -57,17 +57,27 @@ public class SysQueue {
     /**
      * 是否显示广告(0:否,1:是)
      */
-    private Boolean isshowad;
+    private String isshowad;
 
     /**
      * 是否有前置条件(0:否,1:是)
      */
-    private Boolean isperterm;
+    private String isperterm;
 
     /**
      * 前置条件详情
      */
     private String perterminfo;
+
+    /**
+     * 创建时间
+     */
+    private Date createTime;
+
+    /**
+     * 创建人ID
+     */
+    private String createId;
 
     /**
      * 体检者队列
@@ -106,44 +116,12 @@ public class SysQueue {
         this.queuelocation = queuelocation == null ? null : queuelocation.trim();
     }
 
-    public Boolean getIsneedqueueup() {
-        return isneedqueueup;
-    }
-
-    public void setIsneedqueueup(Boolean isneedqueueup) {
-        this.isneedqueueup = isneedqueueup;
-    }
-
-    public Boolean getIsenable() {
-        return isenable;
-    }
-
-    public void setIsenable(Boolean isenable) {
-        this.isenable = isenable;
-    }
-
     public Float getQueuetime() {
         return queuetime;
     }
 
     public void setQueuetime(Float queuetime) {
         this.queuetime = queuetime;
-    }
-
-    public Boolean getIsshowad() {
-        return isshowad;
-    }
-
-    public void setIsshowad(Boolean isshowad) {
-        this.isshowad = isshowad;
-    }
-
-    public Boolean getIsperterm() {
-        return isperterm;
-    }
-
-    public void setIsperterm(Boolean isperterm) {
-        this.isperterm = isperterm;
     }
 
     public String getPerterminfo() {
@@ -162,4 +140,51 @@ public class SysQueue {
         this.perCheckinfoList = perCheckinfoList;
     }
 
+    public String getIsneedqueueup() {
+        return isneedqueueup;
+    }
+
+    public void setIsneedqueueup(String isneedqueueup) {
+        this.isneedqueueup = isneedqueueup;
+    }
+
+    public String getIsenable() {
+        return isenable;
+    }
+
+    public void setIsenable(String isenable) {
+        this.isenable = isenable;
+    }
+
+    public String getIsshowad() {
+        return isshowad;
+    }
+
+    public void setIsshowad(String isshowad) {
+        this.isshowad = isshowad;
+    }
+
+    public String getIsperterm() {
+        return isperterm;
+    }
+
+    public void setIsperterm(String isperterm) {
+        this.isperterm = isperterm;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public String getCreateId() {
+        return createId;
+    }
+
+    public void setCreateId(String createId) {
+        this.createId = createId;
+    }
 }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.jfsoft.mapper.SysUserMapper" >
+
 	<resultMap id="BaseResultMap" type="com.jfsoft.model.SysUser" >
 		<id column="id" property="id" jdbcType="CHAR" />
 		<result column="code" property="code" jdbcType="INTEGER" />
@@ -41,6 +42,7 @@
 			#{memo,jdbcType=NVARCHAR})
 	</insert>
 
+    <!-- 保存用户信息 -->
 	<insert id="insertSelective" parameterType="com.jfsoft.model.SysUser" >
 		insert into sys_user
 		<trim prefix="(" suffix=")" suffixOverrides="," >
@@ -163,7 +165,58 @@
 			code,name,username,password,ownedqueue
 		from
 			sys_user
-		where username=#{username} and isuse='1'
+		where username=#{username}
 	</select>
+
+    <!-- 分页查询用户列表 -->
+    <select id="findPage" parameterType="java.util.Map" resultMap="BaseResultMap">
+        select
+            su.id,su.code,su.name,su.username,su.ownedqueue,sq.name as ownedQueueName
+        from
+            sys_user su
+        left join sys_queue sq on su.ownedqueue=sq.code
+        where
+            su.id in
+            (
+                SELECT top #{pageSize} sut.id FROM
+                (
+                    SELECT top #{pageStart} sus.id, sus.createtime FROM sys_user sus ORDER BY sus.createtime desc
+                ) sut ORDER BY sut.createtime desc
+            )
+            <if test="name != null" >
+                and su.name like '%'+ #{name,jdbcType=VARCHAR}+'%'
+            </if>
+            <if test="username != null" >
+                and su.username like '%'+ #{username,jdbcType=VARCHAR}+'%'
+            </if>
+            <if test="ownedqueue != null" >
+                and su.ownedqueue = #{ownedqueue,jdbcType=INTEGER}
+            </if>
+        ORDER BY
+            su.createtime desc
+    </select>
+    <select id="findPageCount" parameterType="java.util.Map" resultType="java.lang.Integer">
+        select
+            count(su.id)
+        from
+            sys_user su
+        left join sys_queue sq on su.ownedqueue=sq.code
+        <where>
+            <if test="name != null" >
+                and su.name like '%'+ #{name,jdbcType=VARCHAR}+'%'
+            </if>
+            <if test="username != null" >
+                and su.username like '%'+ #{username,jdbcType=VARCHAR}+'%'
+            </if>
+            <if test="ownedqueue != null" >
+                and su.ownedqueue = #{ownedqueue,jdbcType=INTEGER}
+            </if>
+        </where>
+    </select>
+
+    <!-- 查询最大code -->
+    <select id="getMaxCode" resultType="java.lang.Integer">
+        select MAX(code) from sys_user
+    </select>
 
 </mapper>
