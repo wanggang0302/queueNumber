@@ -41,7 +41,7 @@ public class HospitalController extends BaseController {
 
         model.put("hospital", hospitalInfo);
 
-        return "/hospital/info";
+        return "/hospital/hospital_base";
     }
 
     /**
