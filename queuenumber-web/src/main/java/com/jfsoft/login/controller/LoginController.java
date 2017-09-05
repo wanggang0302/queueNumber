@@ -35,7 +35,7 @@ public class LoginController extends BaseController {
 
         logger.debug("to login page!");
 
-        return "doctor/login";
+        return "login";
     }
 
     /**
@@ -55,7 +55,8 @@ public class LoginController extends BaseController {
                 saveQueueCodeToSession(session, Integer.toString(queueCode));
                 saveUserCodeToSession(session, Integer.toString(sysUser.getCode()));
 
-                return "/doctor/queue/list";
+                //return "/doctor/queue/list";
+                return "index";
             }
         } catch (Exception e) {
 
@@ -65,7 +66,7 @@ public class LoginController extends BaseController {
 
         model.put("msg", "登录失败，用户名或密码错误！");
 
-        return "/doctor/login";
+        return "redirect:/login";
     }
 
 }
