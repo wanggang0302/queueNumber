@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5f08b69d-bfa4-4720-a6bd-c9a4eb3644cd" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-web/queuenumber-web.iml" afterPath="$PROJECT_DIR$/queuenumber-web/queuenumber-web.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/hospital/controller/HospitalController.java" afterPath="$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/hospital/controller/HospitalController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-web/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/queuenumber-web/src/main/resources/application.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-web/src/main/resources/templates/hospital/hospital_base.html" afterPath="$PROJECT_DIR$/queuenumber-web/src/main/resources/templates/hospital/hospital_base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-web/src/main/resources/templates/index.html" afterPath="$PROJECT_DIR$/queuenumber-web/src/main/resources/templates/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-web/target/classes/application.properties" afterPath="$PROJECT_DIR$/queuenumber-web/target/classes/application.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-web/target/classes/templates/index.html" afterPath="$PROJECT_DIR$/queuenumber-web/target/classes/templates/index.html" />
-    </list>
+    <list default="true" id="5f08b69d-bfa4-4720-a6bd-c9a4eb3644cd" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/queuenumber-common/target/" />
     <ignored path="$PROJECT_DIR$/queuenumber/target/" />
     <ignored path="$PROJECT_DIR$/queuenumber-moudles/target/" />
@@ -344,7 +335,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="Errors" />
+    <property name="settings.editor.selected.configurable" value="settings.github" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -513,7 +504,7 @@
       <workItem from="1504598442085" duration="83000" />
       <workItem from="1504598555339" duration="11500000" />
       <workItem from="1504620331395" duration="1062000" />
-      <workItem from="1504625062283" duration="1317000" />
+      <workItem from="1504625062283" duration="1626000" />
     </task>
     <task id="LOCAL-00001" summary="首次提交">
       <created>1503902038188</created>
@@ -540,7 +531,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="155462000" />
+    <option name="totallyTimeSpent" value="155771000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
