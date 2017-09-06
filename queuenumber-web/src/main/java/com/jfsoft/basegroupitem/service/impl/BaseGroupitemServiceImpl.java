@@ -4,15 +4,12 @@ import com.alibaba.fastjson.JSON;
 import com.jfsoft.basegroupitem.service.IBaseGroupitemService;
 import com.jfsoft.mapper.BaseGroupitemMapper;
 import com.jfsoft.model.BaseGroupitem;
-import com.jfsoft.model.SysUser;
-import com.sun.xml.internal.rngom.parse.host.Base;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

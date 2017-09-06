@@ -8,6 +8,9 @@
 package com.jfsoft.model;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 /**
  * 用户表
@@ -70,6 +73,11 @@ public class SysUser {
      * 备注
      */
     private String memo;
+
+    /**
+     * 用户的角色集合
+     */
+    private List<SysRole> roleList;
 
     public String getOwnedQueueName() {
         return ownedQueueName;
@@ -157,6 +165,23 @@ public class SysUser {
 
     public void setMemo(String memo) {
         this.memo = memo == null ? null : memo.trim();
+    }
+
+    public List<SysRole> getRoleList() {
+        return roleList;
+    }
+
+    public void setRoleList(List<SysRole> roleList) {
+        this.roleList = roleList;
+    }
+
+    public Set<String> getRolesName() {
+        List<SysRole> roles = getRoleList();
+        Set<String> set = new HashSet<String>();
+        for (SysRole role : roles) {
+            set.add(role.getName());
+        }
+        return set;
     }
 
 }

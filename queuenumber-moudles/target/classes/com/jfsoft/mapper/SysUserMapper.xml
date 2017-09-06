@@ -159,15 +159,6 @@
 		where id = #{id,jdbcType=CHAR}
 	</update>
 
-	<!-- 根据用户名查询用户信息，用于登录验证 -->
-	<select id="findByUsername" parameterType="java.util.Map" resultMap="BaseResultMap">
-		select
-			code,name,username,password,ownedqueue
-		from
-			sys_user
-		where username=#{username}
-	</select>
-
     <!-- 分页查询用户列表 -->
     <select id="findPage" parameterType="java.util.Map" resultMap="BaseResultMap">
         select
@@ -218,5 +209,33 @@
     <select id="getMaxCode" resultType="java.lang.Integer">
         select MAX(code) from sys_user
     </select>
+
+	<!-- 查询结果 -->
+	<resultMap id="BaseUserMap" type="com.jfsoft.model.SysUser">
+		<id column="id" property="id"/>
+		<result column="username" property="username"/>
+		<result column="password" property="password"/>
+		<collection property="roleList" ofType="com.jfsoft.model.SysRole">
+			<result property="name" column="rolename"/>
+			<collection property="permissionList" ofType="com.jfsoft.model.SysRolemenu">
+				<result property="permission" column="permissionname"/>
+			</collection>
+		</collection>
+	</resultMap>
+
+	<!-- 根据账号查询用户信息 -->
+	<select id="findByUsername" parameterType="java.lang.String" resultMap="BaseUserMap">
+		select
+			su.code,su.username,su.password,sr.name as rolename,rm.permission as permissionname
+		from
+			sys_rolemenu rm
+		left join sys_userrole ur on ur.roleCode=rm.roleCode
+		left join sys_role sr on sr.code=ur.roleCode
+		left join sys_user su on su.code=ur.userCode
+		where
+			su.username=#{username}
+		order by
+			sr.code
+	</select>
 
 </mapper>
