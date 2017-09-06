@@ -62,6 +62,11 @@ public class SysMenu {
      */
     private String memo;
 
+    /**
+     * 该菜单被授予的权限
+     */
+    private String permission;
+
     public Integer getId() {
         return id;
     }
@@ -132,6 +137,14 @@ public class SysMenu {
 
     public void setMemo(String memo) {
         this.memo = memo == null ? null : memo.trim();
+    }
+
+    public String getPermission() {
+        return permission;
+    }
+
+    public void setPermission(String permission) {
+        this.permission = permission;
     }
 
 }

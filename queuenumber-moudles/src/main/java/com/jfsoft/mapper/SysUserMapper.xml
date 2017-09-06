@@ -210,32 +210,64 @@
         select MAX(code) from sys_user
     </select>
 
+    <!-- 根据登录账号查询用户信息 -->
+    <select id="findByUsername" parameterType="java.lang.String" resultMap="BaseUserMap">
+        select
+            su.id,su.code,su.name,su.username,su.password,su.ownedqueue
+        from
+            sys_user su
+        left join sys_userrole ur on ur.usercode=su.code
+        where
+            su.username=#{username} and su.isuse='1'
+    </select>
+
 	<!-- 查询结果 -->
 	<resultMap id="BaseUserMap" type="com.jfsoft.model.SysUser">
 		<id column="id" property="id"/>
+		<result column="code" property="code"/>
+		<result column="name" property="name"/>
 		<result column="username" property="username"/>
 		<result column="password" property="password"/>
-		<collection property="roleList" ofType="com.jfsoft.model.SysRole">
-			<result property="name" column="rolename"/>
-			<collection property="permissionList" ofType="com.jfsoft.model.SysRolemenu">
-				<result property="permission" column="permissionname"/>
-			</collection>
+		<result column="ownedqueue" property="ownedqueue"/>
+		<collection property="roleList" ofType="com.jfsoft.model.SysRole"
+                select="queryRole" column="{userCode=code}">
 		</collection>
 	</resultMap>
 
-	<!-- 根据账号查询用户信息 -->
-	<select id="findByUsername" parameterType="java.lang.String" resultMap="BaseUserMap">
-		select
-			su.code,su.username,su.password,sr.name as rolename,rm.permission as permissionname
-		from
-			sys_rolemenu rm
-		left join sys_userrole ur on ur.roleCode=rm.roleCode
-		left join sys_role sr on sr.code=ur.roleCode
-		left join sys_user su on su.code=ur.userCode
-		where
-			su.username=#{username}
-		order by
-			sr.code
-	</select>
+    <!-- 查询用户角色信息 -->
+    <select id="queryRole" parameterType="java.util.Map" resultType="com.jfsoft.model.SysRole" resultMap="BaseRoleMap">
+        SELECT
+            sr.code,sr.name
+        FROM
+            sys_role sr
+        LEFT JOIN sys_userrole ur on ur.rolecode=sr.code
+        WHERE
+            ur.usercode=#{userCode} and sr.isuse='1'
+    </select>
+    <resultMap id="BaseRoleMap" type="com.jfsoft.model.SysRole">
+        <result column="code" property="code" jdbcType="INTEGER" />
+        <result column="name" property="name" jdbcType="VARCHAR" />
+        <collection property="permissionList" ofType="com.jfsoft.model.SysMenu"
+                    select="queryMenu" column="{roleCode=code}">
+        </collection>
+    </resultMap>
+
+    <!-- 根据角色查询菜单权限 -->
+    <select id="queryMenu" parameterType="java.util.Map" resultType="com.jfsoft.model.SysMenu" resultMap="BaseMenuMap">
+        select
+            sm.code,sm.name,sm.parent_code,sm.url,rm.permission
+        FROM
+            sys_menu sm
+        LEFT JOIN sys_rolemenu rm on rm.menuCode=sm.code
+        WHERE
+            rm.roleCode=#{roleCode} and sm.isuse='1'
+    </select>
+    <resultMap id="BaseMenuMap" type="com.jfsoft.model.SysMenu" >
+        <result column="code" property="code" jdbcType="INTEGER" />
+        <result column="name" property="name" jdbcType="VARCHAR" />
+        <result column="parent_code" property="parentCode" jdbcType="INTEGER" />
+        <result column="url" property="url" jdbcType="VARCHAR" />
+        <result column="permission" property="permission" jdbcType="NVARCHAR" />
+    </resultMap>
 
 </mapper>

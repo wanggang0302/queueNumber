@@ -5,12 +5,18 @@ package com.jfsoft.utils;
  */
 public class Constants {
 
-    /** session存储的用户key */
-    public static final String SESSION_USER_KEY = "user_code";
     /** session存储的用户IDkey */
     public static final String SESSION_USERID_KEY = "user_id";
+    /** session存储的用户key */
+    public static final String SESSION_USERCODE_KEY = "user_code";
+    /** session存储的用户key */
+    public static final String SESSION_USERNAME_KEY = "user_name";
+    /** session存储的用户key */
+    public static final String SESSION_NAME_KEY = "name";
     /** session存储的queueCode key */
     public static final String SESSION_QUEUE_KEY = "queueCode";
+    /** session存储的roleCode key */
+    public static final String SESSION_ROLE_KEY = "roleCode";
     /** 用户默认密码 */
     public static final String DEFAULT_PASSWORD = "123456";
 
@@ -25,6 +31,9 @@ public class Constants {
     public static final String IS_FALSE = "0";
     /** 是否：全部 */
     public static final String IS_ALL = "2";
+
+    /** 系统菜单根节点Code */
+    public static final String SYS_MENU_ROOT_CODE = "1";
 
     /** 体检状态：检查中 */
     public static final String CHECK_STATUS_ING = "1";

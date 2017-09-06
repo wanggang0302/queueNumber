@@ -146,4 +146,21 @@
 		where id = #{id,jdbcType=INTEGER}
 	</update>
 
+	<!-- 根据角色查询菜单 -->
+	<select id="findMenuByRole" parameterType="java.util.Map" resultMap="BaseResultMap">
+		select
+			sm.code,sm.name,sm.parent_code,sm.url
+		from
+			sys_rolemenu sa
+		left join sys_menu sm on sa.menucode=sm.code
+		where
+            sa.roleCode in
+		    <foreach collection="roleCodes" item="roleCode" open="(" close=")" separator=",">
+                #{roleCode}
+            </foreach>
+			and sm.isuse='1'
+		order by
+			sm.code
+	</select>
+
 </mapper>

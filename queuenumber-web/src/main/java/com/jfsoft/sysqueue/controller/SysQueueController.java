@@ -55,6 +55,7 @@ public class SysQueueController extends BaseController {
             result.put("data", sysQueueList);
         } catch (Exception e) {
             result.put("status", Constants.RETURN_STATUS_FAILURE);
+            result.put("data", e.getMessage());
             logger.error(e.getMessage(), e);
             e.printStackTrace();
         }

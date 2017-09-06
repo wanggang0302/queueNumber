@@ -55,7 +55,7 @@ public class SysRole {
     private String memo;
 
     //一个角色对应多个权限
-    private List<SysRolemenu> permissionList;
+    private List<SysMenu> permissionList;
 
     public Integer getId() {
         return id;
@@ -113,19 +113,19 @@ public class SysRole {
         this.memo = memo == null ? null : memo.trim();
     }
 
-    public List<SysRolemenu> getPermissionList() {
+    public List<SysMenu> getPermissionList() {
         return permissionList;
     }
 
-    public void setPermissionList(List<SysRolemenu> permissionList) {
+    public void setPermissionList(List<SysMenu> permissionList) {
         this.permissionList = permissionList;
     }
 
     public List<String> getPermissionsName() {
         List<String> list = new ArrayList<String>();
-        List<SysRolemenu> perlist = getPermissionList();
-        for (SysRolemenu per : perlist) {
-            list.add(null!=per.getMenucode()?per.getMenucode().toString():"");
+        List<SysMenu> perlist = getPermissionList();
+        for (SysMenu per : perlist) {
+            list.add(null!=per.getCode()?per.getCode().toString():"");
         }
         return list;
     }

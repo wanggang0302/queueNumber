@@ -9,6 +9,9 @@ package com.jfsoft.mapper;
 
 import com.jfsoft.model.SysMenu;
 
+import java.util.List;
+import java.util.Map;
+
 public interface SysMenuMapper {
     
     int deleteByPrimaryKey(Integer id);
@@ -22,5 +25,10 @@ public interface SysMenuMapper {
     int updateByPrimaryKeySelective(SysMenu record);
 
     int updateByPrimaryKey(SysMenu record);
+
+    /**
+     * 根据角色查询菜单
+     */
+    List<SysMenu> findMenuByRole(Map<String, Object> param);
     
 }

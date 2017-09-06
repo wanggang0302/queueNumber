@@ -79,7 +79,7 @@ public class LoginController extends BaseController {
      * 登录验证用户名&密码
      */
     @RequestMapping(value="/login", method=RequestMethod.POST)
-    public String login(@Valid SysUser user, BindingResult bindingResult, RedirectAttributes redirectAttributes){
+    public String login(@Valid SysUser user, HttpSession session, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
 
         if(bindingResult.hasErrors()){
             return "login";
@@ -118,11 +118,38 @@ public class LoginController extends BaseController {
         //验证是否登录成功
         if(currentUser.isAuthenticated()){
             logger.info("用户[" + username + "]登录认证通过(这里可以进行一些认证通过后的一些系统参数初始化操作)");
-            return "index";
+
+            try {
+                SysUser sysUser = sysUserService.findForAuthentication(username, password);
+
+                saveUserCodeToSession(session, Integer.toString(sysUser.getCode()));
+                saveRoleCodeToSession(session, sysUser.getRoleList());
+                saveUsernameToSession(session, sysUser.getUsername());
+                saveNameToSession(session, sysUser.getName());
+
+                return "index";
+            } catch (Exception e) {
+                logger.error("Error occured when getting SysUser by username: {} .", username, e);
+                return "redirect:/login";
+            }
         }else{
             token.clear();
-            return "redirect:/login";
         }
+        return "redirect:/login";
+    }
+
+    @RequestMapping(value="/logout", method= RequestMethod.GET)
+    public String logout(RedirectAttributes redirectAttributes ){
+        //使用权限管理工具进行用户的退出，跳出登录，给出提示信息
+        SecurityUtils.getSubject().logout();
+        redirectAttributes.addFlashAttribute("message", "您已安全退出");
+        return "redirect:/login";
+    }
+
+    @RequestMapping("/403")
+    public String unauthorizedRole(){
+        logger.info("------没有权限-------");
+        return "403";
     }
 
 }
