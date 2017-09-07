@@ -261,6 +261,8 @@
         LEFT JOIN sys_rolemenu rm on rm.menuCode=sm.code
         WHERE
             rm.roleCode=#{roleCode} and sm.isuse='1'
+        ORDER BY
+        	sm.sortnum
     </select>
     <resultMap id="BaseMenuMap" type="com.jfsoft.model.SysMenu" >
         <result column="code" property="code" jdbcType="INTEGER" />
