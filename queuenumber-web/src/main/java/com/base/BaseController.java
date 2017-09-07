@@ -15,7 +15,7 @@ public class BaseController {
     /**
      * 保存id到session
      */
-    protected void saveUserIdToSession(HttpSession session, String userId) {
+    protected void saveUserIdToSession(HttpSession session, Integer userId) {
 
         session.setAttribute(Constants.SESSION_USERID_KEY, userId);
     }
@@ -23,8 +23,8 @@ public class BaseController {
     /**
      * 获取id
      */
-    protected String getUserIdFromSession(HttpSession session) {
-        String userCode = String.valueOf(session.getAttribute(Constants.SESSION_USERID_KEY));
+    protected Integer getUserIdFromSession(HttpSession session) {
+        Integer userCode = Integer.parseInt(session.getAttribute(Constants.SESSION_USERID_KEY).toString());
         return userCode;
     }
 

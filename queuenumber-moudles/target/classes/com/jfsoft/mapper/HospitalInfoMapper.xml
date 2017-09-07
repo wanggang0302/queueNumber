@@ -3,7 +3,7 @@
 <mapper namespace="com.jfsoft.mapper.HospitalInfoMapper" >
 
 	<resultMap id="BaseResultMap" type="com.jfsoft.model.HospitalInfo" >
-		<id column="id" property="id" jdbcType="CHAR" />
+		<id column="id" property="id" jdbcType="INTEGER" />
 		<result column="code" property="code" jdbcType="INTEGER" />
 		<result column="name" property="name" jdbcType="NVARCHAR" />
 		<result column="linkTel" property="linktel" jdbcType="NVARCHAR" />
@@ -20,12 +20,12 @@
 		select 
 		    id, code, name, linkTel, introduction
 		from hospital_info
-		where id = #{id,jdbcType=CHAR}
+		where id = #{id,jdbcType=INTEGER}
 	</select>
 
 	<delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
 		delete from hospital_info
-		where id = #{id,jdbcType=CHAR}
+		where id = #{id,jdbcType=INTEGER}
 	</delete>
 
 	<insert id="insert" parameterType="com.jfsoft.model.HospitalInfo" >
@@ -109,7 +109,7 @@
 				modifierId = #{modifierid,jdbcType=INTEGER},
 			</if>
 		</set>
-		where id = #{id,jdbcType=CHAR}
+		where id = #{id,jdbcType=INTEGER}
 	</update>
 
 	<update id="updateByPrimaryKey" parameterType="com.jfsoft.model.HospitalInfo" >
@@ -120,7 +120,7 @@
 			introduction = #{introduction,jdbcType=NVARCHAR},
 			modifyTime = #{modifytime,jdbcType=TIMESTAMP},
 			modifierId = #{modifierid,jdbcType=INTEGER}
-		where id = #{id,jdbcType=CHAR}
+		where id = #{id,jdbcType=INTEGER}
 	</update>
 
 </mapper>

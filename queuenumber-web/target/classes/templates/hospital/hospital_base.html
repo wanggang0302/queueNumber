@@ -7,10 +7,10 @@
         系统管理
         <span class="c-gray en">&gt;</span>
         医院信息管理
-        <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a>
+        <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" th:href="@{${refreshUrl}}" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a>
     </nav>
     <div class="page-container">
-        <form class="form form-horizontal" id="form-article-add">
+        <form class="form form-horizontal" id="form-article-add" th:action="@{/hospital/saveHospitalInfo}" method="post">
             <div id="tab-system" class="HuiTab">
                 <div class="tabBar cl">
                     <span>基本设置</span>
@@ -21,7 +21,9 @@
                             <span class="c-red">*</span>
                             医院名称：</label>
                         <div class="formControls col-xs-8 col-sm-9">
-                            <input type="text" id="website-title" placeholder="控制在25个字以内" th:value="${hospital.name}" class="input-text">
+                            <input type="hidden" name="id" th:value="${hospital.id}"/>
+                            <input type="hidden" name="code" th:value="${hospital.code}"/>
+                            <input type="text" id="website-title" name="name" placeholder="控制在25个字以内" th:value="${hospital.name}" class="input-text">
                         </div>
                     </div>
                     <div class="row cl">
@@ -29,13 +31,13 @@
                             <span class="c-red">*</span>
                             联系电话：</label>
                         <div class="formControls col-xs-8 col-sm-9">
-                            <input type="text" id="website-Keywords" placeholder="联系电话" th:value="${hospital.linktel}" class="input-text">
+                            <input type="text" id="website-Keywords" name="linktel" placeholder="联系电话" th:value="${hospital.linktel}" class="input-text">
                         </div>
                     </div>
                     <div class="row cl">
                         <label class="form-label col-xs-4 col-sm-2">简介：</label>
                         <div class="formControls col-xs-8 col-sm-9">
-                            <textarea class="textarea" th:value="${hospital.introduction}"></textarea>
+                            <textarea class="textarea" name="introduction">[[${hospital.introduction}]]</textarea>
                         </div>
                     </div>
                 </div>

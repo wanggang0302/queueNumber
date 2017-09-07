@@ -8,8 +8,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import javax.servlet.http.HttpSession;
 
 /**
  * 医院信息管理
@@ -27,7 +31,7 @@ public class HospitalController extends BaseController {
      * 获得医院信息
      */
     @RequestMapping(value = "/getHospitalInfo", method = RequestMethod.GET)
-    public String getHospitalInfo(ModelMap model, String id, String code) {
+    public String getHospitalInfo(ModelMap model, @ModelAttribute("id") String id, @ModelAttribute("code") String code) {
 
         HospitalInfo hospitalInfo = null;
 
@@ -40,6 +44,7 @@ public class HospitalController extends BaseController {
         }
 
         model.put("hospital", hospitalInfo);
+        model.put("refreshUrl", "/hospital/getHospitalInfo?id=" + id + "&code=" + code);
 
         return "/hospital/hospital_base";
     }
@@ -48,20 +53,22 @@ public class HospitalController extends BaseController {
      * 保存医院信息
      */
     @RequestMapping(value = "/saveHospitalInfo", method = RequestMethod.POST)
-    public String saveHospitalInfo(ModelMap model, HospitalInfo hospitalInfo) {
+    public String saveHospitalInfo(HttpSession session, ModelMap model, RedirectAttributes redirect, HospitalInfo hospitalInfo) {
 
         boolean flage = true;
 
         try {
-
+            Integer userId = getUserIdFromSession(session);
+            hospitalInfo.setModifierid(userId);
             flage = hospitalInfoService.saveHospitalInfo(hospitalInfo);
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        model.put("saveFlage", flage);
+        redirect.addFlashAttribute("id", hospitalInfo.getId());
+        redirect.addFlashAttribute("code", hospitalInfo.getCode());
 
-        return "/hospital/info";
+        return "redirect:/hospital/getHospitalInfo";
     }
 
 }

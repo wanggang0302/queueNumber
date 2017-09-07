@@ -30,10 +30,20 @@ public class HospitalInfoServiceImpl implements IHospitalInfoService {
 
     public boolean saveHospitalInfo(HospitalInfo hospitalInfo) throws Exception {
 
-        hospitalInfo.setModifytime(new Date());
-        int insertCount = hospitalInfoMapper.insertSelective(hospitalInfo);
+        HospitalInfo exist = getHospitalInfo(hospitalInfo.getId().toString());
 
-        if(insertCount>0) {
+        //被修改的条数
+        int count = 0;
+
+        if(null!=exist) {
+
+            hospitalInfo.setModifytime(new Date());
+            count = hospitalInfoMapper.updateByPrimaryKeySelective(hospitalInfo);
+        } else {
+            count = hospitalInfoMapper.insertSelective(hospitalInfo);
+        }
+
+        if(count>0) {
             return true;
         }
 

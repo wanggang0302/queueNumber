@@ -126,6 +126,7 @@ public class LoginController extends BaseController {
                 saveRoleCodeToSession(session, sysUser.getRoleList());
                 saveUsernameToSession(session, sysUser.getUsername());
                 saveNameToSession(session, sysUser.getName());
+                saveUserIdToSession(session, sysUser.getId());
 
                 return "index";
             } catch (Exception e) {

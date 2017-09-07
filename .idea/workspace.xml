@@ -2,28 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5f08b69d-bfa4-4720-a6bd-c9a4eb3644cd" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/queuenumber-web/src/main/resources/static/h-ui.admin/js/H-ui.admin.page.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-moudles/src/main/java/com/jfsoft/mapper/SysMenuMapper.xml" afterPath="$PROJECT_DIR$/queuenumber-moudles/src/main/java/com/jfsoft/mapper/SysMenuMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-moudles/src/main/java/com/jfsoft/mapper/SysUserMapper.xml" afterPath="$PROJECT_DIR$/queuenumber-moudles/src/main/java/com/jfsoft/mapper/SysUserMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-moudles/target/classes/com/jfsoft/mapper/SysMenuMapper.xml" afterPath="$PROJECT_DIR$/queuenumber-moudles/target/classes/com/jfsoft/mapper/SysMenuMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-moudles/target/classes/com/jfsoft/mapper/SysUserMapper.xml" afterPath="$PROJECT_DIR$/queuenumber-moudles/target/classes/com/jfsoft/mapper/SysUserMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-web/src/main/resources/static/h-ui.admin/css/H-ui.admin.css" afterPath="$PROJECT_DIR$/queuenumber-web/src/main/resources/static/h-ui.admin/css/H-ui.admin.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-web/src/main/resources/static/h-ui.admin/css/H-ui.login.css" afterPath="$PROJECT_DIR$/queuenumber-web/src/main/resources/static/h-ui.admin/css/H-ui.login.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-web/src/main/resources/static/h-ui.admin/skin/blue/skin.css" afterPath="$PROJECT_DIR$/queuenumber-web/src/main/resources/static/h-ui.admin/skin/blue/skin.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-web/src/main/resources/static/h-ui.admin/skin/default/skin.css" afterPath="$PROJECT_DIR$/queuenumber-web/src/main/resources/static/h-ui.admin/skin/default/skin.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-web/src/main/resources/static/h-ui.admin/skin/green/skin.css" afterPath="$PROJECT_DIR$/queuenumber-web/src/main/resources/static/h-ui.admin/skin/green/skin.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-web/src/main/resources/static/h-ui.admin/skin/orange/skin.css" afterPath="$PROJECT_DIR$/queuenumber-web/src/main/resources/static/h-ui.admin/skin/orange/skin.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-web/src/main/resources/static/h-ui.admin/skin/red/skin.css" afterPath="$PROJECT_DIR$/queuenumber-web/src/main/resources/static/h-ui.admin/skin/red/skin.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-web/src/main/resources/static/h-ui.admin/skin/yellow/skin.css" afterPath="$PROJECT_DIR$/queuenumber-web/src/main/resources/static/h-ui.admin/skin/yellow/skin.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-web/src/main/resources/static/h-ui/js/H-ui.js" afterPath="$PROJECT_DIR$/queuenumber-web/src/main/resources/static/h-ui/js/H-ui.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-web/src/main/resources/templates/footer.html" afterPath="$PROJECT_DIR$/queuenumber-web/src/main/resources/templates/footer.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-web/src/main/resources/templates/header.html" afterPath="$PROJECT_DIR$/queuenumber-web/src/main/resources/templates/header.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-moudles/src/main/java/com/jfsoft/mapper/HospitalInfoMapper.xml" afterPath="$PROJECT_DIR$/queuenumber-moudles/src/main/java/com/jfsoft/mapper/HospitalInfoMapper.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-web/src/main/java/com/base/BaseController.java" afterPath="$PROJECT_DIR$/queuenumber-web/src/main/java/com/base/BaseController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/hospital/controller/HospitalController.java" afterPath="$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/hospital/controller/HospitalController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/hospital/service/impl/HospitalInfoServiceImpl.java" afterPath="$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/hospital/service/impl/HospitalInfoServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/login/controller/LoginController.java" afterPath="$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/login/controller/LoginController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-web/src/main/resources/templates/hospital/hospital_base.html" afterPath="$PROJECT_DIR$/queuenumber-web/src/main/resources/templates/hospital/hospital_base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-web/src/main/resources/templates/index.html" afterPath="$PROJECT_DIR$/queuenumber-web/src/main/resources/templates/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-web/target/classes/static/h-ui/js/H-ui.js" afterPath="$PROJECT_DIR$/queuenumber-web/target/classes/static/h-ui/js/H-ui.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-web/target/classes/templates/header.html" afterPath="$PROJECT_DIR$/queuenumber-web/target/classes/templates/header.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-web/target/classes/templates/index.html" afterPath="$PROJECT_DIR$/queuenumber-web/target/classes/templates/index.html" />
     </list>
     <ignored path="$PROJECT_DIR$/queuenumber-common/target/" />
     <ignored path="$PROJECT_DIR$/queuenumber/target/" />
@@ -40,94 +24,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/queuenumber-web/src/main/resources/templates/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="17" column="8" lean-forward="false" selection-start-line="17" selection-start-column="4" selection-end-line="21" selection-end-column="13" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <marker date="1504766340628" expanded="true" signature="2306:2314" ph="&amp;##xe616;" />
-                <marker date="1504766340628" expanded="true" signature="2382:2390" ph="&amp;##xe6d5;" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HospitalController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/hospital/controller/HospitalController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="footer.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/queuenumber-web/src/main/resources/templates/footer.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="9" column="84" lean-forward="true" selection-start-line="9" selection-start-column="84" selection-end-line="9" selection-end-column="84" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="H-ui.admin.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/queuenumber-web/src/main/resources/static/h-ui.admin/js/H-ui.admin.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="82" column="46" lean-forward="false" selection-start-line="82" selection-start-column="46" selection-end-line="82" selection-end-column="46" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="base_head.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/queuenumber-web/src/main/resources/templates/common/base_head.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="572">
-              <caret line="26" column="27" lean-forward="true" selection-start-line="26" selection-start-column="27" selection-end-line="26" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="header.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/queuenumber-web/src/main/resources/templates/header.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="15" column="39" lean-forward="true" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/queuenumber-web/src/main/resources/templates/login.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1518">
-              <caret line="69" column="0" lean-forward="false" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="hospital_base.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/queuenumber-web/src/main/resources/templates/hospital/hospital_base.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
-              <folding>
-                <element signature="n#style#0;n#a#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -140,8 +37,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>cross</find>
-      <find>adjust</find>
       <find>上一个</find>
       <find>callNumber(</find>
       <find>testno</find>
@@ -170,6 +65,8 @@
       <find>iframe_box</find>
       <find>data-href</find>
       <find>Hui_admin_tab</find>
+      <find>logincon</find>
+      <find>id</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -192,8 +89,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/queuenumber-moudles/src/main/java/com/jfsoft/model/SysQueue.java" />
-        <option value="$PROJECT_DIR$/queuenumber-moudles/src/main/java/com/jfsoft/mapper/AdvertisementMapper.java" />
         <option value="$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/advertisement/service/impl/AdvertisementServiceImpl.java" />
         <option value="$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/advertisement/service/IAdvertisementService.java" />
         <option value="$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/sysuser/controller/SysUserController.java" />
@@ -204,7 +99,6 @@
         <option value="$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/sysqueue/service/impl/SysQueueServiceImpl.java" />
         <option value="$PROJECT_DIR$/queuenumber-moudles/src/main/java/com/jfsoft/mapper/SysQueueMapper.xml" />
         <option value="$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/sysqueue/service/ISysQueueService.java" />
-        <option value="$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/hospital/controller/HospitalController.java" />
         <option value="$PROJECT_DIR$/queuenumber-web/src/main/resources/templates/doctor/queue/list.html" />
         <option value="$PROJECT_DIR$/queuenumber-web/src/main/resources/login.html" />
         <option value="$PROJECT_DIR$/queuenumber-web/src/main/resources/templates/common/base_css.html" />
@@ -229,8 +123,6 @@
         <option value="$PROJECT_DIR$/queuenumber-user/src/main/java/com/jfsoft/menu/service/ISysMenuService.java" />
         <option value="$PROJECT_DIR$/queuenumber-user/src/main/java/com/jfsoft/menu/service/impl/SysMenuServiceImpl.java" />
         <option value="$PROJECT_DIR$/queuenumber-common/src/main/java/com/jfsoft/utils/Constants.java" />
-        <option value="$PROJECT_DIR$/queuenumber-web/src/main/java/com/base/BaseController.java" />
-        <option value="$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/login/controller/LoginController.java" />
         <option value="$PROJECT_DIR$/queuenumber-moudles/src/main/java/com/jfsoft/model/SysMenu.java" />
         <option value="$PROJECT_DIR$/queuenumber-moudles/src/main/java/com/jfsoft/model/SysRole.java" />
         <option value="$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/sysmenu/controller/SysMenuController.java" />
@@ -242,6 +134,11 @@
         <option value="$PROJECT_DIR$/queuenumber-web/src/main/resources/templates/footer.html" />
         <option value="$PROJECT_DIR$/queuenumber-web/src/main/resources/static/h-ui.admin/js/H-ui.admin.js" />
         <option value="$PROJECT_DIR$/queuenumber-web/src/main/resources/templates/index.html" />
+        <option value="$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/login/controller/LoginController.java" />
+        <option value="$PROJECT_DIR$/queuenumber-web/src/main/java/com/base/BaseController.java" />
+        <option value="$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/hospital/service/impl/HospitalInfoServiceImpl.java" />
+        <option value="$PROJECT_DIR$/queuenumber-moudles/src/main/java/com/jfsoft/mapper/HospitalInfoMapper.xml" />
+        <option value="$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/hospital/controller/HospitalController.java" />
         <option value="$PROJECT_DIR$/queuenumber-web/src/main/resources/templates/hospital/hospital_base.html" />
       </list>
     </option>
@@ -358,6 +255,62 @@
             <path>
               <item name="0825-queuenumber" type="b2602c69:ProjectViewProjectNode" />
               <item name="0825-queuenumber" type="462c0819:PsiDirectoryNode" />
+              <item name="queuenumber-moudles" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="0825-queuenumber" type="b2602c69:ProjectViewProjectNode" />
+              <item name="0825-queuenumber" type="462c0819:PsiDirectoryNode" />
+              <item name="queuenumber-moudles" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="0825-queuenumber" type="b2602c69:ProjectViewProjectNode" />
+              <item name="0825-queuenumber" type="462c0819:PsiDirectoryNode" />
+              <item name="queuenumber-moudles" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="0825-queuenumber" type="b2602c69:ProjectViewProjectNode" />
+              <item name="0825-queuenumber" type="462c0819:PsiDirectoryNode" />
+              <item name="queuenumber-moudles" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="0825-queuenumber" type="b2602c69:ProjectViewProjectNode" />
+              <item name="0825-queuenumber" type="462c0819:PsiDirectoryNode" />
+              <item name="queuenumber-moudles" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="0825-queuenumber" type="b2602c69:ProjectViewProjectNode" />
+              <item name="0825-queuenumber" type="462c0819:PsiDirectoryNode" />
+              <item name="queuenumber-moudles" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="jfsoft" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="0825-queuenumber" type="b2602c69:ProjectViewProjectNode" />
+              <item name="0825-queuenumber" type="462c0819:PsiDirectoryNode" />
+              <item name="queuenumber-moudles" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="jfsoft" type="462c0819:PsiDirectoryNode" />
+              <item name="mapper" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="0825-queuenumber" type="b2602c69:ProjectViewProjectNode" />
+              <item name="0825-queuenumber" type="462c0819:PsiDirectoryNode" />
               <item name="queuenumber-web" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -389,6 +342,16 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="0825-queuenumber" type="b2602c69:ProjectViewProjectNode" />
+              <item name="0825-queuenumber" type="462c0819:PsiDirectoryNode" />
+              <item name="queuenumber-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="base" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="0825-queuenumber" type="b2602c69:ProjectViewProjectNode" />
@@ -421,6 +384,54 @@
               <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="jfsoft" type="462c0819:PsiDirectoryNode" />
               <item name="hospital" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="0825-queuenumber" type="b2602c69:ProjectViewProjectNode" />
+              <item name="0825-queuenumber" type="462c0819:PsiDirectoryNode" />
+              <item name="queuenumber-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="jfsoft" type="462c0819:PsiDirectoryNode" />
+              <item name="hospital" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="0825-queuenumber" type="b2602c69:ProjectViewProjectNode" />
+              <item name="0825-queuenumber" type="462c0819:PsiDirectoryNode" />
+              <item name="queuenumber-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="jfsoft" type="462c0819:PsiDirectoryNode" />
+              <item name="hospital" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="impl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="0825-queuenumber" type="b2602c69:ProjectViewProjectNode" />
+              <item name="0825-queuenumber" type="462c0819:PsiDirectoryNode" />
+              <item name="queuenumber-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="jfsoft" type="462c0819:PsiDirectoryNode" />
+              <item name="login" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="0825-queuenumber" type="b2602c69:ProjectViewProjectNode" />
+              <item name="0825-queuenumber" type="462c0819:PsiDirectoryNode" />
+              <item name="queuenumber-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="jfsoft" type="462c0819:PsiDirectoryNode" />
+              <item name="login" type="462c0819:PsiDirectoryNode" />
               <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -666,7 +677,7 @@
       <workItem from="1504598442085" duration="83000" />
       <workItem from="1504598555339" duration="11500000" />
       <workItem from="1504744567851" duration="13336000" />
-      <workItem from="1504762835944" duration="3999000" />
+      <workItem from="1504762835944" duration="6870000" />
     </task>
     <task id="LOCAL-00001" summary="首次提交">
       <created>1503902038188</created>
@@ -693,7 +704,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="199674000" />
+    <option name="totallyTimeSpent" value="202545000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -721,7 +732,7 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31173185" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32178771" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -788,20 +799,11 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="79" />
+      <option name="time" value="86" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/queuenumber-web/src/main/resources/templates/common/base_meta.html" />
-    <entry file="file://$PROJECT_DIR$/queuenumber-web/src/main/resources/static/lib/h-ui.net/DD_belatedPNG_0.0.8a-min.js" />
-    <entry file="file://$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/basegroupitem/service/impl/BaseGroupitemServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="59" column="25" lean-forward="false" selection-start-line="59" selection-start-column="25" selection-end-line="59" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/queuenumber-web/src/main/resources/templates/hospital/info.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -908,6 +910,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="638">
           <caret line="68" column="58" lean-forward="true" selection-start-line="62" selection-start-column="8" selection-end-line="68" selection-end-column="58" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -963,20 +966,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="215">
           <caret line="12" column="64" lean-forward="false" selection-start-line="12" selection-start-column="55" selection-end-line="12" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/queuenumber-web/src/main/java/com/base/BaseController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="35" column="53" lean-forward="true" selection-start-line="35" selection-start-column="53" selection-end-line="35" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/login/controller/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="127" column="60" lean-forward="false" selection-start-line="127" selection-start-column="60" selection-end-line="127" selection-end-column="60" />
           <folding />
         </state>
       </provider>
@@ -1176,14 +1165,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/hospital/controller/HospitalController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/queuenumber-web/src/main/resources/static/h-ui.admin/js/H-ui.admin.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="242">
@@ -1204,10 +1185,64 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/login/controller/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="128" column="31" lean-forward="true" selection-start-line="128" selection-start-column="31" selection-end-line="128" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/queuenumber-web/src/main/java/com/base/BaseController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="343">
+          <caret line="26" column="105" lean-forward="false" selection-start-line="26" selection-start-column="105" selection-end-line="26" selection-end-column="105" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/queuenumber-moudles/src/main/java/com/jfsoft/mapper/HospitalInfoMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="21" column="35" lean-forward="false" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/queuenumber-moudles/src/main/java/com/jfsoft/mapper/HospitalInfoMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="381">
+          <caret line="123" column="13" lean-forward="true" selection-start-line="123" selection-start-column="13" selection-end-line="123" selection-end-column="13" />
+          <folding>
+            <marker date="1504768810924" expanded="true" signature="970:1078" ph="select id, c... hospital_info" />
+            <marker date="1504768810924" expanded="true" signature="1161:1222" ph="delete from " />
+            <marker date="1504768810924" expanded="true" signature="1306:1626" ph="insert into hospital_info... " />
+            <marker date="1504768810924" expanded="true" signature="2878:3476" ph="update hospi... " />
+            <marker date="1504768810924" expanded="true" signature="3572:3897" ph="update hospi... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/hospital/service/impl/HospitalInfoServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/hospital/controller/HospitalController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="46" column="29" lean-forward="false" selection-start-line="46" selection-start-column="19" selection-end-line="46" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/queuenumber-web/src/main/resources/templates/hospital/hospital_base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+        <state relative-caret-position="198">
+          <caret line="9" column="108" lean-forward="false" selection-start-line="9" selection-start-column="108" selection-end-line="9" selection-end-column="108" />
           <folding>
             <element signature="n#style#0;n#a#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
