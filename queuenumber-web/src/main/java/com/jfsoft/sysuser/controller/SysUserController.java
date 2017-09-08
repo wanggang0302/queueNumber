@@ -40,11 +40,21 @@ public class SysUserController extends BaseController {
     private ISysUserService sysUserService;
 
     /**
+     * 跳转到用户管理页面
+     * @return
+     */
+    @RequestMapping(value="/toList", method=RequestMethod.GET)
+    public String toList(ModelMap model) {
+
+        return "/sysuser/list";
+    }
+
+    /**
      * 查询用户列表
      */
     @ResponseBody
-    @RequestMapping(value = "/list", method = RequestMethod.POST)
-    public String list(String currentPage, String pageSize, String name, String username, String queueCode) {
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    public String list(String currentPage, String pageSize, String name, String beginTime, String endTime, String queueCode) {
 
         Map<String, Object> result = new HashMap<String, Object>();
 
@@ -52,18 +62,22 @@ public class SysUserController extends BaseController {
         int pageCount = 0;
 
         try {
-            sysUserList = sysUserService.findPage(currentPage, pageSize, name, username, queueCode);
-            pageCount = sysUserService.findPageCount(name, username, queueCode);
+            currentPage = "1";
+            pageSize = "10";
+            sysUserList = sysUserService.findPage(currentPage, pageSize, name, beginTime, endTime, queueCode);
+            pageCount = sysUserService.findPageCount(name, beginTime, endTime, queueCode);
 
-            result.put("status", Constants.RETURN_STATUS_SUCCESS);
+            result.put("draw", Constants.RETURN_STATUS_SUCCESS);
             result.put("data", sysUserList);
+            result.put("recordsTotal", pageCount);
+            result.put("recordsFiltered", pageCount);
         } catch (Exception e) {
             result.put("status", Constants.RETURN_STATUS_FAILURE);
             e.printStackTrace();
         }
 
         SimplePropertyPreFilter filter = new SimplePropertyPreFilter(SysUser.class,
-                "id", "code", "name", "username", "ownedqueue", "ownedQueueName", "isuse", "createtime");
+                "id", "code", "name", "username", "sex", "tel", "email", "ownedqueue", "ownedQueueName", "isuse", "createtime");
 
         String resultJson = JSON.toJSONString(result, filter,
                 SerializerFeature.WriteMapNullValue,

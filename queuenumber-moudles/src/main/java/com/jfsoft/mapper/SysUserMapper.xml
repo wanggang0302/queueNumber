@@ -8,6 +8,9 @@
 		<result column="name" property="name" jdbcType="VARCHAR" />
 		<result column="username" property="username" jdbcType="VARCHAR" />
 		<result column="password" property="password" jdbcType="VARCHAR" />
+		<result column="sex" property="sex" jdbcType="CHAR" />
+		<result column="tel" property="tel" jdbcType="NVARCHAR" />
+		<result column="email" property="email" jdbcType="NVARCHAR" />
 		<result column="ownedqueue" property="ownedqueue" jdbcType="INTEGER" />
 		<result column="isuse" property="isuse" jdbcType="CHAR" />
 		<result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
@@ -16,7 +19,7 @@
 	</resultMap>
 
 	<sql id="Base_Column_List" >
-		id, code, name, username, password, ownedqueue, isuse, createtime, createrId, memo
+		id, code, name, username, password, sex, tel, email, ownedqueue, isuse, createtime, createrId, memo
 	</sql>
 
 	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
@@ -33,11 +36,12 @@
 
 	<insert id="insert" parameterType="com.jfsoft.model.SysUser" >
 		insert into sys_user (id, code, name, 
-			username, password, ownedqueue, 
+			username, password, sex, tel, email, ownedqueue,
 			isuse, createtime, createrId, 
 			memo)
 		values (#{id,jdbcType=CHAR}, #{code,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
-			#{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{ownedqueue,jdbcType=INTEGER}, 
+			#{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
+			#{sex,jdbcType=CHAR}, #{tel,jdbcType=NVARCHAR}, #{email,jdbcType=NVARCHAR}, #{ownedqueue,jdbcType=INTEGER},
 			#{isuse,jdbcType=CHAR}, #{createtime,jdbcType=TIMESTAMP}, #{createrid,jdbcType=INTEGER},
 			#{memo,jdbcType=NVARCHAR})
 	</insert>
@@ -60,6 +64,15 @@
 			</if>
 			<if test="password != null" >
 				password,
+			</if>
+			<if test="sex != null" >
+				sex,
+			</if>
+			<if test="tel != null" >
+				tel,
+			</if>
+			<if test="email != null" >
+				email,
 			</if>
 			<if test="ownedqueue != null" >
 				ownedqueue,
@@ -92,6 +105,15 @@
 			</if>
 			<if test="password != null" >
 				#{password,jdbcType=VARCHAR},
+			</if>
+			<if test="sex != null" >
+				#{sex,jdbcType=CHAR},
+			</if>
+			<if test="tel != null" >
+				#{tel,jdbcType=NVARCHAR},
+			</if>
+			<if test="email != null" >
+				#{email,jdbcType=NVARCHAR},
 			</if>
 			<if test="ownedqueue != null" >
 				#{ownedqueue,jdbcType=INTEGER},
@@ -126,6 +148,15 @@
 			<if test="password != null" >
 				password = #{password,jdbcType=VARCHAR},
 			</if>
+			<if test="sex != null" >
+				#{sex,jdbcType=CHAR},
+			</if>
+			<if test="tel != null" >
+				#{tel,jdbcType=NVARCHAR},
+			</if>
+			<if test="email != null" >
+				#{email,jdbcType=NVARCHAR},
+			</if>
 			<if test="ownedqueue != null" >
 				ownedqueue = #{ownedqueue,jdbcType=INTEGER},
 			</if>
@@ -151,6 +182,9 @@
 			name = #{name,jdbcType=VARCHAR},
 			username = #{username,jdbcType=VARCHAR},
 			password = #{password,jdbcType=VARCHAR},
+			sex = #{sex,jdbcType=CHAR},
+			tel = #{tel,jdbcType=NVARCHAR},
+			email = #{email,jdbcType=NVARCHAR},
 			ownedqueue = #{ownedqueue,jdbcType=INTEGER},
 			isuse = #{isuse,jdbcType=CHAR},
 			createtime = #{createtime,jdbcType=TIMESTAMP},
@@ -162,29 +196,37 @@
     <!-- 分页查询用户列表 -->
     <select id="findPage" parameterType="java.util.Map" resultMap="BaseResultMap">
         select
-            su.id,su.code,su.name,su.username,su.ownedqueue,sq.name as ownedQueueName
+            su.id,su.code,su.name,su.username,su.sex,su.tel,su.email,su.isuse,su.createtime,su.ownedqueue,sq.name as ownedQueueName
         from
             sys_user su
         left join sys_queue sq on su.ownedqueue=sq.code
         where
             su.id in
             (
-                SELECT top #{pageSize} sut.id FROM
+                SELECT top ${pageSize} sut.id FROM
                 (
-                    SELECT top #{pageStart} sus.id, sus.createtime FROM sys_user sus ORDER BY sus.createtime desc
+                    SELECT top ${pageStart} sus.id, sus.createtime FROM sys_user sus ORDER BY sus.createtime desc
                 ) sut ORDER BY sut.createtime desc
             )
-            <if test="name != null" >
-                and su.name like '%'+ #{name,jdbcType=VARCHAR}+'%'
-            </if>
-            <if test="username != null" >
-                and su.username like '%'+ #{username,jdbcType=VARCHAR}+'%'
-            </if>
+			<choose>
+				<when test="null!=searchBeginTime and ''!=searchBeginTime and null!=searchEndTime and ''!=searchEndTime">
+					AND su.createtime between convert(varchar(19), #{searchBeginTime}) and convert(varchar(19), #{searchEndTime})
+				</when>
+				<when test="null!=searchBeginTime and ''!=searchBeginTime and (null==searchEndTime || ''==searchEndTime)">
+					AND su.createtime>=convert(varchar(19), #{searchBeginTime})
+				</when>
+				<when test="(null==searchBeginTime || ''==searchBeginTime) and null!=searchEndTime and ''!=searchEndTime">
+					AND su.createtime<![CDATA[<=]]>convert(varchar(19), #{searchEndTime})
+				</when>
+			</choose>
+			<if test="name != null" >
+				and (su.name like '%'+ #{name,jdbcType=VARCHAR}+'%' or su.username like '%'+ #{name,jdbcType=VARCHAR}+'%')
+			</if>
             <if test="ownedqueue != null" >
                 and su.ownedqueue = #{ownedqueue,jdbcType=INTEGER}
             </if>
         ORDER BY
-            su.createtime desc
+            su.createtime
     </select>
     <select id="findPageCount" parameterType="java.util.Map" resultType="java.lang.Integer">
         select
@@ -192,12 +234,20 @@
         from
             sys_user su
         left join sys_queue sq on su.ownedqueue=sq.code
-        <where>
+		<where>
+			<choose>
+				<when test="null!=searchBeginTime and ''!=searchBeginTime and null!=searchEndTime and ''!=searchEndTime">
+					AND su.createtime between convert(varchar(19), #{searchBeginTime}) and convert(varchar(19), #{searchEndTime})
+				</when>
+				<when test="null!=searchBeginTime and ''!=searchBeginTime and (null==searchEndTime || ''==searchEndTime)">
+					AND su.createtime>=convert(varchar(19), #{searchBeginTime})
+				</when>
+				<when test="(null==searchBeginTime || ''==searchBeginTime) and null!=searchEndTime and ''!=searchEndTime">
+					AND su.createtime<![CDATA[<=]]>convert(varchar(19), #{searchEndTime})
+				</when>
+			</choose>
             <if test="name != null" >
-                and su.name like '%'+ #{name,jdbcType=VARCHAR}+'%'
-            </if>
-            <if test="username != null" >
-                and su.username like '%'+ #{username,jdbcType=VARCHAR}+'%'
+                and (su.name like '%'+ #{name,jdbcType=VARCHAR}+'%' or su.username like '%'+ #{name,jdbcType=VARCHAR}+'%')
             </if>
             <if test="ownedqueue != null" >
                 and su.ownedqueue = #{ownedqueue,jdbcType=INTEGER}
@@ -213,7 +263,7 @@
     <!-- 根据登录账号查询用户信息 -->
     <select id="findByUsername" parameterType="java.lang.String" resultMap="BaseUserMap">
         select
-            su.id,su.code,su.name,su.username,su.password,su.ownedqueue
+            su.id,su.code,su.name,su.sex,su.tel,su.email,su.username,su.password,su.ownedqueue
         from
             sys_user su
         left join sys_userrole ur on ur.usercode=su.code
@@ -228,6 +278,9 @@
 		<result column="name" property="name"/>
 		<result column="username" property="username"/>
 		<result column="password" property="password"/>
+		<result column="sex" property="sex"/>
+		<result column="tel" property="tel"/>
+		<result column="email" property="email"/>
 		<result column="ownedqueue" property="ownedqueue"/>
 		<collection property="roleList" ofType="com.jfsoft.model.SysRole"
                 select="queryRole" column="{userCode=code}">

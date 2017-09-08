@@ -45,6 +45,21 @@ public class SysUser {
     private String password;
 
     /**
+     * 性别
+     */
+    private String sex;
+
+    /**
+     * 手机
+     */
+    private String tel;
+
+    /**
+     * 邮箱
+     */
+    private String email;
+
+    /**
      * 所属队列
      */
     private Integer ownedqueue;
@@ -184,4 +199,27 @@ public class SysUser {
         return set;
     }
 
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public String getTel() {
+        return tel;
+    }
+
+    public void setTel(String tel) {
+        this.tel = tel;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }

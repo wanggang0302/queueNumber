@@ -10,12 +10,12 @@ public interface ISysUserService {
     /**
      * 分页查询
      */
-    public List<SysUser> findPage(String currentPage, String pageSize, String name, String username, String queueCode) throws Exception;
+    public List<SysUser> findPage(String currentPage, String pageSize, String name, String beginTime, String endTime, String queueCode) throws Exception;
 
     /**
      * 根据条件查询总条数
      */
-    public int findPageCount(String name, String username, String queueCode) throws Exception;
+    public int findPageCount(String name, String beginTime, String endTime, String queueCode) throws Exception;
 
     /**
      * 新增用户

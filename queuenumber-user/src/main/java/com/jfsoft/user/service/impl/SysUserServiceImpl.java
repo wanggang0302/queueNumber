@@ -24,7 +24,7 @@ public class SysUserServiceImpl implements ISysUserService {
     @Autowired
     SysUserMapper sysUserMapper;
 
-    public List<SysUser> findPage(String currentPage, String pageSize, String name, String username, String queueCode) throws Exception {
+    public List<SysUser> findPage(String currentPage, String pageSize, String name, String beginTime, String endTime, String queueCode) throws Exception {
 
         //当前页码
         int currentPageInt = Integer.parseInt(currentPage);
@@ -34,9 +34,18 @@ public class SysUserServiceImpl implements ISysUserService {
         int pageStart = currentPageInt * pageSizeInt + 1;
 
         Map<String, Object> params = new HashMap<String, Object>();
-        params.put("name", name);
-        params.put("username", username);
-        params.put("ownedqueue", queueCode);
+        if(!StringUtils.isBlank(beginTime)) {
+            params.put("searchBeginTime", beginTime + Constants.SEARCH_TIME_BEGIN);
+        }
+        if(!StringUtils.isBlank(endTime)) {
+            params.put("searchEndTime", endTime + Constants.SEARCH_TIME_END);
+        }
+        if(!StringUtils.isBlank(name)) {
+            params.put("name", name);
+        }
+        if(!StringUtils.isBlank(queueCode)) {
+            params.put("ownedqueue", queueCode);
+        }
         params.put("pageSize", pageSizeInt);
         params.put("pageStart", pageStart);
 
@@ -45,12 +54,21 @@ public class SysUserServiceImpl implements ISysUserService {
         return sysUserList;
     }
 
-    public int findPageCount(String name, String username, String queueCode) throws Exception {
+    public int findPageCount(String name, String beginTime, String endTime, String queueCode) throws Exception {
 
         Map<String, Object> params = new HashMap<String, Object>();
-        params.put("name", name);
-        params.put("username", username);
-        params.put("ownedqueue", queueCode);
+        if(!StringUtils.isBlank(beginTime)) {
+            params.put("searchBeginTime", beginTime + Constants.SEARCH_TIME_BEGIN);
+        }
+        if(!StringUtils.isBlank(endTime)) {
+            params.put("searchEndTime", endTime + Constants.SEARCH_TIME_END);
+        }
+        if(!StringUtils.isBlank(name)) {
+            params.put("name", name);
+        }
+        if(!StringUtils.isBlank(queueCode)) {
+            params.put("ownedqueue", queueCode);
+        }
 
         int userCount = sysUserMapper.findPageCount(params);
 

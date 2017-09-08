@@ -26,6 +26,11 @@ public class Constants {
     //失败
     public static final String RETURN_STATUS_FAILURE = "failure";
 
+    /** 查询条件中的开始时间 */
+    public static final String SEARCH_TIME_BEGIN = " 00:00:00";
+    /** 查询条件中的截止时间 */
+    public static final String SEARCH_TIME_END = " 23:59:59";
+
     /** 是否：是 */
     public static final String IS_TRUE = "1";
     public static final String IS_FALSE = "0";
