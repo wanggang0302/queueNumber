@@ -24,14 +24,7 @@ public class SysUserServiceImpl implements ISysUserService {
     @Autowired
     SysUserMapper sysUserMapper;
 
-    public List<SysUser> findPage(String currentPage, String pageSize, String name, String beginTime, String endTime, String queueCode) throws Exception {
-
-        //当前页码
-        int currentPageInt = Integer.parseInt(currentPage);
-        //每页显示的条数
-        int pageSizeInt = Integer.parseInt(pageSize);
-        //当前页开始的条数
-        int pageStart = currentPageInt * pageSizeInt + 1;
+    public List<SysUser> findPage(String pageStart, String pageSize, String name, String beginTime, String endTime, String queueCode) throws Exception {
 
         Map<String, Object> params = new HashMap<String, Object>();
         if(!StringUtils.isBlank(beginTime)) {
@@ -46,7 +39,7 @@ public class SysUserServiceImpl implements ISysUserService {
         if(!StringUtils.isBlank(queueCode)) {
             params.put("ownedqueue", queueCode);
         }
-        params.put("pageSize", pageSizeInt);
+        params.put("pageSize", pageSize);
         params.put("pageStart", pageStart);
 
         List<SysUser> sysUserList = sysUserMapper.findPage(params);

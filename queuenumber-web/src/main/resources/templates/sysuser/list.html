@@ -47,9 +47,12 @@ $(function(){
     var datemax = $("#datemax").val();
     var name = $("#searchName").val();
     $(".table-sort").dataTable({
-        "bProcessing": true,
-        "bServerSide": true, //保证页面在加载时就请求后台，以及每次对 datatable 进行操作时也是请求后台
-        "sPaginationType": "full_numbers",
+        "bProcessing": true, //DataTables载入数据时，是否显示‘进度’提示
+        "sPaginationType": "full_numbers", //显示数字的翻页样式。分页，一共两种样式 另一种为two_button（是datatables默认）
+        "bFilter": false, //过滤功能
+        "bStateSave": false, //状态保存，使用了翻页或者改变了每页显示数据数量，会保存在cookie中，下回访问时会显示上一次关闭页面时的内容，此功能在ajax刷新纪录的时候不会将个性化设定回复为初始化状态
+        "sDom": '<"top">rt<"bottom"lip><"clear">', //改变页面上元素的位置
+        "bServerSide": true, //从服务器端获取数据，保证页面在加载时就请求后台，以及每次对 datatable 进行操作时也是请求后台
         "sAjaxSource" : "/sysuser/list",
         "aoColumns": [
             {"mDataProp": "id"},
@@ -60,10 +63,14 @@ $(function(){
             {"mDataProp": "tel"},
             {"mDataProp": "email"},
             {"mDataProp": "ownedQueueName"},
-            {"mDataProp": "createtime"},
+            {"mDataProp": "createtime",
+                "mRender" : function(data, display, row) {  //将从数据库中查到的时间戳格式化
+                    return new Date(data).Format("yyyy-MM-dd hh:mm:ss");
+                }},
             {"mDataProp": "isuse"}
         ],
         "aoColumnDefs": [
+            {"targets": [0], "data": null},
             {
                 "targets": [10],
                 "data": "id",
@@ -71,46 +78,15 @@ $(function(){
                     return "<a href='/update?id=" + data + "'>Update</a>";
                 }
             }
-        ]
+        ],
+        "fnDrawCallback": function(){
+            var api = this.api();
+            var startIndex= api.context[0]._iDisplayStart; //获取到本页开始的条数
+            api.column(0).nodes().each(function(cell, i) {
+                cell.innerHTML = startIndex + i + 1;
+            });
+        }
     });
-
-//    $('.table-sort').dataTable({
-//        "bProcessing": true,
-//        "bServerSide": true,
-//        "bSort": false,
-//        "sAjaxSource": "/sysuser/list",//这是要请求json数据的url
-//        "oLanguage": {
-//            "sLengthMenu": "每页显示 _MENU_ 条记录",
-//            "sZeroRecords": "对不起，查询不到任何相关数据",
-//            "sInfo": "当前显示 _START_ 到 _END_ 条，共 _TOTAL_ 条记录",
-//            "sInfoEmtpy": "找不到相关数据",
-//            //"sInfoFiltered": "数据表中共为 _MAX_ 条记录",
-//            "sProcessing": "正在加载中...",
-//            "sSearch": "搜索",
-//            "sInfoEmpty": "显示 0 至 0 共 0 项",
-//            "oPaginate": { "sFirst": "第一页", "sPrevious": "上一页 ", "sNext": "下一页 ", "sLast": "末页 " }
-//        },
-//        "aoColumns": [
-//            { "mData": "teacher_id", "sClass": "center" },
-//            { "mData": "teacher_name", "sClass": "center" },
-//            { "mData": "organization_name", "sClass": "center" },
-//            { "mData": "manageOrganization_name", "sClass": "center" },
-//            { "mData": "teacher_phone", "sClass": "center" },
-//            { "mData": "teacher_email", "sClass": "center" },
-//            { "mData": "admin_id", "sClass": "center" }
-//
-//        ],
-//        "aoColumnDefs": [
-//            {
-//                "aTargets": [6],
-//                "mData": "操作",
-//                "mRender": function (data, type, full) {
-//                    return '<a href="javascript:void(0);" class="delete" tag=' + data + '>删除</a>';
-//                }
-//            }
-//        ],
-//        "fnServerData": fnDataTablesPipeline
-//    });
 
     //加载数据
     //loadPage();

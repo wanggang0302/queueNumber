@@ -38,7 +38,6 @@ public class MShiroFilterFactoryBean extends ShiroFilterFactoryBean {
         ignoreExt.add(".css");
     }
 
-    @Override
     protected AbstractShiroFilter createInstance() throws Exception {
 
         SecurityManager securityManager = getSecurityManager();
@@ -73,7 +72,6 @@ public class MShiroFilterFactoryBean extends ShiroFilterFactoryBean {
             }
         }
 
-        @Override
         protected void doFilterInternal(ServletRequest servletRequest, ServletResponse servletResponse,
                                         FilterChain chain) throws ServletException, IOException {
             HttpServletRequest request = (HttpServletRequest)servletRequest;
@@ -85,8 +83,9 @@ public class MShiroFilterFactoryBean extends ShiroFilterFactoryBean {
             int idx = 0;
             if(( idx = str.indexOf(".")) > 0){
                 str = str.substring(idx);
-                if(ignoreExt.contains(str.toLowerCase()))
+                if(ignoreExt.contains(str.toLowerCase())) {
                     flag = false;
+                }
             }
             if(flag){
                 super.doFilterInternal(servletRequest, servletResponse, chain);

@@ -54,7 +54,7 @@ public class SysUserController extends BaseController {
      */
     @ResponseBody
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public String list(String currentPage, String pageSize, String name, String beginTime, String endTime, String queueCode) {
+    public String list(String iDisplayStart, String iDisplayLength, String draw, String name, String beginTime, String endTime, String queueCode) {
 
         Map<String, Object> result = new HashMap<String, Object>();
 
@@ -62,14 +62,14 @@ public class SysUserController extends BaseController {
         int pageCount = 0;
 
         try {
-            currentPage = "1";
-            pageSize = "10";
-            sysUserList = sysUserService.findPage(currentPage, pageSize, name, beginTime, endTime, queueCode);
+            sysUserList = sysUserService.findPage(iDisplayStart, iDisplayLength, name, beginTime, endTime, queueCode);
             pageCount = sysUserService.findPageCount(name, beginTime, endTime, queueCode);
 
-            result.put("draw", Constants.RETURN_STATUS_SUCCESS);
+            result.put("draw", draw);
             result.put("data", sysUserList);
+            //表的总记录数
             result.put("recordsTotal", pageCount);
+            //条件过滤后记录数
             result.put("recordsFiltered", pageCount);
         } catch (Exception e) {
             result.put("status", Constants.RETURN_STATUS_FAILURE);

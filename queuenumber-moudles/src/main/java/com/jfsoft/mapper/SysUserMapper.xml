@@ -196,44 +196,43 @@
     <!-- 分页查询用户列表 -->
     <select id="findPage" parameterType="java.util.Map" resultMap="BaseResultMap">
         select
-            su.id,su.code,su.name,su.username,su.sex,su.tel,su.email,su.isuse,su.createtime,su.ownedqueue,sq.name as ownedQueueName
+			top ${pageSize}
+            sus.id,sus.code,sus.name,sus.username,sus.sex,sus.tel,sus.email,sus.isuse,sus.createtime,sus.ownedqueue,sq.name as ownedQueueName
         from
-            sys_user su
-        left join sys_queue sq on su.ownedqueue=sq.code
+			(
+				SELECT
+					ROW_NUMBER() OVER ( ORDER BY su.id ) AS rownumber,*
+				FROM
+					sys_user su
+	  			<where>
+					<choose>
+						<when test="null!=searchBeginTime and ''!=searchBeginTime and null!=searchEndTime and ''!=searchEndTime">
+							AND su.createtime between convert(varchar(19), #{searchBeginTime}) and convert(varchar(19), #{searchEndTime})
+						</when>
+						<when test="null!=searchBeginTime and ''!=searchBeginTime and (null==searchEndTime || ''==searchEndTime)">
+							AND su.createtime>=convert(varchar(19), #{searchBeginTime})
+						</when>
+						<when test="(null==searchBeginTime || ''==searchBeginTime) and null!=searchEndTime and ''!=searchEndTime">
+							AND su.createtime<![CDATA[<=]]>convert(varchar(19), #{searchEndTime})
+						</when>
+					</choose>
+					<if test="name != null" >
+						and (su.name like '%'+ #{name,jdbcType=VARCHAR}+'%' or su.username like '%'+ #{name,jdbcType=VARCHAR}+'%')
+					</if>
+					<if test="ownedqueue != null" >
+						and su.ownedqueue = #{ownedqueue,jdbcType=INTEGER}
+					</if>
+				</where>
+			) sus
+        left join sys_queue sq on sus.ownedqueue=sq.code
         where
-            su.id in
-            (
-                SELECT top ${pageSize} sut.id FROM
-                (
-                    SELECT top ${pageStart} sus.id, sus.createtime FROM sys_user sus ORDER BY sus.createtime desc
-                ) sut ORDER BY sut.createtime desc
-            )
-			<choose>
-				<when test="null!=searchBeginTime and ''!=searchBeginTime and null!=searchEndTime and ''!=searchEndTime">
-					AND su.createtime between convert(varchar(19), #{searchBeginTime}) and convert(varchar(19), #{searchEndTime})
-				</when>
-				<when test="null!=searchBeginTime and ''!=searchBeginTime and (null==searchEndTime || ''==searchEndTime)">
-					AND su.createtime>=convert(varchar(19), #{searchBeginTime})
-				</when>
-				<when test="(null==searchBeginTime || ''==searchBeginTime) and null!=searchEndTime and ''!=searchEndTime">
-					AND su.createtime<![CDATA[<=]]>convert(varchar(19), #{searchEndTime})
-				</when>
-			</choose>
-			<if test="name != null" >
-				and (su.name like '%'+ #{name,jdbcType=VARCHAR}+'%' or su.username like '%'+ #{name,jdbcType=VARCHAR}+'%')
-			</if>
-            <if test="ownedqueue != null" >
-                and su.ownedqueue = #{ownedqueue,jdbcType=INTEGER}
-            </if>
-        ORDER BY
-            su.createtime
+			sus.rownumber > ${pageStart}
     </select>
     <select id="findPageCount" parameterType="java.util.Map" resultType="java.lang.Integer">
         select
             count(su.id)
         from
             sys_user su
-        left join sys_queue sq on su.ownedqueue=sq.code
 		<where>
 			<choose>
 				<when test="null!=searchBeginTime and ''!=searchBeginTime and null!=searchEndTime and ''!=searchEndTime">
