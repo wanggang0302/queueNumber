@@ -63,19 +63,49 @@ $(function(){
             {"mDataProp": "tel"},
             {"mDataProp": "email"},
             {"mDataProp": "ownedQueueName"},
-            {"mDataProp": "createtime",
+            {
+                "mDataProp": "createtime",
                 "mRender" : function(data, display, row) {  //将从数据库中查到的时间戳格式化
-                    return new Date(data).Format("yyyy-MM-dd hh:mm:ss");
-                }},
+                    return new Date(data).format("yyyy-MM-dd");
+                }
+            },
             {"mDataProp": "isuse"}
         ],
         "aoColumnDefs": [
             {"targets": [0], "data": null},
             {
+                "targets": [4],
+                "data": "sex",
+                "render": function(data, type, full) {
+                    var retVal = "";
+                    if("1"==data) {
+                        retVal = "男";
+                    } else if("2"==data) {
+                        retVal = "女";
+                    } else {
+                        retVal = "未知";
+                    }
+                    return retVal;
+                }
+            },
+            {
+                "targets": [9],
+                "data": "isuse",
+                "render": function(data, type, full) {
+                    var retVal = "";
+                    if("1"==data) {
+                        retVal = "<span class='label label-success radius'>启用</span>";
+                    } else {
+                        retVal = "<span class='label label-failure radius'>停用</span>";
+                    }
+                    return retVal;
+                }
+            },
+            {
                 "targets": [10],
                 "data": "id",
                 "render": function(data, type, full) {
-                    return "<a href='/update?id=" + data + "'>Update</a>";
+                    return "<a href='/update?id=" + data + "'>修改</a>";
                 }
             }
         ],
