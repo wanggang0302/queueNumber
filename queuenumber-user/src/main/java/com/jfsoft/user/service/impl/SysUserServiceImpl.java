@@ -1,7 +1,9 @@
 package com.jfsoft.user.service.impl;
 
 import com.jfsoft.mapper.SysUserMapper;
+import com.jfsoft.model.SysQueue;
 import com.jfsoft.model.SysUser;
+import com.jfsoft.sysqueue.service.ISysQueueService;
 import com.jfsoft.user.service.ISysUserService;
 import com.jfsoft.utils.Constants;
 import com.jfsoft.utils.MD5Util;
@@ -16,11 +18,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * 系统用户业务接口实现类
+ */
 @Service
 public class SysUserServiceImpl implements ISysUserService {
 
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
+    @Autowired
+    ISysQueueService sysQueueService;
     @Autowired
     SysUserMapper sysUserMapper;
 
@@ -34,7 +41,7 @@ public class SysUserServiceImpl implements ISysUserService {
             params.put("searchEndTime", endTime + Constants.SEARCH_TIME_END);
         }
         if(!StringUtils.isBlank(name)) {
-            params.put("name", name);
+            params.put("name", name.trim());
         }
         if(!StringUtils.isBlank(queueCode)) {
             params.put("ownedqueue", queueCode);
@@ -57,7 +64,7 @@ public class SysUserServiceImpl implements ISysUserService {
             params.put("searchEndTime", endTime + Constants.SEARCH_TIME_END);
         }
         if(!StringUtils.isBlank(name)) {
-            params.put("name", name);
+            params.put("name", name.trim());
         }
         if(!StringUtils.isBlank(queueCode)) {
             params.put("ownedqueue", queueCode);
@@ -160,6 +167,13 @@ public class SysUserServiceImpl implements ISysUserService {
         int maxCode = sysUserMapper.getMaxCode();
 
         return maxCode;
+    }
+
+    public List<SysQueue> getAllSysQueue() throws Exception {
+
+        List<SysQueue> sysQueueList = sysQueueService.findAll();
+
+        return sysQueueList;
     }
 
 }

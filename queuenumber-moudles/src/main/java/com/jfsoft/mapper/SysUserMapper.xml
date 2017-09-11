@@ -265,7 +265,6 @@
             su.id,su.code,su.name,su.sex,su.tel,su.email,su.username,su.password,su.ownedqueue
         from
             sys_user su
-        left join sys_userrole ur on ur.usercode=su.code
         where
             su.username=#{username} and su.isuse='1'
     </select>

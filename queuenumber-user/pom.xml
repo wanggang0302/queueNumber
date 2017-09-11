@@ -19,6 +19,11 @@
             <artifactId>queuenumber-moudles</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>com.jfsoft</groupId>
+            <artifactId>queuenumber-queue</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
 
     </dependencies>
 

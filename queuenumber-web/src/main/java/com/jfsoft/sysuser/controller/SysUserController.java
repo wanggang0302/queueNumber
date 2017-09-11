@@ -4,25 +4,22 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.serializer.SimplePropertyPreFilter;
 import com.base.BaseController;
-import com.jfsoft.hospital.service.IHospitalInfoService;
-import com.jfsoft.model.HospitalInfo;
+import com.jfsoft.model.SysQueue;
 import com.jfsoft.model.SysUser;
 import com.jfsoft.user.service.ISysUserService;
 import com.jfsoft.utils.Constants;
-import com.jfsoft.vo.PerCheckinfo;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.management.QueryEval;
 import javax.servlet.http.HttpSession;
-import javax.xml.transform.Result;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -46,6 +43,14 @@ public class SysUserController extends BaseController {
     @RequestMapping(value="/toList", method=RequestMethod.GET)
     public String toList(ModelMap model) {
 
+        try {
+            //查询全部可用科室
+            List<SysQueue> queueList = sysUserService.getAllSysQueue();
+            model.addAttribute("queueList", queueList);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         return "/sysuser/list";
     }
 
@@ -54,7 +59,8 @@ public class SysUserController extends BaseController {
      */
     @ResponseBody
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public String list(String iDisplayStart, String iDisplayLength, String draw, String name, String beginTime, String endTime, String queueCode) {
+    public String list(String iDisplayStart, String iDisplayLength, String draw,
+                       String name, String searchBeginTime, String searchEndTime, String queueCode) {
 
         Map<String, Object> result = new HashMap<String, Object>();
 
@@ -62,8 +68,8 @@ public class SysUserController extends BaseController {
         int pageCount = 0;
 
         try {
-            sysUserList = sysUserService.findPage(iDisplayStart, iDisplayLength, name, beginTime, endTime, queueCode);
-            pageCount = sysUserService.findPageCount(name, beginTime, endTime, queueCode);
+            sysUserList = sysUserService.findPage(iDisplayStart, iDisplayLength, name, searchBeginTime, searchEndTime, queueCode);
+            pageCount = sysUserService.findPageCount(name, searchBeginTime, searchEndTime, queueCode);
 
             result.put("draw", draw);
             result.put("data", sysUserList);
@@ -85,6 +91,23 @@ public class SysUserController extends BaseController {
                 SerializerFeature.WriteNullStringAsEmpty);
 
         return resultJson;
+    }
+
+    /**
+     * 跳转到新增页面
+     */
+    @RequestMapping(value = "/toAdd", method = RequestMethod.GET)
+    public String toAdd(HttpSession session, Model model) {
+
+        try {
+            //查询全部可用科室
+            List<SysQueue> queueList = sysUserService.getAllSysQueue();
+            model.addAttribute("queueList", queueList);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return "/sysuser/add";
     }
 
     /**

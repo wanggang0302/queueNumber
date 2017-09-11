@@ -1,10 +1,14 @@
 package com.jfsoft.user.service;
 
+import com.jfsoft.model.SysQueue;
 import com.jfsoft.model.SysUser;
 
 import java.util.List;
 import java.util.Map;
 
+/**
+ * 系统用户业务接口
+ */
 public interface ISysUserService {
 
     /**
@@ -46,5 +50,10 @@ public interface ISysUserService {
      * 查询最大用户编号
      */
     public int getMaxCode() throws Exception;
+
+    /**
+     * 查询全部科室
+     */
+    public List<SysQueue> getAllSysQueue() throws Exception;
 
 }
