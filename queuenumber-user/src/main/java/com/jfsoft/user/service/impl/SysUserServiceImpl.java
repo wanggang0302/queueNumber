@@ -111,7 +111,7 @@ public class SysUserServiceImpl implements ISysUserService {
         //用户账号
         String username = sysUser.getUsername();
         SysUser sysUserExist = getByUsername(username);
-        if(null!=sysUserExist) {
+        if(null!=sysUserExist && (sysUserExist.getCode().compareTo(sysUser.getCode())!=0)) {
             result.put("status", Constants.RETURN_STATUS_FAILURE);
             result.put("data", "已经存在该用户，不允许重复添加！");
         } else {

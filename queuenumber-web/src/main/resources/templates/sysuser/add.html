@@ -68,6 +68,19 @@
             </div>
         </div>
         <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>是否使用：</label>
+            <div class="formControls col-xs-8 col-sm-9 skin-minimal">
+                <div class="radio-box">
+                    <input name="isuse" type="radio" id="isuse-1" th:value="1" checked>
+                    <label for="isuse-1">是</label>
+                </div>
+                <div class="radio-box">
+                    <input name="isuse" type="radio" id="isuse-2" th:value="0">
+                    <label for="isuse-2">否</label>
+                </div>
+            </div>
+        </div>
+        <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3">备注：</label>
             <div class="formControls col-xs-8 col-sm-9">
                 <textarea name="memo" cols="" rows="" class="textarea"  placeholder="" onKeyUp="$.Huitextarealength(this,100)"></textarea>
@@ -140,7 +153,6 @@
                     success:function(data){
                         var obj = JSON.parse(data);
                         var status = obj.status;
-                        console.log(status);
                         if("success"==status) {
                             layer.alert("保存成功！", function() {
                                 closeWindow();
@@ -156,6 +168,8 @@
 
     //关闭窗口
     function closeWindow() {
+
+        parent.location.href = "/sysuser/toList";
 
         var index = parent.layer.getFrameIndex(window.name);
         //parent.$('.btn-refresh').click();

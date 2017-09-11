@@ -5,6 +5,7 @@ import org.apache.shiro.cache.ehcache.EhCacheManager;
 import org.apache.shiro.spring.LifecycleBeanPostProcessor;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
+import org.apache.shiro.web.filter.authc.LogoutFilter;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,6 +13,7 @@ import org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreato
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import javax.servlet.Filter;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -144,6 +146,12 @@ public class ShiroConfiguration {
         ShiroFilterFactoryBean shiroFilterFactoryBean = new MShiroFilterFactoryBean();
         // 必须设置 SecurityManager
         shiroFilterFactoryBean.setSecurityManager(securityManager);
+
+        Map<String, Filter> filters = new LinkedHashMap<>();
+        LogoutFilter logoutFilter = new LogoutFilter();
+        logoutFilter.setRedirectUrl("/login");
+        filters.put("logout", logoutFilter);
+        shiroFilterFactoryBean.setFilters(filters);
 
         // 如果不设置默认会自动寻找Web工程根目录下的"/login.jsp"页面
         shiroFilterFactoryBean.setLoginUrl("/login");

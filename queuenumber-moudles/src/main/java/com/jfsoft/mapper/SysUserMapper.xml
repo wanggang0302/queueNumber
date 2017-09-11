@@ -137,44 +137,35 @@
 	<update id="updateByPrimaryKeySelective" parameterType="com.jfsoft.model.SysUser" >
 		update sys_user
 		<set >
-			<if test="code != null" >
-				code = #{code,jdbcType=INTEGER},
-			</if>
-			<if test="name != null" >
+			<if test="null!=name and ''!=name" >
 				name = #{name,jdbcType=VARCHAR},
 			</if>
-			<if test="username != null" >
+			<if test="null!=username and ''!=username" >
 				username = #{username,jdbcType=VARCHAR},
 			</if>
-			<if test="password != null" >
+			<if test="null!=password and ''!=password" >
 				password = #{password,jdbcType=VARCHAR},
 			</if>
-			<if test="sex != null" >
-				#{sex,jdbcType=CHAR},
+			<if test="null!=sex and ''!=sex" >
+				sex = #{sex,jdbcType=CHAR},
 			</if>
-			<if test="tel != null" >
-				#{tel,jdbcType=NVARCHAR},
+			<if test="null!=tel and ''!=tel" >
+				tel = #{tel,jdbcType=NVARCHAR},
 			</if>
-			<if test="email != null" >
-				#{email,jdbcType=NVARCHAR},
+			<if test="null!=email and ''!=email" >
+				email = #{email,jdbcType=NVARCHAR},
 			</if>
-			<if test="ownedqueue != null" >
+			<if test="null!=ownedqueue and ''!=ownedqueue" >
 				ownedqueue = #{ownedqueue,jdbcType=INTEGER},
 			</if>
-			<if test="isuse != null" >
+			<if test="null!=isuse and ''!=isuse" >
 				isuse = #{isuse,jdbcType=CHAR},
 			</if>
-			<if test="createtime != null" >
-				createtime = #{createtime,jdbcType=TIMESTAMP},
-			</if>
-			<if test="createrid != null" >
-				createrId = #{createrid,jdbcType=INTEGER},
-			</if>
-			<if test="memo != null" >
+			<if test="null!=memo and ''!=memo" >
 				memo = #{memo,jdbcType=NVARCHAR},
 			</if>
 		</set>
-		where id = #{id,jdbcType=CHAR}
+		where id = #{id, jdbcType=CHAR}
 	</update>
 
 	<update id="updateByPrimaryKey" parameterType="com.jfsoft.model.SysUser" >
