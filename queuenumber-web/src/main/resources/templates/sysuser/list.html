@@ -15,7 +15,7 @@
         </select></span>
         <button type="submit" class="btn btn-success radius" id="search" name=""><i class="Hui-iconfont">&#xe665;</i> 搜用户</button>
     </div>
-    <div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a href="javascript:;" onclick="member_add('添加用户','/sysuser/toAdd','','520')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加用户</a></span> <span class="r">共有数据：<strong></strong> 条</span> </div>
+    <div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a href="javascript:;" onclick="member_add('添加用户','/sysuser/toAdd','','520')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加用户</a></span></div>
     <div class="mt-20">
         <table class="table table-border table-bordered table-hover table-bg table-sort">
             <thead>
@@ -205,35 +205,41 @@ function member_del(obj, id){
 }
 /*用户-批量删除*/
 function datadel(){
-    layer.confirm('确认要删除这些用户吗？',function(index){
 
-        //获得批量删除的用户
-        var codes =[];
-        $('input[name="code"]').attr("checked", true).each(function(){
-            codes.push($(this).val());
-        });
 
-        $.ajax({
-            type: 'POST',
-            url: '/sysuser/deleteBatch?codes=' + codes,
-            //dataType: 'json',
-            success: function(data){
-                //$(obj).parents("tr").remove();
-                var obj = jQuery.parseJSON(data);
-                var status = obj.status;
-                if("success"==status) {
-                    layer.msg('已删除!',{icon:1,time:1000}, function(){
-                        closeWindow();
-                    });
-                } else {
-                    layer.alert(obj.data);
-                }
-            },
-            error:function(data) {
-                layer.alert(data.msg);
-            },
-        });
+    //获得批量删除的用户
+    var codes =[];
+    $('input[name="code"]:checked').each(function(){
+        codes.push($(this).val());
     });
+    console.log(codes.length);
+    if(codes.length>0) {
+        layer.confirm('确认要删除这些用户吗？',function(index){
+
+            $.ajax({
+                type: 'POST',
+                url: '/sysuser/deleteBatch?codes=' + codes,
+                //dataType: 'json',
+                success: function(data){
+                    //$(obj).parents("tr").remove();
+                    var obj = jQuery.parseJSON(data);
+                    var status = obj.status;
+                    if("success"==status) {
+                        layer.msg('已删除!',{icon:1,time:1000}, function(){
+                            closeWindow();
+                        });
+                    } else {
+                        layer.alert(obj.data);
+                    }
+                },
+                error:function(data) {
+                    layer.alert(data.msg);
+                },
+            });
+        });
+    } else {
+        layer.alert("选择要删除的用户！");
+    }
 }
 //关闭窗口
 function closeWindow() {
