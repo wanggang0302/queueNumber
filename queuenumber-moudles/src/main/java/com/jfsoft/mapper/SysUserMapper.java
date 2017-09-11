@@ -13,7 +13,10 @@ import java.util.List;
 import java.util.Map;
 
 public interface SysUserMapper {
-    
+
+    /**
+     * 根据用户编号删除用户
+     */
     int deleteByPrimaryKey(String id);
 
     int insert(SysUser record);
