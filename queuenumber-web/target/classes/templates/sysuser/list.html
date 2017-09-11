@@ -10,7 +10,7 @@
         <input type="text" onfocus="WdatePicker({ minDate:'#F{$dp.$D(\'datemin\')}',maxDate:'%y-%M-%d' })" id="datemax" class="input-text Wdate" style="width:120px;">
         <input type="text" class="input-text" style="width:250px" placeholder="输入用户名称、账号" id="searchName" name="">
         <span class="select-box" style="width:150px"><select class="select" name="queueCode" size="1">
-            <option value="" selected>请选择科室</option>
+            <option value="" selected>全部</option>
             <option th:each="queue: ${queueList}" th:value="${queue.code}" >[[${queue.name}]]</option>
         </select></span>
         <button type="submit" class="btn btn-success radius" id="search" name=""><i class="Hui-iconfont">&#xe665;</i> 搜用户</button>
@@ -21,7 +21,7 @@
             <thead>
             <tr class="text-c">
                 <th width="25"><input type="checkbox" name="" value=""></th>
-                <th width="80">编号</th>
+                <th width="80">用户编号</th>
                 <th width="100">用户名称</th>
                 <th width="100">账号</th>
                 <th width="40">性别</th>
@@ -69,6 +69,8 @@ function generate_table() {
         "bProcessing": true, //DataTables载入数据时，是否显示‘进度’提示
         "sPaginationType": "full_numbers", //显示数字的翻页样式。分页，一共两种样式 另一种为two_button（是datatables默认）
         "bFilter": false, //过滤功能
+        "bSort": false, //排序功能
+        "bAutoWidth": true, //自动宽度
         "bStateSave": false, //状态保存，使用了翻页或者改变了每页显示数据数量，会保存在cookie中，下回访问时会显示上一次关闭页面时的内容，此功能在ajax刷新纪录的时候不会将个性化设定回复为初始化状态
         "sDom": '<"top">rt<"bottom"lip><"clear">', //改变页面上元素的位置
         "bServerSide": true, //从服务器端获取数据，保证页面在加载时就请求后台，以及每次对 datatable 进行操作时也是请求后台
@@ -83,24 +85,36 @@ function generate_table() {
             );
         },
         "aoColumns": [
-            {"mDataProp": "id"},
-            {"mDataProp": "code"},
-            {"mDataProp": "name", "sClass" : "right"},
-            {"mDataProp": "username"},
-            {"mDataProp": "sex"},
-            {"mDataProp": "tel"},
-            {"mDataProp": "email"},
-            {"mDataProp": "ownedQueueName"},
+            {"sClass" : "right", "mDataProp": "code"},
+            {"sClass" : "right", "mDataProp": "code"},
+            {"sClass" : "right", "mDataProp": "name"},
+            {"sClass" : "right", "mDataProp": "username"},
+            {"sClass" : "right", "mDataProp": "sex"},
+            {"sClass" : "right", "mDataProp": "tel"},
+            {"sClass" : "right", "mDataProp": "email"},
+            {"sClass" : "right", "mDataProp": "ownedQueueName"},
             {
+                "sClass" : "right",
                 "mDataProp": "createtime",
                 "mRender" : function(data, display, row) {  //将从数据库中查到的时间戳格式化
                     return new Date(data).format("yyyy-MM-dd");
                 }
             },
-            {"mDataProp": "isuse"}
+            {"sClass" : "right", "mDataProp": "isuse"}
         ],
         "aoColumnDefs": [
-            {"targets": [0], "data": null},
+            {
+                "targets": [0],
+                "data": "code",
+                "render": function(data, type, full) {
+                    var retVal = "";
+                    if("1"!=data) {
+                        //admin用户不允许删除
+                        retVal = "<input type='checkbox' name='code' value='" + data + "'>";
+                    }
+                    return retVal;
+                }
+            },
             {
                 "targets": [4],
                 "data": "sex",
@@ -131,69 +145,31 @@ function generate_table() {
             },
             {
                 "targets": [10],
-                "data": "id",
+                "data": "code",
                 "render": function(data, type, full) {
 
                     var option = "";
                         option += '<a title="编辑" href="javascript:;" onclick="member_edit(\'编辑\', \'/sysuser/toUpdate?code=' + data + '\', \'\', \'510\')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>';
+                    if("1"!=data) {
+                        //admin用户不允许删除
                         option += '<a title="删除" href="javascript:;" onclick="member_del(this,\'' + data + '\')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>';
+                    }
                     return option;
                 }
             }
-        ],
-        "fnDrawCallback": function() {
-            var api = this.api();
-            var startIndex= api.context[0]._iDisplayStart; //获取到本页开始的条数
-            api.column(0).nodes().each(function(cell, i) {
-                cell.innerHTML = startIndex + i + 1;
-            });
-        }
+        ]
+//        ,
+//        "fnDrawCallback": function() {
+//            var api = this.api();
+//            var startIndex= api.context[0]._iDisplayStart; //获取到本页开始的条数
+//            api.column(0).nodes().each(function(cell, i) {
+//                cell.innerHTML = startIndex + i + 1;
+//            });
+//        }
     });
 }
 
-/*用户-查看*/
-function member_show(title,url,id,w,h){
-    layer_show(title,url,w,h);
-}
-/*用户-停用*/
-function member_stop(obj,id){
-    layer.confirm('确认要停用吗？',function(index){
-        $.ajax({
-            type: 'POST',
-            url: '',
-            dataType: 'json',
-            success: function(data){
-                $(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" onClick="member_start(this,id)" href="javascript:;" title="启用"><i class="Hui-iconfont">&#xe6e1;</i></a>');
-                $(obj).parents("tr").find(".td-status").html('<span class="label label-defaunt radius">已停用</span>');
-                $(obj).remove();
-                layer.msg('已停用!',{icon: 5,time:1000});
-            },
-            error:function(data) {
-                console.log(data.msg);
-            },
-        });
-    });
-}
 
-/*用户-启用*/
-function member_start(obj,id){
-    layer.confirm('确认要启用吗？',function(index){
-        $.ajax({
-            type: 'POST',
-            url: '',
-            dataType: 'json',
-            success: function(data){
-                $(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" onClick="member_stop(this,id)" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a>');
-                $(obj).parents("tr").find(".td-status").html('<span class="label label-success radius">已启用</span>');
-                $(obj).remove();
-                layer.msg('已启用!',{icon: 6,time:1000});
-            },
-            error:function(data) {
-                console.log(data.msg);
-            },
-        });
-    });
-}
 /*用户-添加*/
 function member_add(title,url,w,h){
     layer_show(title,url,w,h);
@@ -208,6 +184,38 @@ function member_del(obj, id){
         $.ajax({
             type: 'POST',
             url: '/sysuser/delete?id=' + id,
+            //dataType: 'json',
+            success: function(data){
+                //$(obj).parents("tr").remove();
+                var obj = jQuery.parseJSON(data);
+                var status = obj.status;
+                if("success"==status) {
+                    layer.msg('已删除!',{icon:1,time:1000}, function(){
+                        closeWindow();
+                    });
+                } else {
+                    layer.alert(obj.data);
+                }
+            },
+            error:function(data) {
+                layer.alert(data.msg);
+            },
+        });
+    });
+}
+/*用户-批量删除*/
+function datadel(){
+    layer.confirm('确认要删除这些用户吗？',function(index){
+
+        //获得批量删除的用户
+        var codes =[];
+        $('input[name="code"]').attr("checked", true).each(function(){
+            codes.push($(this).val());
+        });
+
+        $.ajax({
+            type: 'POST',
+            url: '/sysuser/deleteBatch?codes=' + codes,
             //dataType: 'json',
             success: function(data){
                 //$(obj).parents("tr").remove();

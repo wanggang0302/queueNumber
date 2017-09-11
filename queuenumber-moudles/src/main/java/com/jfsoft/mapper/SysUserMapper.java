@@ -19,6 +19,11 @@ public interface SysUserMapper {
      */
     int deleteByPrimaryKey(String id);
 
+    /**
+     * 批量删除用户
+     */
+    int deleteBatch(Map<String, Object> params);
+
     int insert(SysUser record);
 
     int insertSelective(SysUser record);

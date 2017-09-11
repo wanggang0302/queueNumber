@@ -37,6 +37,11 @@ public interface ISysUserService {
     public boolean delete(String id) throws Exception;
 
     /**
+     * 批量删除用户
+     */
+    public boolean deleteBatch(String codes) throws Exception;
+
+    /**
      * 根据业务唯一主键（用户账号）查询用户信息
      */
     public SysUser getByUsername(String username) throws Exception;

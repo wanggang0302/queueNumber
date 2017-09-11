@@ -5,7 +5,14 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-moudles/src/main/java/com/jfsoft/mapper/SysUserMapper.java" afterPath="$PROJECT_DIR$/queuenumber-moudles/src/main/java/com/jfsoft/mapper/SysUserMapper.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-moudles/src/main/java/com/jfsoft/mapper/SysUserMapper.xml" afterPath="$PROJECT_DIR$/queuenumber-moudles/src/main/java/com/jfsoft/mapper/SysUserMapper.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-user/src/main/java/com/jfsoft/user/service/ISysUserService.java" afterPath="$PROJECT_DIR$/queuenumber-user/src/main/java/com/jfsoft/user/service/ISysUserService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-user/src/main/java/com/jfsoft/user/service/impl/SysUserServiceImpl.java" afterPath="$PROJECT_DIR$/queuenumber-user/src/main/java/com/jfsoft/user/service/impl/SysUserServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/sysuser/controller/SysUserController.java" afterPath="$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/sysuser/controller/SysUserController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-web/src/main/resources/static/h-ui/css/H-ui.css" afterPath="$PROJECT_DIR$/queuenumber-web/src/main/resources/static/h-ui/css/H-ui.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-web/src/main/resources/static/h-ui/css/H-ui.min.css" afterPath="$PROJECT_DIR$/queuenumber-web/src/main/resources/static/h-ui/css/H-ui.min.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-web/src/main/resources/templates/sysuser/list.html" afterPath="$PROJECT_DIR$/queuenumber-web/src/main/resources/templates/sysuser/list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-web/target/classes/templates/header.html" afterPath="$PROJECT_DIR$/queuenumber-web/target/classes/templates/header.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/queuenumber-web/target/classes/templates/sysuser/list.html" afterPath="$PROJECT_DIR$/queuenumber-web/target/classes/templates/sysuser/list.html" />
     </list>
     <ignored path="$PROJECT_DIR$/queuenumber-common/target/" />
     <ignored path="$PROJECT_DIR$/queuenumber/target/" />
@@ -23,38 +30,59 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="list.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="list.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/queuenumber-web/src/main/resources/templates/sysuser/list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-506">
-              <caret line="153" column="0" lean-forward="true" selection-start-line="153" selection-start-column="0" selection-end-line="153" selection-end-column="0" />
+            <state relative-caret-position="-2752">
+              <caret line="87" column="51" lean-forward="false" selection-start-line="87" selection-start-column="51" selection-end-line="87" selection-end-column="51" />
               <folding>
                 <element signature="n#style#0;n#a#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <marker date="1505117913704" expanded="true" signature="6299:6319" ph="..." />
-                <marker date="1505117913704" expanded="true" signature="6345:6353" ph="&amp;##xe6df;" />
-                <marker date="1505117913704" expanded="true" signature="6497:6517" ph="..." />
-                <marker date="1505117913704" expanded="true" signature="6543:6551" ph="&amp;##xe6e2;" />
+                <marker date="1505121699792" expanded="true" signature="6948:6968" ph="..." />
+                <marker date="1505121699792" expanded="true" signature="6994:7002" ph="&amp;##xe6df;" />
+                <marker date="1505121699792" expanded="true" signature="7221:7241" ph="..." />
+                <marker date="1505121699792" expanded="true" signature="7267:7275" ph="&amp;##xe6e2;" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SysUserController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="header.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/queuenumber-web/src/main/resources/templates/header.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="88">
+              <caret line="4" column="25" lean-forward="false" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SysUserController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/sysuser/controller/SysUserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="145">
-              <caret line="184" column="0" lean-forward="false" selection-start-line="184" selection-start-column="0" selection-end-line="184" selection-end-column="0" />
+            <state relative-caret-position="174">
+              <caret line="214" column="47" lean-forward="false" selection-start-line="214" selection-start-column="47" selection-end-line="214" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1987#2003#0" expanded="true" />
                 <element signature="e#3845#3861#0" expanded="true" />
                 <element signature="e#5185#5201#0" expanded="true" />
                 <element signature="e#5770#5786#0" expanded="true" />
+                <element signature="e#6667#6683#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ISysUserService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/queuenumber-user/src/main/java/com/jfsoft/user/service/ISysUserService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="161">
+              <caret line="40" column="7" lean-forward="true" selection-start-line="40" selection-start-column="7" selection-end-line="40" selection-end-column="7" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -72,21 +100,23 @@
       <file leaf-file-name="SysUserMapper.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/queuenumber-moudles/src/main/java/com/jfsoft/mapper/SysUserMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
-              <caret line="4" column="17" lean-forward="false" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="17" />
+            <state relative-caret-position="242">
+              <caret line="38" column="60" lean-forward="true" selection-start-line="38" selection-start-column="60" selection-end-line="38" selection-end-column="60" />
               <folding>
-                <marker date="1505115332158" expanded="true" signature="1368:1486" ph="select from sys_user" />
-                <marker date="1505115332158" expanded="true" signature="1569:1625" ph="delete from " />
-                <marker date="1505115332158" expanded="true" signature="1704:2219" ph="insert into sys_user... " />
-                <marker date="1505115332158" expanded="true" signature="4177:5074" ph="update sys_u... " />
-                <marker date="1505115332158" expanded="true" signature="5165:5699" ph="update sys_u... " />
-                <marker date="1505115332158" expanded="true" signature="5825:5832" ph="select su.id... sys_user" />
-                <marker date="1505115332158" expanded="true" signature="5825:7173" ph="select top $... ROW_NUMBER" />
-                <marker date="1505115332158" expanded="true" signature="7357:8353" ph="..." />
-                <marker date="1505115332158" expanded="true" signature="8446:8476" ph="select MAX(c... sys_user" />
-                <marker date="1505115332158" expanded="true" signature="8616:8821" ph="select su.id... sys_user" />
-                <marker date="1505115332158" expanded="true" signature="9620:9815" ph="SELECT sr.co... sys_role" />
-                <marker date="1505115332158" expanded="true" signature="10368:10636" ph="select sm.co... sys_menu" />
+                <marker date="1505120882156" expanded="true" signature="1368:1486" ph="select from sys_user" />
+                <marker date="1505120882156" expanded="true" signature="1569:1625" ph="delete from " />
+                <marker date="1505120882156" expanded="true" signature="1727:1767" ph="delete from " />
+                <marker date="1505120882156" expanded="true" signature="1727:1769" ph="delete from " />
+                <marker date="1505120882156" expanded="true" signature="1972:2487" ph="insert into sys_user... " />
+                <marker date="1505120882156" expanded="true" signature="4445:5342" ph="update sys_u... " />
+                <marker date="1505120882156" expanded="true" signature="5433:5967" ph="update sys_u... " />
+                <marker date="1505120882156" expanded="true" signature="6093:6100" ph="select su.id... sys_user" />
+                <marker date="1505120882156" expanded="true" signature="6093:7441" ph="select top $... ROW_NUMBER" />
+                <marker date="1505120882156" expanded="true" signature="7625:8621" ph="..." />
+                <marker date="1505120882156" expanded="true" signature="8714:8744" ph="select MAX(c... sys_user" />
+                <marker date="1505120882156" expanded="true" signature="8884:9089" ph="select su.id... sys_user" />
+                <marker date="1505120882156" expanded="true" signature="9888:10083" ph="SELECT sr.co... sys_role" />
+                <marker date="1505120882156" expanded="true" signature="10636:10904" ph="select sm.co... sys_menu" />
               </folding>
             </state>
           </provider>
@@ -95,10 +125,11 @@
       <file leaf-file-name="SysUserServiceImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/queuenumber-user/src/main/java/com/jfsoft/user/service/impl/SysUserServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="131" column="46" lean-forward="true" selection-start-line="131" selection-start-column="46" selection-end-line="131" selection-end-column="46" />
+            <state relative-caret-position="153">
+              <caret line="138" column="19" lean-forward="false" selection-start-line="138" selection-start-column="19" selection-end-line="138" selection-end-column="19" />
               <folding>
                 <element signature="e#3745#3761#0" expanded="true" />
+                <element signature="e#4886#4902#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -107,8 +138,8 @@
       <file leaf-file-name="SysUserMapper.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/queuenumber-moudles/src/main/java/com/jfsoft/mapper/SysUserMapper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="19" column="36" lean-forward="false" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="36" />
+            <state relative-caret-position="285">
+              <caret line="24" column="46" lean-forward="false" selection-start-line="24" selection-start-column="46" selection-end-line="24" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -127,8 +158,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>table-sort</find>
-      <find>secho</find>
       <find>set</find>
       <find>sex</find>
       <find>刷新</find>
@@ -154,9 +183,11 @@
       <find>console.log</find>
       <find>change_password</find>
       <find>deleteByPrimaryKey</find>
-      <find>id</find>
       <find>member_del</find>
       <find>member_show</find>
+      <find>.table td</find>
+      <find>id</find>
+      <find>delete</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -181,8 +212,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/queuenumber-web/src/main/resources/login.html" />
-        <option value="$PROJECT_DIR$/queuenumber-web/src/main/resources/templates/common/base_css.html" />
         <option value="$PROJECT_DIR$/queuenumber-web/src/main/resources/templates/common/base_js.html" />
         <option value="$PROJECT_DIR$/queuenumber-web/src/main/resources/templates/common/base_meta.html" />
         <option value="$PROJECT_DIR$/queuenumber-web/src/main/resources/templates/login.html" />
@@ -204,7 +233,6 @@
         <option value="$PROJECT_DIR$/queuenumber-moudles/src/main/java/com/jfsoft/model/SysMenu.java" />
         <option value="$PROJECT_DIR$/queuenumber-moudles/src/main/java/com/jfsoft/model/SysRole.java" />
         <option value="$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/sysmenu/controller/SysMenuController.java" />
-        <option value="$PROJECT_DIR$/queuenumber-web/src/main/resources/templates/header.html" />
         <option value="$PROJECT_DIR$/queuenumber-web/src/main/resources/static/h-ui/js/H-ui.js" />
         <option value="$PROJECT_DIR$/queuenumber-moudles/src/main/java/com/jfsoft/mapper/SysMenuMapper.xml" />
         <option value="$PROJECT_DIR$/queuenumber-web/src/main/resources/templates/common/base_head.html" />
@@ -226,11 +254,14 @@
         <option value="$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/core/ShiroConfiguration.java" />
         <option value="$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/login/controller/LoginController.java" />
         <option value="$PROJECT_DIR$/queuenumber-web/src/main/resources/templates/sysuser/change_password.html" />
-        <option value="$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/sysuser/controller/SysUserController.java" />
+        <option value="$PROJECT_DIR$/queuenumber-web/src/main/resources/templates/header.html" />
+        <option value="$PROJECT_DIR$/queuenumber-web/src/main/resources/static/h-ui/css/H-ui.css" />
+        <option value="$PROJECT_DIR$/queuenumber-web/src/main/resources/static/h-ui/css/H-ui.min.css" />
         <option value="$PROJECT_DIR$/queuenumber-user/src/main/java/com/jfsoft/user/service/ISysUserService.java" />
-        <option value="$PROJECT_DIR$/queuenumber-user/src/main/java/com/jfsoft/user/service/impl/SysUserServiceImpl.java" />
+        <option value="$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/sysuser/controller/SysUserController.java" />
         <option value="$PROJECT_DIR$/queuenumber-moudles/src/main/java/com/jfsoft/mapper/SysUserMapper.java" />
         <option value="$PROJECT_DIR$/queuenumber-moudles/src/main/java/com/jfsoft/mapper/SysUserMapper.xml" />
+        <option value="$PROJECT_DIR$/queuenumber-user/src/main/java/com/jfsoft/user/service/impl/SysUserServiceImpl.java" />
         <option value="$PROJECT_DIR$/queuenumber-web/src/main/resources/templates/sysuser/list.html" />
       </list>
     </option>
@@ -803,6 +834,29 @@
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
               <item name="h-ui" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="0825-queuenumber" type="b2602c69:ProjectViewProjectNode" />
+              <item name="0825-queuenumber" type="462c0819:PsiDirectoryNode" />
+              <item name="queuenumber-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="h-ui" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+              <item name="H-ui.css" type="620a8d5e:NestingTreeNode" />
+            </path>
+            <path>
+              <item name="0825-queuenumber" type="b2602c69:ProjectViewProjectNode" />
+              <item name="0825-queuenumber" type="462c0819:PsiDirectoryNode" />
+              <item name="queuenumber-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="h-ui" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -1273,7 +1327,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="266391000" />
+    <option name="totallyTimeSpent" value="270296000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1302,7 +1356,7 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2301676" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4301676" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1366,18 +1420,11 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="115" />
+      <option name="time" value="118" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/queuenumber-web/src/main/resources/templates/doctor/queue/list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="200" column="79" lean-forward="true" selection-start-line="200" selection-start-column="8" selection-end-line="200" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/queuenumber-moudles/src/main/java/com/jfsoft/mapper/SysRolemenuMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
@@ -1555,14 +1602,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/queuenumber-web/src/main/resources/static/h-ui/css/H-ui.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22572">
-          <caret line="1026" column="27" lean-forward="false" selection-start-line="1026" selection-start-column="27" selection-end-line="1026" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/queuenumber-common/src/main/java/com/jfsoft/utils/Constants.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="638">
@@ -1711,14 +1750,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/queuenumber-web/src/main/resources/templates/header.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="33" column="75" lean-forward="false" selection-start-line="33" selection-start-column="73" selection-end-line="33" selection-end-column="75" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/queuenumber-web/src/main/resources/templates/sysuser/edit.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="349">
@@ -1751,53 +1782,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/queuenumber-user/src/main/java/com/jfsoft/user/service/ISysUserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="36" column="35" lean-forward="false" selection-start-line="36" selection-start-column="35" selection-end-line="36" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/queuenumber-user/src/main/java/com/jfsoft/user/service/impl/SysUserServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="131" column="46" lean-forward="true" selection-start-line="131" selection-start-column="46" selection-end-line="131" selection-end-column="46" />
-          <folding>
-            <element signature="e#3745#3761#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/queuenumber-moudles/src/main/java/com/jfsoft/mapper/SysUserMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="19" column="36" lean-forward="false" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/queuenumber-moudles/src/main/java/com/jfsoft/mapper/SysUserMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="4" column="17" lean-forward="false" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="17" />
-          <folding>
-            <marker date="1505115332158" expanded="true" signature="1368:1486" ph="select from sys_user" />
-            <marker date="1505115332158" expanded="true" signature="1569:1625" ph="delete from " />
-            <marker date="1505115332158" expanded="true" signature="1704:2219" ph="insert into sys_user... " />
-            <marker date="1505115332158" expanded="true" signature="4177:5074" ph="update sys_u... " />
-            <marker date="1505115332158" expanded="true" signature="5165:5699" ph="update sys_u... " />
-            <marker date="1505115332158" expanded="true" signature="5825:5832" ph="select su.id... sys_user" />
-            <marker date="1505115332158" expanded="true" signature="5825:7173" ph="select top $... ROW_NUMBER" />
-            <marker date="1505115332158" expanded="true" signature="7357:8353" ph="..." />
-            <marker date="1505115332158" expanded="true" signature="8446:8476" ph="select MAX(c... sys_user" />
-            <marker date="1505115332158" expanded="true" signature="8616:8821" ph="select su.id... sys_user" />
-            <marker date="1505115332158" expanded="true" signature="9620:9815" ph="SELECT sr.co... sys_role" />
-            <marker date="1505115332158" expanded="true" signature="10368:10636" ph="select sm.co... sys_menu" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/queuenumber-web/src/main/resources/templates/sysuser/add.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="792">
@@ -1806,34 +1790,118 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/sysuser/controller/SysUserController.java">
+    <entry file="file://$PROJECT_DIR$/queuenumber-web/src/main/resources/templates/header.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="184" column="0" lean-forward="false" selection-start-line="184" selection-start-column="0" selection-end-line="184" selection-end-column="0" />
+        <state relative-caret-position="88">
+          <caret line="4" column="25" lean-forward="false" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/queuenumber-web/src/main/resources/static/h-ui/css/H-ui.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="11" column="29407" lean-forward="false" selection-start-line="11" selection-start-column="29407" selection-end-line="11" selection-end-column="29407" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/queuenumber-web/src/main/resources/static/h-ui/css/H-ui.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-26">
+          <caret line="707" column="0" lean-forward="false" selection-start-line="707" selection-start-column="0" selection-end-line="707" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1987#2003#0" expanded="true" />
-            <element signature="e#3845#3861#0" expanded="true" />
-            <element signature="e#5185#5201#0" expanded="true" />
-            <element signature="e#5770#5786#0" expanded="true" />
+            <marker date="1505119571909" expanded="true" signature="8081:8105" ph="{...}" />
+            <marker date="1505119571909" expanded="true" signature="8567:8664" ph="{...}" />
+            <marker date="1505119571909" expanded="true" signature="36950:36989" ph="{...}" />
+            <marker date="1505119571909" expanded="true" signature="37039:37086" ph="{...}" />
+            <marker date="1505119571909" expanded="true" signature="77552:77594" ph="{...}" />
+            <marker date="1505119571909" expanded="true" signature="160218:160293" ph="{...}" />
+            <marker date="1505119571909" expanded="true" signature="160310:160386" ph="{...}" />
+            <marker date="1505119571909" expanded="true" signature="165551:165625" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/queuenumber-user/src/main/java/com/jfsoft/user/service/ISysUserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="40" column="7" lean-forward="true" selection-start-line="40" selection-start-column="7" selection-end-line="40" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/queuenumber-moudles/src/main/java/com/jfsoft/mapper/SysUserMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="38" column="60" lean-forward="true" selection-start-line="38" selection-start-column="60" selection-end-line="38" selection-end-column="60" />
+          <folding>
+            <marker date="1505120882156" expanded="true" signature="1368:1486" ph="select from sys_user" />
+            <marker date="1505120882156" expanded="true" signature="1569:1625" ph="delete from " />
+            <marker date="1505120882156" expanded="true" signature="1727:1767" ph="delete from " />
+            <marker date="1505120882156" expanded="true" signature="1727:1769" ph="delete from " />
+            <marker date="1505120882156" expanded="true" signature="1972:2487" ph="insert into sys_user... " />
+            <marker date="1505120882156" expanded="true" signature="4445:5342" ph="update sys_u... " />
+            <marker date="1505120882156" expanded="true" signature="5433:5967" ph="update sys_u... " />
+            <marker date="1505120882156" expanded="true" signature="6093:6100" ph="select su.id... sys_user" />
+            <marker date="1505120882156" expanded="true" signature="6093:7441" ph="select top $... ROW_NUMBER" />
+            <marker date="1505120882156" expanded="true" signature="7625:8621" ph="..." />
+            <marker date="1505120882156" expanded="true" signature="8714:8744" ph="select MAX(c... sys_user" />
+            <marker date="1505120882156" expanded="true" signature="8884:9089" ph="select su.id... sys_user" />
+            <marker date="1505120882156" expanded="true" signature="9888:10083" ph="SELECT sr.co... sys_role" />
+            <marker date="1505120882156" expanded="true" signature="10636:10904" ph="select sm.co... sys_menu" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/queuenumber-moudles/src/main/java/com/jfsoft/mapper/SysUserMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="24" column="46" lean-forward="false" selection-start-line="24" selection-start-column="46" selection-end-line="24" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/queuenumber-user/src/main/java/com/jfsoft/user/service/impl/SysUserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="138" column="19" lean-forward="false" selection-start-line="138" selection-start-column="19" selection-end-line="138" selection-end-column="19" />
+          <folding>
+            <element signature="e#3745#3761#0" expanded="true" />
+            <element signature="e#4886#4902#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/queuenumber-web/src/main/resources/templates/sysuser/list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-506">
-          <caret line="153" column="0" lean-forward="true" selection-start-line="153" selection-start-column="0" selection-end-line="153" selection-end-column="0" />
+        <state relative-caret-position="-2752">
+          <caret line="87" column="51" lean-forward="false" selection-start-line="87" selection-start-column="51" selection-end-line="87" selection-end-column="51" />
           <folding>
             <element signature="n#style#0;n#a#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1505117913704" expanded="true" signature="6299:6319" ph="..." />
-            <marker date="1505117913704" expanded="true" signature="6345:6353" ph="&amp;##xe6df;" />
-            <marker date="1505117913704" expanded="true" signature="6497:6517" ph="..." />
-            <marker date="1505117913704" expanded="true" signature="6543:6551" ph="&amp;##xe6e2;" />
+            <marker date="1505121699792" expanded="true" signature="6948:6968" ph="..." />
+            <marker date="1505121699792" expanded="true" signature="6994:7002" ph="&amp;##xe6df;" />
+            <marker date="1505121699792" expanded="true" signature="7221:7241" ph="..." />
+            <marker date="1505121699792" expanded="true" signature="7267:7275" ph="&amp;##xe6e2;" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/queuenumber-web/src/main/java/com/jfsoft/sysuser/controller/SysUserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="214" column="47" lean-forward="false" selection-start-line="214" selection-start-column="47" selection-end-line="214" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1987#2003#0" expanded="true" />
+            <element signature="e#3845#3861#0" expanded="true" />
+            <element signature="e#5185#5201#0" expanded="true" />
+            <element signature="e#5770#5786#0" expanded="true" />
+            <element signature="e#6667#6683#0" expanded="true" />
           </folding>
         </state>
       </provider>

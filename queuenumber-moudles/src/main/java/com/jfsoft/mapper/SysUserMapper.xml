@@ -35,6 +35,15 @@
 		where id = #{id,jdbcType=INTEGER}
 	</delete>
 
+    <!-- 批量删除用户 -->
+    <delete id="deleteBatch" parameterType="java.util.Map" >
+        delete from sys_user
+        where code IN
+        <foreach collection="codes" open="(" close=")" separator="," item="code">
+            #{code}
+        </foreach>
+    </delete>
+
 	<insert id="insert" parameterType="com.jfsoft.model.SysUser" >
 		insert into sys_user (id, code, name, 
 			username, password, sex, tel, email, ownedqueue,

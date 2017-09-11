@@ -136,6 +136,18 @@ public class SysUserServiceImpl implements ISysUserService {
         return false;
     }
 
+    public boolean deleteBatch(String codes) throws Exception {
+
+        String[] codeArray = codes.split(",");
+
+        Map<String, Object> params = new HashMap<String, Object>();
+        params.put("codes", codeArray);
+
+        int count = sysUserMapper.deleteBatch(params);
+
+        return true;
+    }
+
     public SysUser getByUsername(String username) throws Exception {
 
         SysUser sysUser = null;

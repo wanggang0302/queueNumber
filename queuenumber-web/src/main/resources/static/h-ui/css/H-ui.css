@@ -1164,7 +1164,8 @@ table th{text-align:left; font-weight:400}
 /*带水平线*/
 .table th{font-weight:bold}
 .table th,.table td{padding:8px;line-height:20px;word-break:break-all}
-.table td{text-align:left}
+/*.table td{text-align:left} modified by wanggang 2017年9月11日16:45:57，为了保证table中的列内容居中*/
+.table td{text-align:center}
 .table tbody tr.success > td{background-color:#dff0d8}
 .table tbody tr.error > td{background-color:#f2dede}
 .table tbody tr.warning > td{background-color:#fcf8e3}

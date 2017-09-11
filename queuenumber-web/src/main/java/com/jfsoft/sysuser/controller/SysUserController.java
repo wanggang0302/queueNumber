@@ -203,4 +203,32 @@ public class SysUserController extends BaseController {
         return resultJson;
     }
 
+    /**
+     * 批量删除用户
+     */
+    @ResponseBody
+    @RequestMapping(value = "/deleteBatch", method = RequestMethod.POST)
+    public String deleteBatch(HttpSession session, String codes) {
+
+        Map<String, Object> result = new HashMap<String, Object>();
+        try {
+            boolean flage = sysUserService.deleteBatch(codes);
+            if(flage) {
+                result.put("status", Constants.RETURN_STATUS_SUCCESS);
+                result.put("data", "批量删除用户成功！");
+            } else {
+                result.put("status", Constants.RETURN_STATUS_FAILURE);
+                result.put("data", "批量删除用户失败！");
+            }
+        } catch (Exception e) {
+            result.put("status", Constants.RETURN_STATUS_FAILURE);
+            result.put("data", "批量删除用户失败！");
+            e.printStackTrace();
+        }
+
+        String resultJson = JSON.toJSONString(result);
+
+        return resultJson;
+    }
+
 }
