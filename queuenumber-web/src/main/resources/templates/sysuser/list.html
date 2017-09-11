@@ -209,7 +209,7 @@ function datadel(){
 
     //获得批量删除的用户
     var codes =[];
-    $('input[name="code"]:checked').each(function(){
+    $('input[name="code"]').attr("checked", "checked").each(function(){
         codes.push($(this).val());
     });
     console.log(codes.length);

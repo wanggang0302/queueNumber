@@ -13,7 +13,7 @@ public interface ISysQueueService {
     /**
      * 分页查询队列
      */
-    public List<SysQueue> findPage(String currentPage, String pageSize, String name) throws Exception;
+    public List<SysQueue> findPage(String pageStart, String pageSize, String name) throws Exception;
 
     /**
      * 查询全部队队列

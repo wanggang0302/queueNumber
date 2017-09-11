@@ -118,6 +118,7 @@ public class ShiroConfiguration {
 
         // authc：该过滤器下的页面必须验证后才能访问，它是Shiro内置的一个拦截器org.apache.shiro.web.filter.authc.FormAuthenticationFilter
         filterChainDefinitionMap.put("/sysuser", "anon");// 这里为了测试，只限制/user，实际开发中请修改为具体拦截的请求规则
+        filterChainDefinitionMap.put("/sysqueue", "anon");// 这里为了测试，只限制/user，实际开发中请修改为具体拦截的请求规则
 
         // anon：它对应的过滤器里面是空的,什么都没做
         logger.info("##################从数据库读取权限规则，加载到shiroFilter中##################");

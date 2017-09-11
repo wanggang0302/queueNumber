@@ -193,27 +193,27 @@
 
 	<!-- 分页查询队列列表 -->
 	<select id="findPage" parameterType="java.util.Map" resultMap="BaseResultMap">
-		select
-			sq.id,sq.code,sq.name,sq.queueLocation,sq.isNeedQueueUp,sq.isEnable,sq.queueTime,sq.isShowAd,sq.isPerTerm
-		from
-			sys_queue sq
-		where
-			sq.id in
-			(
-			SELECT top #{pageSize} sqt.id FROM
-			(
-			SELECT top #{pageStart} sqs.id, sqs.createTime FROM sys_queue sqs ORDER BY sqs.createTime desc
-			) sqt ORDER BY sqt.createTime desc
-			)
-			<if test="name != null" >
-				and sq.name like '%'+ #{name,jdbcType=VARCHAR}+'%'
-			</if>
-		ORDER BY
-		    sq.createtime desc
+        select
+            top ${pageSize}
+            sqs.id,sqs.code,sqs.name,sqs.queueLocation,sqs.isNeedQueueUp,sqs.isEnable,sqs.queueTime,sqs.isShowAd,sqs.isPerTerm
+        from
+            (
+                SELECT
+                    ROW_NUMBER() OVER (ORDER BY sq.id) AS rownumber,*
+                FROM
+                    sys_queue sq
+                    <where>
+                        <if test="name != null" >
+                            and sq.name like '%'+ #{name,jdbcType=VARCHAR}+'%'
+                        </if>
+                    </where>
+            ) sqs
+        where
+            sqs.rownumber > ${pageStart}
 	</select>
 	<select id="findPageCount" parameterType="java.util.Map" resultType="java.lang.Integer">
 		select
-			sq.id,sq.code,sq.name,sq.queueLocation,sq.isNeedQueueUp,sq.isEnable,sq.queueTime,sq.isShowAd,sq.isPerTerm
+			count(sq.id)
 		from
 			sys_queue sq
 		<where>

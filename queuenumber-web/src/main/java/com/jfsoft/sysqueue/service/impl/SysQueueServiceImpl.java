@@ -4,6 +4,7 @@ import com.jfsoft.mapper.SysQueueMapper;
 import com.jfsoft.model.SysQueue;
 import com.jfsoft.sysqueue.service.ISysQueueService;
 import com.jfsoft.utils.Constants;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,18 +25,13 @@ public class SysQueueServiceImpl implements ISysQueueService {
     @Autowired
     private SysQueueMapper sysQueueMapper;
 
-    public List<SysQueue> findPage(String currentPage, String pageSize, String name) throws Exception {
-
-        //当前页码
-        int currentPageInt = Integer.parseInt(currentPage);
-        //每页显示的条数
-        int pageSizeInt = Integer.parseInt(pageSize);
-        //当前页开始的条数
-        int pageStart = currentPageInt * pageSizeInt + 1;
+    public List<SysQueue> findPage(String pageStart, String pageSize, String name) throws Exception {
 
         Map<String, Object> params = new HashMap<String, Object>();
-        params.put("name", name);
-        params.put("pageSize", pageSizeInt);
+        if(!StringUtils.isBlank(name)) {
+            params.put("name", name.trim());
+        }
+        params.put("pageSize", pageSize);
         params.put("pageStart", pageStart);
 
         List<SysQueue> sysQueueList = sysQueueMapper.findPage(params);
@@ -46,7 +42,9 @@ public class SysQueueServiceImpl implements ISysQueueService {
     public int findPageCount(String name) throws Exception {
 
         Map<String, Object> params = new HashMap<String, Object>();
-        params.put("name", name);
+        if(!StringUtils.isBlank(name)) {
+            params.put("name", name.trim());
+        }
 
         int sysQueueCount = sysQueueMapper.findPageCount(params);
 

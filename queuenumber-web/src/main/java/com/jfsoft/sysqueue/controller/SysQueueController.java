@@ -36,11 +36,21 @@ public class SysQueueController extends BaseController {
     private ISysQueueService sysQueueService;
 
     /**
+     * 跳转到队列管理页面
+     * @return
+     */
+    @RequestMapping(value="/toList", method=RequestMethod.GET)
+    public String toList(ModelMap model) {
+
+        return "/sysqueue/list";
+    }
+
+    /**
      * 查询队列列表
      */
     @ResponseBody
     @RequestMapping(value = "/list", method = RequestMethod.POST)
-    public String list(ModelMap model, String currentPage, String pageSize, String name) {
+    public String list(String iDisplayStart, String iDisplayLength, String draw, String searchBeginTime, String searchEndTime, String name) {
 
         Map<String, Object> result = new HashMap<String, Object>();
 
@@ -48,11 +58,15 @@ public class SysQueueController extends BaseController {
         int pageCount = 0;
 
         try {
-            sysQueueList = sysQueueService.findPage(currentPage, pageSize, name);
+            sysQueueList = sysQueueService.findPage(iDisplayStart, iDisplayLength, name);
             pageCount = sysQueueService.findPageCount(name);
 
-            result.put("status", Constants.RETURN_STATUS_SUCCESS);
+            result.put("draw", draw);
             result.put("data", sysQueueList);
+            //表的总记录数
+            result.put("recordsTotal", pageCount);
+            //条件过滤后记录数
+            result.put("recordsFiltered", pageCount);
         } catch (Exception e) {
             result.put("status", Constants.RETURN_STATUS_FAILURE);
             result.put("data", e.getMessage());

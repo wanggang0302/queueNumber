@@ -1,35 +1,31 @@
 <!DOCTYPE HTML SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<head th:include="/common/base_head :: commonHead('用户管理')"></head>
+<head th:include="/common/base_head :: commonHead('队列管理')"></head>
 <body>
-<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 用户管理 <span class="c-gray en">&gt;</span> 用户列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 队列管理 <span class="c-gray en">&gt;</span> 队列列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 <div class="page-container">
     <div class="text-c"> 创建时间：
         <input type="text" onfocus="WdatePicker({ maxDate:'#F{$dp.$D(\'datemax\')||\'%y-%M-%d\'}' })" id="datemin" class="input-text Wdate" style="width:120px;">
         -
         <input type="text" onfocus="WdatePicker({ minDate:'#F{$dp.$D(\'datemin\')}',maxDate:'%y-%M-%d' })" id="datemax" class="input-text Wdate" style="width:120px;">
         <input type="text" class="input-text" style="width:250px" placeholder="输入用户名称、账号" id="searchName" name="">
-        <span class="select-box" style="width:150px"><select class="select" name="queueCode" size="1">
-            <option value="" selected>全部</option>
-            <option th:each="queue: ${queueList}" th:value="${queue.code}" >[[${queue.name}]]</option>
-        </select></span>
         <button type="submit" class="btn btn-success radius" id="search" name=""><i class="Hui-iconfont">&#xe665;</i> 搜用户</button>
     </div>
-    <div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a href="javascript:;" onclick="member_add('添加用户','/sysuser/toAdd','','520')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加用户</a></span></div>
+    <div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a href="javascript:;" onclick="member_add('添加用户','/sysqueue/toAdd','','520')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加队列</a></span></div>
     <div class="mt-20">
         <table class="table table-border table-bordered table-hover table-bg table-sort">
             <thead>
             <tr class="text-c">
                 <th width="25"><input type="checkbox" name="" value=""></th>
-                <th width="80">用户编号</th>
-                <th width="100">用户名称</th>
-                <th width="100">账号</th>
-                <th width="40">性别</th>
-                <th width="90">手机</th>
-                <th width="150">邮箱</th>
-                <th width="">所属科室</th>
-                <th width="130">创建时间</th>
-                <th width="70">状态</th>
+                <th width="80">队列编号</th>
+                <th width="100">队列名称</th>
+                <th width="">排队位置说明</th>
+                <th width="100">检查一个人需要的时间(单位:分钟)</th>
+                <th width="130">创建时间
+                <th width="100">是否需要排队</th>
+                <th width="100">是否启用排队</th>
+                <th width="100">是否显示广告</th>
+                <th width="100">是否有前置条件</th>
                 <th width="100">操作</th>
             </tr>
             </thead>
@@ -74,33 +70,88 @@ function generate_table() {
         "bStateSave": false, //状态保存，使用了翻页或者改变了每页显示数据数量，会保存在cookie中，下回访问时会显示上一次关闭页面时的内容，此功能在ajax刷新纪录的时候不会将个性化设定回复为初始化状态
         "sDom": '<"top">rt<"bottom"lip><"clear">', //改变页面上元素的位置
         "bServerSide": true, //从服务器端获取数据，保证页面在加载时就请求后台，以及每次对 datatable 进行操作时也是请求后台
-        "sAjaxSource" : "/sysuser/list",
+        "sAjaxSource" : "/sysqueue/list",
+        "sServerMethod": "POST", //以post的方式提交数据
         "fnServerParams": function(aoData)
         {
             aoData.push(
                 {"name":"searchBeginTime","value":$('#datemin').val()},
                 {"name":"searchEndTime","value":$('#datemax').val()},
-                {"name":"name","value":$('#searchName').val()},
-                {"name":"queueCode","value":$('select[name="queueCode"]').find("option:selected").val()}
+                {"name":"name","value":$('#searchName').val()}
             );
         },
         "aoColumns": [
-            {"sClass" : "right", "mDataProp": "code"},
-            {"sClass" : "right", "mDataProp": "code"},
-            {"sClass" : "right", "mDataProp": "name"},
-            {"sClass" : "right", "mDataProp": "username"},
-            {"sClass" : "right", "mDataProp": "sex"},
-            {"sClass" : "right", "mDataProp": "tel"},
-            {"sClass" : "right", "mDataProp": "email"},
-            {"sClass" : "right", "mDataProp": "ownedQueueName"},
+            {"mDataProp": "code"},
+            {"mDataProp": "code"},
+            {"mDataProp": "name"},
+            {"mDataProp": "queuelocation"},
+            {"mDataProp": "queuetime"},
             {
-                "sClass" : "right",
-                "mDataProp": "createtime",
+                "mDataProp": "createTime",
                 "mRender" : function(data, display, row) {  //将从数据库中查到的时间戳格式化
-                    return new Date(data).format("yyyy-MM-dd");
+                    var retVal = "";
+                    if(null!=data) {
+                        retVal = new Date(data).format("yyyy-MM-dd");
+                    }
+                    return retVal;
                 }
             },
-            {"sClass" : "right", "mDataProp": "isuse"}
+            {
+                "mDataProp": "isneedqueueup",
+                "mRender" : function(data, display, row) {
+                    var retVal = "";
+                    if("1"==data) {
+                        retVal = "<span class='label label-success radius'>是</span>";
+                    } else if("0"==data) {
+                        retVal = "<span class='label label-failure radius'>否</span>";
+                    } else {
+                        retVal = "";
+                    }
+                    return retVal;
+                }
+            },
+            {
+                "mDataProp": "isenable",
+                "mRender" : function(data, display, row) {
+                    var retVal = "";
+                    if("1"==data) {
+                        retVal = "<span class='label label-success radius'>是</span>";
+                    } else if("0"==data) {
+                        retVal = "<span class='label label-failure radius'>否</span>";
+                    } else {
+                        retVal = "";
+                    }
+                    return retVal;
+                }
+            },
+            {
+                "mDataProp": "isshowad",
+                "mRender" : function(data, display, row) {
+                    var retVal = "";
+                    if("1"==data) {
+                        retVal = "<span class='label label-success radius'>是</span>";
+                    } else if("0"==data) {
+                        retVal = "<span class='label label-failure radius'>否</span>";
+                    } else {
+                        retVal = "";
+                    }
+                    return retVal;
+                }
+            },
+            {
+                "mDataProp": "isperterm",
+                "mRender" : function(data, display, row) {
+                    var retVal = "";
+                    if("1"==data) {
+                        retVal = "<span class='label label-success radius'>是</span>";
+                    } else if("0"==data) {
+                        retVal = "<span class='label label-failure radius'>否</span>";
+                    } else {
+                        retVal = "";
+                    }
+                    return retVal;
+                }
+            }
         ],
         "aoColumnDefs": [
             {
@@ -111,34 +162,6 @@ function generate_table() {
                     if("1"!=data) {
                         //admin用户不允许删除
                         retVal = "<input type='checkbox' name='code' value='" + data + "'>";
-                    }
-                    return retVal;
-                }
-            },
-            {
-                "targets": [4],
-                "data": "sex",
-                "render": function(data, type, full) {
-                    var retVal = "";
-                    if("1"==data) {
-                        retVal = "男";
-                    } else if("2"==data) {
-                        retVal = "女";
-                    } else {
-                        retVal = "保密";
-                    }
-                    return retVal;
-                }
-            },
-            {
-                "targets": [9],
-                "data": "isuse",
-                "render": function(data, type, full) {
-                    var retVal = "";
-                    if("1"==data) {
-                        retVal = "<span class='label label-success radius'>启用</span>";
-                    } else {
-                        retVal = "<span class='label label-failure radius'>停用</span>";
                     }
                     return retVal;
                 }
@@ -209,7 +232,7 @@ function datadel(){
 
     //获得批量删除的用户
     var codes =[];
-    $('input[name="code"]').attr("checked", "checked").each(function(){
+    $('input[name="code"]:checked').each(function(){
         codes.push($(this).val());
     });
     console.log(codes.length);
