@@ -56,4 +56,9 @@ public interface ISysUserService {
      */
     public List<SysQueue> getAllSysQueue() throws Exception;
 
+    /**
+     * 根据用户编号查询唯一用户
+     */
+    public SysUser getByCode(String code) throws Exception;
+
 }

@@ -20,7 +20,10 @@ public interface SysUserMapper {
 
     int insertSelective(SysUser record);
 
-    SysUser selectByPrimaryKey(String id);
+    /**
+     * 根据用户编号查询唯一用户
+     */
+    SysUser selectByPrimaryKey(String code);
 
     int updateByPrimaryKeySelective(SysUser record);
 

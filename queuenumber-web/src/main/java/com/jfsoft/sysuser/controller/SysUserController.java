@@ -134,6 +134,27 @@ public class SysUserController extends BaseController {
     }
 
     /**
+     * 跳转到编辑页面
+     */
+    @RequestMapping(value = "/toUpdate", method = RequestMethod.GET)
+    public String toUpdate(HttpSession session, Model model, String code) {
+
+        try {
+            //查询全部可用科室
+            List<SysQueue> queueList = sysUserService.getAllSysQueue();
+            model.addAttribute("queueList", queueList);
+
+            //查询用户详情
+            SysUser sysUser = sysUserService.getByCode(code);
+            model.addAttribute("sysUser", sysUser);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return "/sysuser/edit";
+    }
+
+    /**
      * 修改用户信息
      */
     @ResponseBody

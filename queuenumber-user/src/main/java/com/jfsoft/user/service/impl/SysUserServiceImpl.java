@@ -176,4 +176,11 @@ public class SysUserServiceImpl implements ISysUserService {
         return sysQueueList;
     }
 
+    public SysUser getByCode(String code) throws Exception {
+
+        SysUser sysUser = sysUserMapper.selectByPrimaryKey(code);
+
+        return sysUser;
+    }
+
 }
