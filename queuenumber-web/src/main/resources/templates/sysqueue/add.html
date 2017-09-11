@@ -1,0 +1,184 @@
+<!DOCTYPE HTML SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:include="/common/base_head :: commonHead('添加队列')"></head>
+<body>
+<article class="page-container">
+    <form th:action="@{/sysqueue/save}" method="post" class="form form-horizontal" id="form-member-add">
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>队列名称：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="text" class="input-text" value="" placeholder="" id="name" name="name">
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>是否需要排队：</label>
+            <div class="formControls col-xs-8 col-sm-9 skin-minimal">
+                <div class="radio-box">
+                    <input name="isneedqueueup" type="radio" id="isneedqueueup-1" value="1" checked>
+                    <label for="isneedqueueup-1">是</label>
+                </div>
+                <div class="radio-box">
+                    <input name="isneedqueueup" type="radio" id="isneedqueueup-2" value="0">
+                    <label for="isneedqueueup-2">否</label>
+                </div>
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>排队位置说明：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="text" class="input-text" value="" placeholder="" id="queuelocation" name="queuelocation">
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>是否启用排队：</label>
+            <div class="formControls col-xs-8 col-sm-9 skin-minimal">
+                <div class="radio-box">
+                    <input name="isenable" type="radio" id="isenable-1" value="1" checked>
+                    <label for="isenable-1">是</label>
+                </div>
+                <div class="radio-box">
+                    <input name="isenable" type="radio" id="isenable-2" value="0">
+                    <label for="isenable-2">否</label>
+                </div>
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3">检查一个人需要的时间(单位:分钟)：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="text" class="input-text" value="" placeholder="单位:分钟" id="queuetime" name="queuetime">
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>是否显示广告：</label>
+            <div class="formControls col-xs-8 col-sm-9 skin-minimal">
+                <div class="radio-box">
+                    <input name="isshowad" type="radio" id="isshowad-1" value="1" checked>
+                    <label for="isshowad-1">是</label>
+                </div>
+                <div class="radio-box">
+                    <input name="isshowad" type="radio" id="isshowad-2" value="0">
+                    <label for="isshowad-2">否</label>
+                </div>
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>是否有前置条件：</label>
+            <div class="formControls col-xs-8 col-sm-9 skin-minimal">
+                <div class="radio-box">
+                    <input name="isperterm" type="radio" id="isperterm-1" value="1" checked>
+                    <label for="isperterm-1">是</label>
+                </div>
+                <div class="radio-box">
+                    <input name="isperterm" type="radio" id="isperterm-2" value="0">
+                    <label for="isperterm-2">否</label>
+                </div>
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3">前置条件详情：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <textarea name="perterminfo" cols="" rows="" class="textarea"  placeholder="" onKeyUp="$.Huitextarealength(this,100)"></textarea>
+                <p class="textarea-numberbar"><em class="textarea-length">0</em>/100</p>
+            </div>
+        </div>
+        <div class="row cl">
+            <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+                <input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+            </div>
+        </div>
+    </form>
+</article>
+
+<div th:include="footer :: base_script"></div>
+
+<!--请在下方写此页面业务相关的脚本-->
+<script type="text/javascript" th:src="@{/static/lib/My97DatePicker/4.8/WdatePicker.js}"></script>
+<script type="text/javascript" th:src="@{/static/lib/jquery.validation/1.14.0/jquery.validate.js}"></script>
+<script type="text/javascript" th:src="@{/static/lib/jquery.validation/1.14.0/validate-methods.js}"></script>
+<script type="text/javascript" th:src="@{/static/lib/jquery.validation/1.14.0/messages_zh.js}"></script>
+<script type="text/javascript">
+    $(function(){
+
+        //是否需要排队
+        $("input[name='isneedqueueup']").each(function(){
+            this.click(function(){
+                console.log();
+            });
+        });
+
+        $('.skin-minimal input').iCheck({
+            checkboxClass: 'icheckbox-blue',
+            radioClass: 'iradio-blue',
+            increaseArea: '20%'
+        });
+
+        $("#form-member-add").validate({
+            rules:{
+                name:{
+                    required:true,
+                    minlength:1,
+                    maxlength:50
+                },
+                username:{
+                    required:true,
+                    minlength:1,
+                    maxlength:50
+                },
+                password:{
+                    required:true,
+                },
+                password2:{
+                    required:true,
+                    equalTo: "#password"
+                },
+                sex:{
+                    required:true,
+                },
+                mobile:{
+                    required:false,
+                    isMobile:true,
+                },
+                email:{
+                    required:false,
+                    email:true,
+                },
+                ownedqueue:{
+                    required:true,
+                }
+            },
+            onkeyup:false,
+            focusCleanup:true,
+            success:"valid",
+            submitHandler:function(form){
+                $(form).ajaxSubmit({
+                    type: 'post', // 提交方式 get/post
+                    success:function(data){
+                        var obj = JSON.parse(data);
+                        var status = obj.status;
+                        if("success"==status) {
+                            layer.alert("保存成功！", function() {
+                                closeWindow();
+                            });
+                        } else {
+                            layer.alert(obj.data);
+                        }
+                    }
+                });
+            }
+        });
+
+    });
+
+    //关闭窗口
+    function closeWindow() {
+
+        parent.location.href = "/sysuser/toList";
+
+        var index = parent.layer.getFrameIndex(window.name);
+        //parent.$('.btn-refresh').click();
+        parent.layer.close(index);
+    }
+</script>
+<!--/请在上方写此页面业务相关的脚本-->
+</body>
+</html>
