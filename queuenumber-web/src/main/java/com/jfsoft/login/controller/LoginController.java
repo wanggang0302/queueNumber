@@ -148,7 +148,7 @@ public class LoginController extends BaseController {
         return "redirect:/login";
     }
 
-    @RequestMapping("/403")
+    @RequestMapping(value="/403", method= RequestMethod.GET)
     public String unauthorizedRole(){
         logger.info("------没有权限-------");
         return "403";

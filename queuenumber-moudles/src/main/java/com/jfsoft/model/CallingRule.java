@@ -1,30 +1,40 @@
 /**
- * CallingDevice.java
+ * CallingRule.java
  * Copyright© 2017 北京金风易通科技有限公司
  * All rights reserved.
  * -----------------------------------------------
- * 2017-08-28 Created
+ * 2017-09-12 Created
  */
 package com.jfsoft.model;
 
 import java.util.Date;
 
 /**
- * 呼叫器设置
- * 
+ * 呼号器角色，用来设置呼号规则
+ *
  * @author wanggang
- * @version 1.0 2017-08-28
+ * @version 1.0 2017-09-12
  */
-public class CallingDevice {
+public class CallingRule {
 
     /**
      */
     private Integer id;
 
     /**
-     * 队列编码
+     * 编号
      */
-    private Integer queuecode;
+    private Integer code;
+
+    /**
+     * 性别优先级(1:男优先,2:女优先,3:无）
+     */
+    private String sexpriority;
+
+    /**
+     * 是否优先VIP队列(0:否,1:是)
+     */
+    private String isvip;
 
     /**
      * 创建时间
@@ -32,7 +42,7 @@ public class CallingDevice {
     private Date createtime;
 
     /**
-     * 创建人ID
+     * 创建人
      */
     private Integer createrid;
 
@@ -49,12 +59,28 @@ public class CallingDevice {
         this.id = id;
     }
 
-    public Integer getQueuecode() {
-        return queuecode;
+    public Integer getCode() {
+        return code;
     }
 
-    public void setQueuecode(Integer queuecode) {
-        this.queuecode = queuecode;
+    public void setCode(Integer code) {
+        this.code = code;
+    }
+
+    public String getSexpriority() {
+        return sexpriority;
+    }
+
+    public void setSexpriority(String sexpriority) {
+        this.sexpriority = sexpriority == null ? null : sexpriority.trim();
+    }
+
+    public String getIsvip() {
+        return isvip;
+    }
+
+    public void setIsvip(String isvip) {
+        this.isvip = isvip == null ? null : isvip.trim();
     }
 
     public Date getCreatetime() {

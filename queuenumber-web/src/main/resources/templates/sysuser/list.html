@@ -85,22 +85,21 @@ function generate_table() {
             );
         },
         "aoColumns": [
-            {"sClass" : "right", "mDataProp": "code"},
-            {"sClass" : "right", "mDataProp": "code"},
-            {"sClass" : "right", "mDataProp": "name"},
-            {"sClass" : "right", "mDataProp": "username"},
-            {"sClass" : "right", "mDataProp": "sex"},
-            {"sClass" : "right", "mDataProp": "tel"},
-            {"sClass" : "right", "mDataProp": "email"},
-            {"sClass" : "right", "mDataProp": "ownedQueueName"},
+            {"mDataProp": "code"},
+            {"mDataProp": "code"},
+            {"mDataProp": "name"},
+            {"mDataProp": "username"},
+            {"mDataProp": "sex"},
+            {"mDataProp": "tel"},
+            {"mDataProp": "email"},
+            {"mDataProp": "ownedQueueName"},
             {
-                "sClass" : "right",
                 "mDataProp": "createtime",
                 "mRender" : function(data, display, row) {  //将从数据库中查到的时间戳格式化
                     return new Date(data).format("yyyy-MM-dd");
                 }
             },
-            {"sClass" : "right", "mDataProp": "isuse"}
+            {"mDataProp": "isuse"}
         ],
         "aoColumnDefs": [
             {

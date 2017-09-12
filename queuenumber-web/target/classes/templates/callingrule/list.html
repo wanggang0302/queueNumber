@@ -1,17 +1,19 @@
 <!DOCTYPE HTML SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<head th:include="/common/base_head :: commonHead('用户管理')"></head>
+<head th:include="/common/base_head :: commonHead('呼号器角色管理')"></head>
 <body>
-<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 用户管理 <span class="c-gray en">&gt;</span> 用户列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 呼号器角色管理 <span class="c-gray en">&gt;</span> 呼号器角色列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 <div class="page-container">
     <div class="text-c"> 创建时间：
         <input type="text" onfocus="WdatePicker({ maxDate:'#F{$dp.$D(\'datemax\')||\'%y-%M-%d\'}' })" id="datemin" class="input-text Wdate" style="width:120px;">
         -
         <input type="text" onfocus="WdatePicker({ minDate:'#F{$dp.$D(\'datemin\')}',maxDate:'%y-%M-%d' })" id="datemax" class="input-text Wdate" style="width:120px;">
         <input type="text" class="input-text" style="width:250px" placeholder="输入用户名称、账号" id="searchName" name="">
-        <span class="select-box" style="width:150px"><select class="select" name="queueCode" size="1">
+        <span class="select-box" style="width:150px"><select class="select" name="sexPriority" size="1">
             <option value="" selected>全部</option>
-            <option th:each="queue: ${queueList}" th:value="${queue.code}" >[[${queue.name}]]</option>
+            <option value="1">男</option>
+            <option value="2">女</option>
+            <option value="3">无</option>
         </select></span>
         <button type="submit" class="btn btn-success radius" id="search" name=""><i class="Hui-iconfont">&#xe665;</i> 搜用户</button>
     </div>
@@ -21,15 +23,10 @@
             <thead>
             <tr class="text-c">
                 <th width="25"><input type="checkbox" name="" value=""></th>
-                <th width="80">用户编号</th>
-                <th width="100">用户名称</th>
-                <th width="100">账号</th>
-                <th width="40">性别</th>
-                <th width="90">手机</th>
-                <th width="150">邮箱</th>
-                <th width="">所属科室</th>
+                <th width="80">编号</th>
+                <th width="100">性别优先级</th>
+                <th width="100">是否VIP</th>
                 <th width="130">创建时间</th>
-                <th width="70">状态</th>
                 <th width="100">操作</th>
             </tr>
             </thead>
@@ -74,85 +71,69 @@ function generate_table() {
         "bStateSave": false, //状态保存，使用了翻页或者改变了每页显示数据数量，会保存在cookie中，下回访问时会显示上一次关闭页面时的内容，此功能在ajax刷新纪录的时候不会将个性化设定回复为初始化状态
         "sDom": '<"top">rt<"bottom"lip><"clear">', //改变页面上元素的位置
         "bServerSide": true, //从服务器端获取数据，保证页面在加载时就请求后台，以及每次对 datatable 进行操作时也是请求后台
-        "sAjaxSource" : "/sysuser/list",
+        "sAjaxSource" : "/callingRule/list",
+        "sServerMethod": "POST", //以post的方式提交数据
         "fnServerParams": function(aoData)
         {
             aoData.push(
                 {"name":"searchBeginTime","value":$('#datemin').val()},
                 {"name":"searchEndTime","value":$('#datemax').val()},
-                {"name":"name","value":$('#searchName').val()},
-                {"name":"queueCode","value":$('select[name="queueCode"]').find("option:selected").val()}
+                {"name":"sexPriority","value":$('select[name="sexPriority"]').find("option:selected").val()}
             );
         },
         "aoColumns": [
             {"mDataProp": "code"},
             {"mDataProp": "code"},
-            {"mDataProp": "name"},
-            {"mDataProp": "username"},
-            {"mDataProp": "sex"},
-            {"mDataProp": "tel"},
-            {"mDataProp": "email"},
-            {"mDataProp": "ownedQueueName"},
+            {
+                "mDataProp": "sexpriority",
+                "mRender": function(data, type, full) {
+                    var retVal = "";
+                    if("1"==data) {
+                        retVal = "男";
+                    } else if("2"==data) {
+                        retVal = "女";
+                    } else if("3"==data) {
+                        retVal = "无";
+                    }
+                    return retVal;
+                }
+            },
+            {
+                "mDataProp": "isvip",
+                "mRender": function(data, type, full) {
+                    var retVal = "";
+                    if("1"==data) {
+                        retVal = "<span class='label label-success radius'>是</span>";
+                    } else if("2"==data) {
+                        retVal = "<span class='label label-failure radius'>否</span>";
+                    }
+                    return retVal;
+                }
+            },
             {
                 "mDataProp": "createtime",
                 "mRender" : function(data, display, row) {  //将从数据库中查到的时间戳格式化
                     return new Date(data).format("yyyy-MM-dd");
                 }
-            },
-            {"mDataProp": "isuse"}
+            }
         ],
         "aoColumnDefs": [
             {
                 "targets": [0],
                 "data": "code",
                 "render": function(data, type, full) {
-                    var retVal = "";
-                    if("1"!=data) {
-                        //admin用户不允许删除
-                        retVal = "<input type='checkbox' name='code' value='" + data + "'>";
-                    }
+                    var retVal = "<input type='checkbox' name='code' value='" + data + "'>";
                     return retVal;
                 }
             },
             {
-                "targets": [4],
-                "data": "sex",
-                "render": function(data, type, full) {
-                    var retVal = "";
-                    if("1"==data) {
-                        retVal = "男";
-                    } else if("2"==data) {
-                        retVal = "女";
-                    } else {
-                        retVal = "保密";
-                    }
-                    return retVal;
-                }
-            },
-            {
-                "targets": [9],
-                "data": "isuse",
-                "render": function(data, type, full) {
-                    var retVal = "";
-                    if("1"==data) {
-                        retVal = "<span class='label label-success radius'>启用</span>";
-                    } else {
-                        retVal = "<span class='label label-failure radius'>停用</span>";
-                    }
-                    return retVal;
-                }
-            },
-            {
-                "targets": [10],
+                "targets": [5],
                 "data": "code",
                 "render": function(data, type, full) {
 
                     var option = "";
                         option += '<a title="编辑" href="javascript:;" onclick="member_edit(\'编辑\', \'/sysuser/toUpdate?code=' + data + '\', \'\', \'510\')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>';
-                    if("1"!=data) {
-                        //admin用户不允许删除
                         option += '<a title="删除" href="javascript:;" onclick="member_del(this,\'' + data + '\')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>';
-                    }
                     return option;
                 }
             }
@@ -243,7 +224,7 @@ function datadel(){
 //关闭窗口
 function closeWindow() {
 
-    location.href = "/sysuser/toList";
+    location.href = "/callingRule/toList";
 
     var index = parent.layer.getFrameIndex(window.name);
     //parent.$('.btn-refresh').click();

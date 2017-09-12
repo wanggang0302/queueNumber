@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jfsoft.mapper.CallingRuleMapper" >
+	
+	<resultMap id="BaseResultMap" type="com.jfsoft.model.CallingRule" >
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="code" property="code" jdbcType="INTEGER" />
+		<result column="sexPriority" property="sexpriority" jdbcType="CHAR" />
+		<result column="isVip" property="isvip" jdbcType="CHAR" />
+		<result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+		<result column="createrId" property="createrid" jdbcType="INTEGER" />
+		<result column="memo" property="memo" jdbcType="NVARCHAR" />
+	</resultMap>
+
+	<sql id="Base_Column_List" >
+		id, code, sexPriority, isVip, createTime, createrId, memo
+	</sql>
+
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+		select 
+		<include refid="Base_Column_List" />
+		from calling_rule
+		where id = #{id,jdbcType=INTEGER}
+	</select>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+		delete from calling_rule
+		where id = #{id,jdbcType=INTEGER}
+	</delete>
+
+	<insert id="insert" parameterType="com.jfsoft.model.CallingRule" >
+		insert into calling_rule (id, code, sexPriority, 
+			isVip, createTime, createrId, 
+			memo)
+		values (#{id,jdbcType=INTEGER}, #{code,jdbcType=INTEGER}, #{sexpriority,jdbcType=CHAR}, 
+			#{isvip,jdbcType=CHAR}, #{createtime,jdbcType=TIMESTAMP}, #{createrid,jdbcType=INTEGER}, 
+			#{memo,jdbcType=NVARCHAR})
+	</insert>
+
+	<insert id="insertSelective" parameterType="com.jfsoft.model.CallingRule" >
+		insert into calling_rule
+		<trim prefix="(" suffix=")" suffixOverrides="," >
+			<if test="id != null" >
+				id,
+			</if>
+			<if test="code != null" >
+				code,
+			</if>
+			<if test="sexpriority != null" >
+				sexPriority,
+			</if>
+			<if test="isvip != null" >
+				isVip,
+			</if>
+			<if test="createtime != null" >
+				createTime,
+			</if>
+			<if test="createrid != null" >
+				createrId,
+			</if>
+			<if test="memo != null" >
+				memo,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides="," >
+			<if test="id != null" >
+				#{id,jdbcType=INTEGER},
+			</if>
+			<if test="code != null" >
+				#{code,jdbcType=INTEGER},
+			</if>
+			<if test="sexpriority != null" >
+				#{sexpriority,jdbcType=CHAR},
+			</if>
+			<if test="isvip != null" >
+				#{isvip,jdbcType=CHAR},
+			</if>
+			<if test="createtime != null" >
+				#{createtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="createrid != null" >
+				#{createrid,jdbcType=INTEGER},
+			</if>
+			<if test="memo != null" >
+				#{memo,jdbcType=NVARCHAR},
+			</if>
+		</trim>
+	</insert>
+
+	<update id="updateByPrimaryKeySelective" parameterType="com.jfsoft.model.CallingRule" >
+		update calling_rule
+		<set >
+			<if test="code != null" >
+				code = #{code,jdbcType=INTEGER},
+			</if>
+			<if test="sexpriority != null" >
+				sexPriority = #{sexpriority,jdbcType=CHAR},
+			</if>
+			<if test="isvip != null" >
+				isVip = #{isvip,jdbcType=CHAR},
+			</if>
+			<if test="createtime != null" >
+				createTime = #{createtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="createrid != null" >
+				createrId = #{createrid,jdbcType=INTEGER},
+			</if>
+			<if test="memo != null" >
+				memo = #{memo,jdbcType=NVARCHAR},
+			</if>
+		</set>
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+
+	<update id="updateByPrimaryKey" parameterType="com.jfsoft.model.CallingRule" >
+		update calling_rule
+		set code = #{code,jdbcType=INTEGER},
+			sexPriority = #{sexpriority,jdbcType=CHAR},
+			isVip = #{isvip,jdbcType=CHAR},
+			createTime = #{createtime,jdbcType=TIMESTAMP},
+			createrId = #{createrid,jdbcType=INTEGER},
+			memo = #{memo,jdbcType=NVARCHAR}
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+
+	<select id="findPage" parameterType="java.util.Map" resultMap="BaseResultMap">
+		select
+			top ${pageSize}
+			crs.id,crs.code,crs.sexPriority,crs.isVip,crs.createtime
+		from
+			(
+				SELECT
+					ROW_NUMBER() OVER (ORDER BY cr.id) AS rownumber,*
+				FROM
+					calling_rule cr
+					<where>
+						<if test="isVip != null" >
+							and cr.isVip = #{isVip,jdbcType=CHAR}
+						</if>
+					</where>
+			) crs
+		where
+			crs.rownumber > ${pageStart}
+	</select>
+	<select id="findPageCount" parameterType="java.util.Map" resultType="java.lang.Integer">
+		select
+		    count(cr.id)
+		from
+            calling_rule cr
+            <where>
+                <if test="isVip != null" >
+                    and cr.isVip = #{isVip,jdbcType=CHAR}
+                </if>
+            </where>
+	</select>
+
+</mapper>
